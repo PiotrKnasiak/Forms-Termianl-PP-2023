@@ -132,7 +132,7 @@ namespace FormsyTest2
             {
                 if (whatToModify[i] == "Login")
                 {
-                    DataTable checkResult = this.connection.TakeDataFromTable("LoginData", "*", $"Login = {newValues[i]} AND NOT UserID = {userID}");
+                    DataTable checkResult = this.connection.TakeDataFromTable("LoginData", "*", $"Login = '{newValues[i]}' AND NOT UserID = {userID}");
                     if(checkResult.Select().Length != 0)
                     {
                         this.failure = "Login Is Already Taken, cannot change";
@@ -149,7 +149,7 @@ namespace FormsyTest2
         {
             try
             {
-                DataTable checkResult = this.connection.TakeDataFromTable("LoginData", "*", $"Login = {userData.login} AND NOT UserID = {userData.ID}");
+                DataTable checkResult = this.connection.TakeDataFromTable("LoginData", "*", $"Login = '{userData.login}' AND NOT UserID = {userData.ID}");
                 if (checkResult.Select().Length != 0)
                 {
                     this.failure = "Login Is Already Taken (from AddUser)";
