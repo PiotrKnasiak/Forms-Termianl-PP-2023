@@ -21,9 +21,9 @@ namespace FormsyTest2
 
         public string failure = "";
         /// <summary>
-        /// konwersja inta i stringów w User
+        /// Konwersja inta i stringów w User
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Objekt User</returns>
         private User UserBuilder(int id, string name, string login, string password)
         {
             User convertedU = new User();
@@ -211,6 +211,7 @@ namespace FormsyTest2
         #region FunkcjeDlaEvent
         public Event LoadEvent(int userID, int eventID)
         {
+            DataTable dt = connection.TakeDataFromTable($"User{userID}Events","*","")
             return null;
         }
         public Event[] LoadAllEvents(int userID)
