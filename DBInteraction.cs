@@ -32,9 +32,9 @@ namespace FormsyTest2
             convertedU.login = login;
             convertedU.password = password;
 
-            return convertedU; 
+            return convertedU;
         }
-        private Event EventBuilder(int eventID, string name, string description, string dateStart, string dateEnd)
+        private Event EventBuilder(int eventID, string name, string description, DateTime dateStart, DateTime dateEnd)
         {
             Event convertedE = new Event();
             convertedE.EventID = eventID;
@@ -42,14 +42,14 @@ namespace FormsyTest2
             convertedE.description = description;
             try
             {
-                convertedE.dateStart = DateTime.Parse(dateStart);
-                convertedE.dateEnd = DateTime.Parse(dateEnd);
+                convertedE.dateStart = dateStart;
+                convertedE.dateEnd = dateEnd;
             }
-            catch 
+            catch
             {
                 failure = "Failure at converting dates form DB into an Event";
             }
-            return convertedE; 
+            return convertedE;
         }
 
         //public Event testEvFormater()
@@ -58,7 +58,7 @@ namespace FormsyTest2
         //}
 
         #region FunkcjeDlaUser
-        public User LoadUser(int userID) 
+        public User LoadUser(int userID)
         {
             User user = new User();
             DataTable loaded = new DataTable();
@@ -66,34 +66,45 @@ namespace FormsyTest2
             {
                 loaded = connection.TakeDataFromTable("LoginData", "*", $"UserID = {userID}");
             }
-            catch (Exception e)
+            catch
             {
                 failure = "Failure to load a specific user found by ID";
-                return null;
+                return UserBuilder(0, "error", "error", "error");
             }
-            if(loaded.Select().Length == 0) { user.ID = -1; return user; }
+
+            if (loaded.Select().Length == 0)
+            {
+                user.ID = -1;
+                return user;
+            }
             DataRow row = loaded.Select()[0];
             user = this.UserBuilder((int)row["UserID"], (string)row["Name"], (string)row["Login"], (string)row["Password"]);
+
             return user;
         }
+
         private User LoadUser(string login)
         {
             User user = new User();
             DataTable loaded = new DataTable();
+
             try
             {
                 loaded = connection.TakeDataFromTable("LoginData", "*", $"Login = '{login}'");
                 if (loaded.Select().Length == 0) throw new Exception();
             }
-            catch (Exception e)
+            catch
             {
                 failure = "Failure to load a specific user found by login";
-                return null;
+                return UserBuilder(0, "error", "error", "error");
             }
+
             DataRow row = loaded.Select()[0];
             user = this.UserBuilder((int)row["UserID"], (string)row["Name"], (string)row["Login"], (string)row["Password"]);
+
             return user;
         }
+
         public User[] LoadAllUsers()
         {
             User[] users = null;
@@ -117,6 +128,7 @@ namespace FormsyTest2
             }
             return users;
         }
+
         /// <summary>
         /// W whatToModify używać nazw z bazy danych
         /// <para>Nazwy zmiennych to : Name, Login (uwaga, nie może się powtażać), Password</para>
@@ -128,12 +140,12 @@ namespace FormsyTest2
         public bool ModifyUser(int userID, string[] whatToModify, string[] newValues)
         {
             int i;
-            for(i = 0; i < whatToModify.Length; i++)
+            for (i = 0; i < whatToModify.Length; i++)
             {
                 if (whatToModify[i] == "Login")
                 {
                     DataTable checkResult = this.connection.TakeDataFromTable("LoginData", "*", $"Login = '{newValues[i]}' AND NOT UserID = {userID}");
-                    if(checkResult.Select().Length != 0)
+                    if (checkResult.Select().Length != 0)
                     {
                         this.failure = "Login Is Already Taken, cannot change";
                         return false;
@@ -145,27 +157,29 @@ namespace FormsyTest2
             this.connection.ModifyDataInTable("LoginData", newValues, whatToModify, $"UserID = {userID}");
             return true;
         }
+
+        /// <summary>
+        /// Tworzy użytkownika i jego tabelę eventów (podanie już istniejącego loginu zwróci 0, czyli błąd)
+        /// </summary>
+        /// <param name="userData"></param>
+        /// <returns>ID dodanego użytkownika</returns>
         public int AddUser(User userData)   // zwraca przypisane UserID
         {
-            try
+            DataTable checkResult = this.connection.TakeDataFromTable("LoginData", "*", $"Login = '{userData.login}' AND NOT UserID = {userData.ID}");
+            if (checkResult.Select().Length != 0)
             {
-                DataTable checkResult = this.connection.TakeDataFromTable("LoginData", "*", $"Login = '{userData.login}' AND NOT UserID = {userData.ID}");
-                if (checkResult.Select().Length != 0)
-                {
-                    this.failure = "Login Is Already Taken (from AddUser)";
-                    return 0;
-                }
+                this.failure = "Login Is Already Taken (from AddUser)";
+                return 0;
             }
-            catch { }
 
-            this.connection.PutDataIntoTable("LoginData", new object[] { userData.name, userData.login, userData.password }, "([Name], [Login], [Password])");
+            this.connection.PutDataIntoTable("LoginData", new object[] { userData.name, userData.login, userData.password }, "[Name], [Login], [Password]");
 
             try
             {
                 userData = (User)LoadUser(userData.login);
-                if(userData == null) { throw new ArgumentException(); }
+                if (userData == null) { throw new ArgumentException(); }
             }
-            catch (Exception e)
+            catch
             {
                 failure = "AddUser has failed after uploading to DB";
                 return 0;
@@ -177,11 +191,17 @@ namespace FormsyTest2
             }
             catch
             {
-                failure = "";
+                failure = $"Failed to create User {userData.ID}s Event table";
             }
 
             return userData.ID;
         }
+
+        /// <summary>
+        /// Usówa użytkownika o podanym ID
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <returns>Określa czy operacja się powiodła</returns>
         public bool DeleteUser(int userID)
         {
             // usówanie użytkownika z listy użytkowników
@@ -189,7 +209,7 @@ namespace FormsyTest2
             {
                 this.connection.DeleteDataFromTable("LoginData", $"UserID = {userID}");
             }
-            catch (Exception e)
+            catch
             {
                 failure = $"Failed to delete user {userID}";
                 return false;
@@ -199,7 +219,7 @@ namespace FormsyTest2
             {
                 this.connection.DropTable($"User{userID}Table");
             }
-            catch (Exception e)
+            catch
             {
                 failure = $"Failed to delete user {userID}s event table";
                 return false;
@@ -211,23 +231,150 @@ namespace FormsyTest2
         #region FunkcjeDlaEvent
         public Event LoadEvent(int userID, int eventID)
         {
-            DataTable dt = connection.TakeDataFromTable($"User{userID}Events","*","")
-            return null;
+            Event loadedEvent = EventBuilder(0, "error", "error", DateTime.Parse("997-11-20 13:37"), DateTime.Parse("1968-9-11 21:37"));
+            DataTable dt = connection.TakeDataFromTable($"User{userID}Events", "*", $"EventID = {eventID}");
+
+            try
+            {
+                DataRow dr = dt.Select()[0];
+                loadedEvent = EventBuilder((int)dr["EventID"], (string)dr["Name"], (string)dr["Description"], (DateTime)dr["DateStart"], (DateTime)dr["DateEnd"]);
+            }
+            catch
+            {
+                failure = $"Failed to load event {eventID} of user with ID {userID}";
+            }
+
+            return loadedEvent;
         }
+
+        private Event LoadEvent(int userID, string name)
+        {
+            Event loadedEvent = EventBuilder(0, "error", "error", DateTime.Parse("997-11-20 13:37"), DateTime.Parse("1968-9-11 21:37"));
+            DataTable dt = connection.TakeDataFromTable($"User{userID}Events", "*", $"Name = '{name}'");
+
+            try
+            {
+                DataRow dr = dt.Select()[dt.Select().Length - 1];
+                loadedEvent = EventBuilder((int)dr["EventID"], (string)dr["Name"], (string)dr["Description"], (DateTime)dr["DateStart"], (DateTime)dr["DateEnd"]);
+            }
+            catch
+            {
+                failure = $"Failed to load event with name {name}, of user with ID {userID}";
+            }
+
+            return loadedEvent;
+        }
+
         public Event[] LoadAllEvents(int userID)
         {
-            return null;
+            Event[] loadedEvents = null;
+            DataTable dt = connection.TakeDataFromTable($"User{userID}Events", "*");
+
+            try
+            {
+                DataRow[] drs = dt.Select();
+                loadedEvents = new Event[drs.Length];
+
+                for (int i = 0; i < drs.Length; i++)
+                {
+                    loadedEvents[i] = EventBuilder((int)drs[i]["EventID"], (string)drs[i]["Name"], (string)drs[i]["Description"], (DateTime)drs[i]["DateStart"], (DateTime)drs[i]["DateEnd"]);
+                }
+            }
+            catch
+            {
+                failure = $"Failed to load events of user with ID {userID}";
+            }
+
+            return loadedEvents;
         }
-        public bool ModifyEvent(int userID, int eventID, string toModoify, string newValue)
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <param name="eventID"></param>
+        /// <param name="toModify"></param>
+        /// <param name="newValue"></param>
+        /// <returns>Określa czy operacja się powiodła</returns>
+        public bool ModifyEvent(int userID, int eventID, Event modifiedEvent)
         {
+            try
+            {
+                Event moddedEvent = LoadEvent(userID, eventID);
+            }
+            catch
+            {
+                failure = $"Failed to modify an Event with ID {eventID}, belonging to user with ID {userID}, it cannot be loaded. (might not exist) ";
+                return false;
+            }
+
+            object[] eventObj = new object[] { modifiedEvent.name, modifiedEvent.description, modifiedEvent.dateStart, modifiedEvent.dateEnd };
+            string[] dataStructure = new string[] { "Name", "Descripion", "DateStart", "DateEnd" };
+
+            try
+            {
+                connection.ModifyDataInTable($"User{userID}Events", eventObj, dataStructure, $"EventID = {eventID}");
+            }
+            catch 
+            {
+                failure = $"Failed to modify event {eventID} of user with ID {userID}";
+                return false;
+            }
+
             return true;
         }
-        public int AddEvent(int userID, Event eventData)   // zwraca EventID
+
+        /// <summary>
+        /// Dodaje do bazy danych Event dla wyspecyfikowanego urzytkownika
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <param name="eventData"></param>
+        /// <returns>Przypisane EventID (DODANIE WIĘCEJ NIŻ 1 EVENTU NA RAZ MOŻE SKUTKOWAĆ ZŁYM ID)</returns>
+        public int AddEvent(int userID, Event eventData)
         {
-            return 1;
+            object[] eventObj = new object[] { eventData.name, eventData.description, eventData.dateStart, eventData.dateEnd };
+            int assignedID = 0;
+
+            try
+            {
+                connection.PutDataIntoTable($"User{userID}Events", eventObj, "[Name], [Description], [DateStart], [DateEnd]");
+            }
+            catch
+            {
+                failure = $"Failed to add an event for userID {userID}";
+                return assignedID;
+            }
+
+            try
+            {
+                Event lastSimilar = LoadEvent(userID, eventData.name);
+                assignedID = lastSimilar.EventID;
+            }
+            catch
+            {
+                failure = "Failed to fetch newly uploaded Events ID";
+            }
+
+            return assignedID;
         }
+
+        /// <summary>
+        /// Usówa event specyficznego użytkownika
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <param name="eventID"></param>
+        /// <returns>Określa czy operacja się powiodła</returns>
         public bool DeleteEvent(int userID, int eventID)
         {
+            try
+            {
+                connection.DeleteDataFromTable($"User{userID}Events", $"EventID = {eventID}");
+            }
+            catch
+            {
+                failure = $"Failed to Delete an Event {eventID} of user with ID {eventID}";
+                return false;
+            }
             return true;
         }
         #endregion

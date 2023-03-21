@@ -67,6 +67,15 @@ namespace kurwaaaaaaaaaaqaaaaaaaaaaaa
                 if (i != dataToInput.Length - 1) injectable += ", ";
             }
 
+            if (dataStructure.Length > 2)
+            {
+                if (dataStructure[0] != '(')
+                    dataStructure = "(" + dataStructure;
+
+                if (dataStructure[dataStructure.Length - 1] != ')')
+                    dataStructure = dataStructure + ")";
+            }
+
             string querry = $@"INSERT INTO {table} {dataStructure} VALUES ({injectable})";
             using (SqlCommand cmd = conn.CreateCommand())
             {
