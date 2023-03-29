@@ -301,6 +301,7 @@ namespace FormsyTest2
             try
             {
                 Event moddedEvent = LoadEvent(userID, eventID);
+                if (moddedEvent == null) throw new ArgumentNullException();
             }
             catch
             {
@@ -309,15 +310,15 @@ namespace FormsyTest2
             }
 
             object[] eventObj = new object[] { modifiedEvent.name, modifiedEvent.description, modifiedEvent.dateStart, modifiedEvent.dateEnd };
-            string[] dataStructure = new string[] { "Name", "Descripion", "DateStart", "DateEnd" };
+            string[] dataStructure = new string[] { "Name", "Description", "DateStart", "DateEnd" };
 
             try
             {
                 connection.ModifyDataInTable($"User{userID}Events", eventObj, dataStructure, $"EventID = {eventID}");
             }
-            catch 
+            catch (Exception ex)
             {
-                failure = $"Failed to modify event {eventID} of user with ID {userID}";
+                failure = $"Failed to modify event {eventID} of user with ID {userID} \n {ex.Message}";
                 return false;
             }
 

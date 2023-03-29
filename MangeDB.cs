@@ -93,6 +93,8 @@ namespace kurwaaaaaaaaaaqaaaaaaaaaaaa
 
             for (int i = 0; i < dataToModify.Length && i < dataStructure.Length; i++)
             {
+                dataStructure[i] = dataStructure[i].Replace("[","").Replace("]","");
+
                 if (dataToModify[i].GetType() == typeof(string))
                 {
                     injectable += $"[{dataStructure[i]}] = '{dataToModify[i].ToString()}'\n";
@@ -110,9 +112,7 @@ namespace kurwaaaaaaaaaaqaaaaaaaaaaaa
                 if (i != dataToModify.Length - 1) injectable += ", ";
             }
 
-            string querry = $"UPDATE [dbo].[{table}]\r\n   " +
-                $"SET {injectable} " +
-                $"WHERE {condition}";
+            string querry = $"UPDATE [dbo].[{table}] SET {injectable} WHERE {condition}";
             using (SqlCommand cmd = conn.CreateCommand())
             {
                 cmd.CommandText = querry;
