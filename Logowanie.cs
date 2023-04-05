@@ -9,22 +9,12 @@ namespace FormsTermianlPP2023
         public Logowanie()
         {
             InitializeComponent();
-            DBInteraction dataBase = new DBInteraction();
+            DBInteraction dataBase = new DBInteraction(ConnectionInfo.server, ConnectionInfo.DB, ConnectionInfo.UserName, ConnectionInfo.DB);
         }
         //SqlConnection conn = new SqlConnection(@"Data Source=""153.19.227.34, 1433"";Initial Catalog=ProjektPP2023;Persist Security Info=True;User ID=projekt2023;Password=Projekt2023");
 
 
         private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
         {
 
         }
@@ -104,31 +94,17 @@ namespace FormsTermianlPP2023
         }
 
 
-
-
-
-
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
             var myForm = new Rejestracja();
             myForm.Show();
             this.Hide();
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
 
         }
+
+        //private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
+        //{
+        //}
         private void txt_password_TextChanged(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -148,14 +124,10 @@ namespace FormsTermianlPP2023
             Haslo.BackColor = Color.White;
         }
 
-        private void txt_username_TextChanged(object sender, EventArgs e)
+        private void panel1_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
+            var configPanel = new ServerConnectionConfig();
+            configPanel.Show();
         }
     }
 }

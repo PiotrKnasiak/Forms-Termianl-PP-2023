@@ -52,7 +52,6 @@
             label1.Size = new Size(482, 52);
             label1.TabIndex = 0;
             label1.Text = "FormsTermianlPP2023";
-            label1.Click += label1_Click;
             // 
             // label2
             // 
@@ -63,7 +62,6 @@
             label2.Size = new Size(139, 20);
             label2.TabIndex = 1;
             label2.Text = "Nazwa użytkownika";
-            label2.Click += label2_Click;
             // 
             // label3
             // 
@@ -82,8 +80,6 @@
             txt_username.Name = "txt_username";
             txt_username.Size = new Size(215, 27);
             txt_username.TabIndex = 3;
-            txt_username.Click += txt_username_Click;
-            txt_username.TextChanged += txt_username_TextChanged;
             txt_username.KeyDown += txt_password_TextChanged;
             // 
             // txt_password
@@ -93,7 +89,6 @@
             txt_password.Size = new Size(215, 27);
             txt_password.TabIndex = 4;
             txt_password.UseSystemPasswordChar = true;
-            txt_password.Click += txt_password_Click;
             txt_password.KeyDown += txt_password_TextChanged;
             // 
             // button_login
@@ -117,7 +112,6 @@
             label4.Size = new Size(122, 20);
             label4.TabIndex = 6;
             label4.Text = "Nie masz konta? ";
-            label4.Click += label4_Click;
             // 
             // linkLabel1
             // 
@@ -133,7 +127,7 @@
             linkLabel1.TabStop = true;
             linkLabel1.Text = "Zarejestruj się";
             linkLabel1.VisitedLinkColor = Color.Black;
-            linkLabel1.LinkClicked += linkLabel1_LinkClicked_1;
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
             // error
             // 
@@ -148,7 +142,6 @@
             error.Text = "Error";
             error.TextAlign = ContentAlignment.BottomRight;
             error.Visible = false;
-            error.Click += label5_Click;
             // 
             // panel1
             // 
@@ -158,7 +151,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(32, 32);
             panel1.TabIndex = 9;
-            panel1.Paint += panel1_Paint;
+            panel1.Click += panel1_Click;
             // 
             // Logowanie
             // 
