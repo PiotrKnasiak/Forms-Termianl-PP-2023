@@ -1,4 +1,4 @@
-﻿namespace FormsyTest2
+﻿namespace FormsTermianlPP2023
 {
 
     public class User

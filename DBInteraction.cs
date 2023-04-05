@@ -9,7 +9,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FormsyTest2
+namespace FormsTermianlPP2023
 {
     internal class DBInteraction
     {

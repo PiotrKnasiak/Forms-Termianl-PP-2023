@@ -7,20 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using FormsTermianlPP2023;
 
 namespace FormsTermianlPP2023
 {
-    public partial class Rejestracja : Form
+    public partial class ServerConnectionConfig : Form
     {
-        public Rejestracja()
+        public ServerConnectionConfig()
         {
             InitializeComponent();
         }
-
-        private void Form2_Load(object sender, EventArgs e)
+        private void btn_apply_Click()
         {
-
+            
         }
     }
 }

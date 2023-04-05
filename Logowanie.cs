@@ -1,24 +1,22 @@
 using Microsoft.VisualBasic.Logging;
 using System.Data;
-using System.Data.SqlClient;
 using System.Windows.Forms;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using FormsyTest2;
 
-namespace Terminarz
+namespace FormsTermianlPP2023
 {
-   public partial class Logowanie : Form
+    public partial class Logowanie : Form
     {
         public Logowanie()
         {
             InitializeComponent();
+            DBInteraction dataBase = new DBInteraction();
         }
         //SqlConnection conn = new SqlConnection(@"Data Source=""153.19.227.34, 1433"";Initial Catalog=ProjektPP2023;Persist Security Info=True;User ID=projekt2023;Password=Projekt2023");
 
 
         private void Form1_Load(object sender, EventArgs e)
         {
-          
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -38,6 +36,7 @@ namespace Terminarz
 
             username = txt_username.Text;
             password = txt_password.Text;
+
 
             Label Error = error;
             TextBox Login = txt_username;
@@ -75,7 +74,7 @@ namespace Terminarz
             {
                 Login.BackColor = Color.White;
                 Password.BackColor = Color.White;
-                string querry = "SELECT * FROM LoginData WHERE Login = '" + username + "' AND Password = '" + password + "'";
+                //string querry = "SELECT * FROM LoginData WHERE Login = '" + username + "' AND Password = '" + password + "'";
                 //SqlDataAdapter sda = new SqlDataAdapter(querry, conn);
 
                 DataTable dTable = new DataTable();
@@ -150,6 +149,11 @@ namespace Terminarz
         }
 
         private void txt_username_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

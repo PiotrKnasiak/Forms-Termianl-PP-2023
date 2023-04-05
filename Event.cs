@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FormsyTest2
+namespace FormsTermianlPP2023
 {
     public class Event
     {
