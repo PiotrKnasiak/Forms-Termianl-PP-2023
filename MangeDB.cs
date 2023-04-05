@@ -12,11 +12,25 @@ namespace DBManagement
     {
         string connectionString;
         SqlConnection conn;
+        public bool establishedConnection = false;
 
-        public ManageDB(string server = "153.19.227.34, 1433", string DB = "ProjektPP2023", string UserName = "projekt2023", string password = "Projekt2023")
+        public ManageDB(string server = "153.19.227.34, 1433", string DB = "ProjektPP2023", string UserName = "projekt2023", string password = "Projekt2023", int timeout = 5)
         {
-            this.connectionString = $@"Server={server};Database={DB};User Id={UserName}; Password={password}; Encrypt=False";
+            this.connectionString = $@"Server={server};Database={DB};User Id={UserName}; Password={password}; Encrypt=False; ;Connection Timeout={timeout}";
             this.conn = new SqlConnection(connectionString);
+
+            try
+            {
+                if(conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                establishedConnection = true;
+            }
+            catch (Exception e)
+            {
+                establishedConnection = false;
+            }
         }
 
         public DataTable TakeDataFromTable(string table, string dataToSelect = "*", string? condition = null)
@@ -42,7 +56,7 @@ namespace DBManagement
         /// <returns></returns>
         public void PutDataIntoTable(string table, object[] dataToInput, string dataStructure = "")
         {
-            conn.Open();
+            
             string injectable = "";
             string dTFormat = "yyyy-MM-dd HH:mm";
 
@@ -82,12 +96,12 @@ namespace DBManagement
                 cmd.CommandText = querry;
                 cmd.ExecuteNonQuery();
             }
-            conn.Close();
+            
         }
 
         public void ModifyDataInTable(string table, object[] dataToModify, string[] dataStructure, string condition)
         {
-            conn.Open();
+            
             string injectable = "";
             string dTFormat = "yyyy-MM-dd HH:mm";
 
@@ -118,12 +132,12 @@ namespace DBManagement
                 cmd.CommandText = querry;
                 cmd.ExecuteNonQuery();
             }
-            conn.Close();
+            
         }
 
         public void DeleteDataFromTable(string table, string condition)
         {
-            conn.Open();
+            
             string querry = $@"DELETE FROM [dbo].[{table}] WHERE {condition}";
 
             using (SqlCommand cmd = conn.CreateCommand())
@@ -131,12 +145,12 @@ namespace DBManagement
                 cmd.CommandText = querry;
                 cmd.ExecuteNonQuery();
             }
-            conn.Close();
+            
         }
 
         public void CreateEventTable(string tableName = "User(ID)Events")
         {
-            conn.Open();
+            
             string querry = $"SET ANSI_NULLS ON" +
                 $"\nSET QUOTED_IDENTIFIER ON" +
                 $"\nCREATE TABLE [dbo].[{tableName}]" +
@@ -153,13 +167,13 @@ namespace DBManagement
                 cmd.CommandText = querry;
                 cmd.ExecuteNonQuery();
             }
-            conn.Close();
+            
 
         }
 
         public void CreateUserTable(string tableName = "LoginData")
         {
-            conn.Open();
+            
             string querry = $"SET ANSI_NULLS ON" +
                 $"\nSET QUOTED_IDENTIFIER ON" +
                 $"\nCREATE TABLE [dbo].[{tableName}](" +
@@ -178,13 +192,13 @@ namespace DBManagement
                 cmd.CommandText = querry;
                 cmd.ExecuteNonQuery();
             }
-            conn.Close();
+            
 
         }
 
         public void DropTable(string table)
         {
-            conn.Open();
+            
 
             string querry = $"DROP TABLE [dbo].[{table}]";
 
@@ -193,7 +207,7 @@ namespace DBManagement
                 cmd.CommandText = querry;
                 cmd.ExecuteNonQuery();
             }
-            conn.Close();
+            
         }
 
     }

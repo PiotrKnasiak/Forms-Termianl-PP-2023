@@ -8,6 +8,8 @@ namespace FormsTermianlPP2023
 {
     public static class ConnectionInfo
     {
+        public static int connTimeout = 5;
+
         public static void revertToDefault()
         {
             server = "153.19.227.34, 1433";

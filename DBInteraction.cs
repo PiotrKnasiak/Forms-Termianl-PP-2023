@@ -14,9 +14,15 @@ namespace FormsTermianlPP2023
     internal class DBInteraction
     {
         private ManageDB connection;
-        public DBInteraction(string server = "153.19.227.34, 1433", string DB = "ProjektPP2023", string UserName = "projekt2023", string password = "Projekt2023")
+        public bool connected = true;
+        public DBInteraction(string server = "153.19.227.34, 1433", string DB = "ProjektPP2023", string UserName = "projekt2023", string password = "Projekt2023", int timeout = 5)
         {
             this.connection = new ManageDB(server, DB, UserName, password);
+            if (!this.connection.establishedConnection)
+            {
+                connected = false;
+                this.failure = "Failed to connect to DB with specified variables";
+            }
         }
 
         public string failure = "";

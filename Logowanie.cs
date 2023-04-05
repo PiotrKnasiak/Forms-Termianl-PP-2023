@@ -1,4 +1,4 @@
-using Microsoft.VisualBasic.Logging;
+ï»¿using Microsoft.VisualBasic.Logging;
 using System.Data;
 using System.Windows.Forms;
 
@@ -9,10 +9,7 @@ namespace FormsTermianlPP2023
         public Logowanie()
         {
             InitializeComponent();
-            DBInteraction dataBase = new DBInteraction(ConnectionInfo.server, ConnectionInfo.DB, ConnectionInfo.UserName, ConnectionInfo.DB);
         }
-        //SqlConnection conn = new SqlConnection(@"Data Source=""153.19.227.34, 1433"";Initial Catalog=ProjektPP2023;Persist Security Info=True;User ID=projekt2023;Password=Projekt2023");
-
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -22,11 +19,12 @@ namespace FormsTermianlPP2023
         private void button1_Click(object sender, EventArgs e)
         {
 
-            string username, password, login, haslo;
+            DBInteraction dataBase = new DBInteraction(ConnectionInfo.server, ConnectionInfo.DB, ConnectionInfo.UserName, ConnectionInfo.password, ConnectionInfo.connTimeout);
+
+            string username, password;
 
             username = txt_username.Text;
             password = txt_password.Text;
-
 
             Label Error = error;
             TextBox Login = txt_username;
@@ -36,8 +34,8 @@ namespace FormsTermianlPP2023
             {
                 Login.BackColor = Color.LightCoral;
                 Password.BackColor = Color.LightCoral;
-                Login.PlaceholderText = "Podaj nazwê u¿ytkownika";
-                Password.PlaceholderText = "Podaj has³o";
+                Login.PlaceholderText = "Podaj nazwÄ™ uÅ¼ytkownika";
+                Password.PlaceholderText = "Podaj hasÅ‚o";
                 //Error.Text = "Podaj dane logowania";
                 //Error.Visible = true;
                 Error.Visible = false;
@@ -46,7 +44,7 @@ namespace FormsTermianlPP2023
             {
                 Login.BackColor = Color.LightCoral;
                 Password.BackColor = Color.White;
-                Login.PlaceholderText = "Podaj nazwê u¿ytkownika";
+                Login.PlaceholderText = "Podaj nazwÄ™ uÅ¼ytkownika";
                 //Error.Text = "Podaj login";
                 //Error.Visible = true;
                 Error.Visible = false;
@@ -55,8 +53,8 @@ namespace FormsTermianlPP2023
             {
                 Login.BackColor = Color.White;
                 Password.BackColor = Color.LightCoral;
-                Password.PlaceholderText = "Podaj has³o";
-                //Error.Text = "Podaj has³o";
+                Password.PlaceholderText = "Podaj hasÅ‚o";
+                //Error.Text = "Podaj hasÅ‚o";
                 //Error.Visible = true;
                 Error.Visible = false;
             }
@@ -64,23 +62,18 @@ namespace FormsTermianlPP2023
             {
                 Login.BackColor = Color.White;
                 Password.BackColor = Color.White;
-                //string querry = "SELECT * FROM LoginData WHERE Login = '" + username + "' AND Password = '" + password + "'";
-                //SqlDataAdapter sda = new SqlDataAdapter(querry, conn);
+                User[] users = new User[6];
+                users = dataBase.LoadAllUsers();
 
-                DataTable dTable = new DataTable();
-                //sda.Fill(dTable);
+                bool success = false;
 
-                if (dTable.Rows.Count > 0)
+                for(int i = 0; i < users.Length; i++)
                 {
-                    Form form2 = new Form();
-                    form2.Show();
-                    this.Hide();
-                }
-                else if (dTable.Rows.Count == 0)
-                {
-                    Error.Text = "Login lub has³o s¹ nieprawid³owe.";
-                    Error.Visible = true;
-
+                    if (username == users[i].login && password == users[i].password)
+                    {
+                        Login.Text = "login successful !";
+                        return;
+                    }
                 }
             }
 
@@ -93,18 +86,13 @@ namespace FormsTermianlPP2023
 
         }
 
-
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             var myForm = new Rejestracja();
             myForm.Show();
-            this.Hide();
-
+            this.Hide();     // <- rejestracja bÄ™dzie albo musiaÅ‚a otworzyc to okno spowrotem albo przejÅ›c prosto do terminarza
         }
 
-        //private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
-        //{
-        //}
         private void txt_password_TextChanged(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -112,6 +100,7 @@ namespace FormsTermianlPP2023
 
 
         }
+
         private void txt_username_Click(object sender, EventArgs e)
         {
             TextBox Login = txt_username;
