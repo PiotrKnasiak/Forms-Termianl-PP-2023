@@ -168,10 +168,17 @@ namespace FormsTermianlPP2023
         /// Tworzy użytkownika i jego tabelę eventów (podanie już istniejącego loginu zwróci 0, czyli błąd)
         /// </summary>
         /// <param name="userData"></param>
-        /// <returns>ID dodanego użytkownika</returns>
+        /// <returns>ID dodanego użytkownika lub 0 jeśli błąd</returns>
         public int AddUser(User userData)   // zwraca przypisane UserID
         {
+            if(userData.login==null || userData.password==null || userData.name == null)
+            {
+                failure = "Adding user failed, provided user data is incomplete (has nulls)";
+                return 0;
+            }
+
             DataTable checkResult = this.connection.TakeDataFromTable("LoginData", "*", $"Login = '{userData.login}' AND NOT UserID = {userData.ID}");
+
             if (checkResult.Select().Length != 0)
             {
                 this.failure = "Login Is Already Taken (from AddUser)";

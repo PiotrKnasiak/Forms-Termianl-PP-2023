@@ -182,9 +182,7 @@ namespace DBManagement
                 $"\n[Login] [varchar](50) NOT NULL," +
                 $"\n[Password] [varchar](50) NOT NULL," +
                 $"\n CONSTRAINT [PK_{tableName}] PRIMARY KEY CLUSTERED ([UserID] ASC)" +
-                $"\n WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]," +
-                $"\n CONSTRAINT [IX_{tableName}] UNIQUE NONCLUSTERED ([Password] ASC)" +
-                $"\n WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\n )\nON [PRIMARY]" +
+                $"\n WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY])\nON [PRIMARY]" +
                 $"\nALTER TABLE [dbo].[{tableName}] ADD  CONSTRAINT [DF_{tableName}_Login]  DEFAULT ('') FOR [Login]";
 
             using (SqlCommand cmd = conn.CreateCommand())

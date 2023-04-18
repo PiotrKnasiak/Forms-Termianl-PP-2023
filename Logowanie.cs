@@ -1,4 +1,7 @@
-﻿using Microsoft.VisualBasic.Logging;
+﻿using DBManagement;
+using Microsoft.VisualBasic.ApplicationServices;
+using Microsoft.VisualBasic.Logging;
+using System.Configuration;
 using System.Data;
 using System.Windows.Forms;
 
@@ -18,10 +21,8 @@ namespace FormsTermianlPP2023
 
         private void button1_Click(object sender, EventArgs e)
         {
-            error.Hide();
-
+            error.Hide(); 
             DBInteraction dataBase = new DBInteraction(ConnectionInfo.server, ConnectionInfo.DB, ConnectionInfo.UserName, ConnectionInfo.password, ConnectionInfo.connTimeout);
-
             string username, password;
 
             username = txt_username.Text;
