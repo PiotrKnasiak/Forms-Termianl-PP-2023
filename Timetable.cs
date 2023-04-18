@@ -26,7 +26,7 @@ namespace FormsTermianlPP2023
     {
         int month, year;
         UserControlDays[] dayTiles;       // do przypisywania kafelkom dni eventów i funkcji
-        DBInteraction dataBase = new DBInteraction(ConnectionInfo.server, ConnectionInfo.DB, ConnectionInfo.UserName, ConnectionInfo.password, ConnectionInfo.connTimeout);     // dostęp do bazy danych
+        DBInteraction dataBase;         // dostęp do bazy danych
 
         public Timetable()
         {
@@ -37,13 +37,19 @@ namespace FormsTermianlPP2023
         {
             displayDays();
             Size = new Size(1020, 729);
-            dayCon.Size = new Size(dayCon.Width+4, dayCon.Height);
-            ConnectionInfo.loggedUser = dataBase.LoadUser(ConnectionInfo.tempInt);
+            dayCon.Size = new Size(dayCon.Width + 4, dayCon.Height);
+            if (!ConnectionInfo.TimeTableTest)
+            {
+                ConnectionInfo.loggedUser = dataBase.LoadUser(ConnectionInfo.tempInt);
+                dataBase = new DBInteraction(ConnectionInfo.server, ConnectionInfo.DB, ConnectionInfo.UserName, ConnectionInfo.password, ConnectionInfo.connTimeout);
+            }
             // naprawa wyświetlania soboty
         }
         private void displayDays()
         {
-            Event[] userEvents = dataBase.LoadAllEvents(ConnectionInfo.loggedUser.ID);
+            Event[] userEvents = new Event[] { };
+            if (!ConnectionInfo.TimeTableTest) 
+                userEvents = dataBase.LoadAllEvents(ConnectionInfo.loggedUser.ID);
 
             DateTime now = DateTime.Now;
             month = now.Month;

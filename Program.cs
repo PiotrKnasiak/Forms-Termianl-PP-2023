@@ -1,4 +1,4 @@
-namespace FormsTermianlPP2023
+﻿namespace FormsTermianlPP2023
 {
     public static class Program
     {
@@ -9,8 +9,8 @@ namespace FormsTermianlPP2023
         public static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new Timetable());
-            //Application.Run(new Logowanie());
+            //Application.Run(new Timetable());     // by testowac bepośrednio trzeba ustawić TimeTableTest na true w ConnectionInfo !
+            Application.Run(new Logowanie());
         }
     }
 }

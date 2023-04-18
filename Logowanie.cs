@@ -18,6 +18,7 @@ namespace FormsTermianlPP2023
 
         private void button1_Click(object sender, EventArgs e)
         {
+            error.Hide();
 
             DBInteraction dataBase = new DBInteraction(ConnectionInfo.server, ConnectionInfo.DB, ConnectionInfo.UserName, ConnectionInfo.password, ConnectionInfo.connTimeout);
 
@@ -62,10 +63,8 @@ namespace FormsTermianlPP2023
             {
                 Login.BackColor = Color.White;
                 Password.BackColor = Color.White;
-                User[] users = new User[6];
+                User[] users = new User[0];
                 users = dataBase.LoadAllUsers();
-
-                bool success = false;
 
                 for(int i = 0; i < users.Length; i++)
                 {
@@ -80,6 +79,9 @@ namespace FormsTermianlPP2023
                         return;
                     }
                 }
+
+                error.Show();
+                error.Text = "Błędny login lub hasło";
             }
 
 
