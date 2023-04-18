@@ -71,7 +71,12 @@ namespace FormsTermianlPP2023
                 {
                     if (username == users[i].login && password == users[i].password)
                     {
-                        Login.Text = "login successful !";
+                        //Login.Text = "login successful !";
+                        ConnectionInfo.tempInt = users[i].ID;
+                        Timetable timeTableWindow = new Timetable();
+                        ConnectionInfo.loggedUser = users[i];
+                        timeTableWindow.Show();
+                        this.Hide();
                         return;
                     }
                 }

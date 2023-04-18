@@ -24,7 +24,8 @@ namespace FormsTermianlPP2023
             password = "Projekt2023";
 
         public static object tempObj;
-        public static int tempInt;
+        public static int tempInt=3;
         public static string tempString;
+        public static User loggedUser;
     }
 }

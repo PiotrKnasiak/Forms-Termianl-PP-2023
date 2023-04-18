@@ -1,6 +1,6 @@
 ﻿namespace FormsTermianlPP2023
 {
-    partial class Form1
+    partial class Timetable
     {
         /// <summary>
         /// Wymagana zmienna projektanta.

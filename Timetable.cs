@@ -22,10 +22,13 @@ using System.Windows.Forms;
 
 namespace FormsTermianlPP2023
 {
-    public partial class Form1 : Form
+    public partial class Timetable : Form
     {
         int month, year;
-        public Form1()
+        UserControlDays[] dayTiles;       // do przypisywania kafelkom dni eventów i funkcji
+        DBInteraction dataBase = new DBInteraction(ConnectionInfo.server, ConnectionInfo.DB, ConnectionInfo.UserName, ConnectionInfo.password, ConnectionInfo.connTimeout);     // dostęp do bazy danych
+
+        public Timetable()
         {
             InitializeComponent();
         }
@@ -35,10 +38,13 @@ namespace FormsTermianlPP2023
             displayDays();
             Size = new Size(1020, 729);
             dayCon.Size = new Size(dayCon.Width+4, dayCon.Height);
+            ConnectionInfo.loggedUser = dataBase.LoadUser(ConnectionInfo.tempInt);
             // naprawa wyświetlania soboty
         }
         private void displayDays()
         {
+            Event[] userEvents = dataBase.LoadAllEvents(ConnectionInfo.loggedUser.ID);
+
             DateTime now = DateTime.Now;
             month = now.Month;
             year = now.Year;
@@ -49,20 +55,29 @@ namespace FormsTermianlPP2023
             DateTime startOfTheMonth = new DateTime(year, month, 1); //1 dzień msc
             int days = DateTime.DaysInMonth(year, month);//liczba dni w bieżącym msc
             int dayOfTheWeek = Convert.ToInt32(startOfTheMonth.DayOfWeek.ToString("d")) + 1; //konweruje zmienna startOfTheMonth na inta
-            lbDATE.Text = dayOfTheWeek.ToString();
+
             //create blank usercontrols
             for (int i = 1; i <= dayOfTheWeek; i++)
             {
                 UserControlBlank ucBlank = new UserControlBlank();
                 dayCon.Controls.Add(ucBlank);
             }
+
             //kontrolka dni
+            dayTiles = new UserControlDays[days];       // do przypisywania kafelkom dni eventów i funkcji
             for (int i = 1; i <= days; i++)
             {
-                UserControlDays ucDays = new UserControlDays();
-                ucDays.days(i);
-                dayCon.Controls.Add(ucDays);
+                dayTiles[i-1] = new UserControlDays();
+                dayTiles[i - 1].days(i);
+                dayCon.Controls.Add(dayTiles[i - 1]);
             }
+
+            AssignEvents();
+        }
+
+        private void AssignEvents()
+        {
+            // przypisuje dniom eventy, po to stworrzono listę dayTiles
         }
 
         private void button1_Click(object sender, EventArgs e) //poprzedni
