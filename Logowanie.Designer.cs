@@ -49,9 +49,10 @@
             label1.ForeColor = Color.Black;
             label1.Location = new Point(68, 60);
             label1.Name = "label1";
-            label1.Size = new Size(482, 52);
+            label1.Size = new Size(226, 52);
             label1.TabIndex = 0;
-            label1.Text = "FormsTermianlPP2023";
+            label1.Text = "Terminarz";
+            label1.Click += label1_Click;
             // 
             // label2
             // 

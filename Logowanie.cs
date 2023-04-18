@@ -67,7 +67,7 @@ namespace FormsTermianlPP2023
                 User[] users = new User[0];
                 users = dataBase.LoadAllUsers();
 
-                for(int i = 0; i < users.Length; i++)
+                for (int i = 0; i < users.Length; i++)
                 {
                     if (username == users[i].login && password == users[i].password)
                     {
@@ -125,6 +125,11 @@ namespace FormsTermianlPP2023
         {
             var configPanel = new ServerConnectionConfig();
             configPanel.Show();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
