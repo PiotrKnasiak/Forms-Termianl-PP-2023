@@ -28,167 +28,165 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dayCon = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lbDATE = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+            dayCon = new FlowLayoutPanel();
+            flowLayoutPanel2 = new FlowLayoutPanel();
+            button1 = new Button();
+            button2 = new Button();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
+            label6 = new Label();
+            label7 = new Label();
+            lbDATE = new Label();
+            SuspendLayout();
             // 
             // dayCon
             // 
-            this.dayCon.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.dayCon.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dayCon.Location = new System.Drawing.Point(0, 203);
-            this.dayCon.Name = "dayCon";
-            this.dayCon.Size = new System.Drawing.Size(1137, 526);
-            this.dayCon.TabIndex = 0;
+            dayCon.AutoSize = true;
+            dayCon.BorderStyle = BorderStyle.FixedSingle;
+            dayCon.Dock = DockStyle.Bottom;
+            dayCon.Location = new Point(0, 727);
+            dayCon.Name = "dayCon";
+            dayCon.Size = new Size(1015, 2);
+            dayCon.TabIndex = 0;
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(1137, 68);
-            this.flowLayoutPanel2.TabIndex = 1;
+            flowLayoutPanel2.BackColor = SystemColors.ActiveBorder;
+            flowLayoutPanel2.Dock = DockStyle.Top;
+            flowLayoutPanel2.Location = new Point(0, 0);
+            flowLayoutPanel2.Name = "flowLayoutPanel2";
+            flowLayoutPanel2.Size = new Size(1015, 63);
+            flowLayoutPanel2.TabIndex = 1;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(27, 106);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(58, 43);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "←";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            button1.Location = new Point(24, 106);
+            button1.Name = "button1";
+            button1.Size = new Size(52, 43);
+            button1.TabIndex = 2;
+            button1.Text = "←";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1058, 106);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(58, 43);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "→";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            button2.Location = new Point(940, 106);
+            button2.Name = "button2";
+            button2.Size = new Size(52, 43);
+            button2.TabIndex = 3;
+            button2.Text = "→";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Candara Light", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(203, 170);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 19);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Poniedziałek";
+            label1.AutoSize = true;
+            label1.Font = new Font("Candara Light", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(180, 170);
+            label1.Name = "label1";
+            label1.Size = new Size(84, 17);
+            label1.TabIndex = 4;
+            label1.Text = "Poniedziałek";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Candara Light", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(385, 170);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 19);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Wtorek";
+            label2.AutoSize = true;
+            label2.Font = new Font("Candara Light", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(342, 170);
+            label2.Name = "label2";
+            label2.Size = new Size(52, 17);
+            label2.TabIndex = 5;
+            label2.Text = "Wtorek";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Candara Light", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(697, 170);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 19);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Czwartek";
+            label3.AutoSize = true;
+            label3.Font = new Font("Candara Light", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(620, 170);
+            label3.Name = "label3";
+            label3.Size = new Size(64, 17);
+            label3.TabIndex = 7;
+            label3.Text = "Czwartek";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Candara Light", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(547, 170);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 19);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Środa";
+            label4.AutoSize = true;
+            label4.Font = new Font("Candara Light", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Location = new Point(486, 170);
+            label4.Name = "label4";
+            label4.Size = new Size(43, 17);
+            label4.TabIndex = 6;
+            label4.Text = "Środa";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Candara Light", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(1024, 170);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 19);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Sobota";
+            label5.AutoSize = true;
+            label5.Font = new Font("Candara Light", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Location = new Point(910, 170);
+            label5.Name = "label5";
+            label5.Size = new Size(51, 17);
+            label5.TabIndex = 9;
+            label5.Text = "Sobota";
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Candara Light", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(868, 170);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(50, 19);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Piątek";
+            label6.AutoSize = true;
+            label6.Font = new Font("Candara Light", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.Location = new Point(772, 170);
+            label6.Name = "label6";
+            label6.Size = new Size(45, 17);
+            label6.TabIndex = 8;
+            label6.Text = "Piątek";
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Candara Light", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(47, 170);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(69, 19);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "Niedziela";
+            label7.AutoSize = true;
+            label7.Font = new Font("Candara Light", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Location = new Point(42, 170);
+            label7.Name = "label7";
+            label7.Size = new Size(62, 17);
+            label7.TabIndex = 10;
+            label7.Text = "Niedziela";
             // 
             // lbDATE
             // 
-            this.lbDATE.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbDATE.Font = new System.Drawing.Font("Candara", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lbDATE.Location = new System.Drawing.Point(408, 122);
-            this.lbDATE.Name = "lbDATE";
-            this.lbDATE.Size = new System.Drawing.Size(345, 27);
-            this.lbDATE.TabIndex = 11;
-            this.lbDATE.Text = "XYZ";
-            this.lbDATE.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lbDATE.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lbDATE.Font = new Font("Candara", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            lbDATE.Location = new Point(363, 122);
+            lbDATE.Name = "lbDATE";
+            lbDATE.Size = new Size(311, 27);
+            lbDATE.TabIndex = 11;
+            lbDATE.Text = "XYZ";
+            lbDATE.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1137, 729);
-            this.Controls.Add(this.lbDATE);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.flowLayoutPanel2);
-            this.Controls.Add(this.dayCon);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.Window;
+            ClientSize = new Size(1015, 729);
+            Controls.Add(lbDATE);
+            Controls.Add(label7);
+            Controls.Add(label5);
+            Controls.Add(label6);
+            Controls.Add(label3);
+            Controls.Add(label4);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(button2);
+            Controls.Add(button1);
+            Controls.Add(flowLayoutPanel2);
+            Controls.Add(dayCon);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Form1";
+            Load += Form1_Load;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
