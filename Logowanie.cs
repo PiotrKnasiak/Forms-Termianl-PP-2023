@@ -10,28 +10,22 @@ namespace FormsTermianlPP2023
         {
             InitializeComponent();
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void button_login_Click(object sender, EventArgs e)
         {
             error.Hide();
 
             DBInteraction dataBase = new DBInteraction(ConnectionInfo.server, ConnectionInfo.DB, ConnectionInfo.UserName, ConnectionInfo.password, ConnectionInfo.connTimeout);
 
-            string username, password;
+            string login, password;
 
-            username = txt_username.Text;
+            login = txt_login.Text;
             password = txt_password.Text;
 
             Label Error = error;
-            TextBox Login = txt_username;
+            TextBox Login = txt_login;
             TextBox Password = txt_password;
 
-            if (username == "" && password == "")
+            if (login == "" && password == "")
             {
                 Login.BackColor = Color.LightCoral;
                 Password.BackColor = Color.LightCoral;
@@ -41,7 +35,7 @@ namespace FormsTermianlPP2023
                 //Error.Visible = true;
                 Error.Visible = false;
             }
-            else if (username == "")
+            else if (login == "")
             {
                 Login.BackColor = Color.LightCoral;
                 Password.BackColor = Color.White;
@@ -68,7 +62,7 @@ namespace FormsTermianlPP2023
 
                 for (int i = 0; i < users.Length; i++)
                 {
-                    if (username == users[i].login && password == users[i].password)
+                    if (login == users[i].login && password == users[i].password)
                     {
                         //Login.Text = "login successful !";
                         ConnectionInfo.tempInt = users[i].ID;
@@ -83,17 +77,8 @@ namespace FormsTermianlPP2023
                 error.Show();
                 error.Text = "Błędny login lub hasło";
             }
-
-
-
         }
-
-        private void Form1_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void Rejestracja_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             var myForm = new Rejestracja();
             myForm.Show();
@@ -103,14 +88,12 @@ namespace FormsTermianlPP2023
         private void txt_password_TextChanged(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
-                button1_Click(sender, e);
-
-
+                button_login_Click(sender, e);
         }
 
         private void txt_username_Click(object sender, EventArgs e)
         {
-            TextBox Login = txt_username;
+            TextBox Login = txt_login;
             Login.BackColor = Color.White;
         }
 
@@ -119,16 +102,12 @@ namespace FormsTermianlPP2023
             TextBox Haslo = txt_password;
             Haslo.BackColor = Color.White;
         }
-
         private void panel1_Click(object sender, EventArgs e)
         {
             var configPanel = new ServerConnectionConfig();
             configPanel.Show();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
 
-        }
     }
 }
