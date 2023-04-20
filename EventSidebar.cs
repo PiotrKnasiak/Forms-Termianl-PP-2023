@@ -28,14 +28,14 @@ namespace FormsTermianlPP2023
         {
             Button item = (Button)sender;
 
-            item.BackgroundImage = Image.FromFile(@".\Resources\cancelButtonImage.jpg");
+            item.BackgroundImage = Image.FromFile(@".\..\..\..\Resources\cancelButtonImage.jpg");
         }
 
         private void exitButtonLeft(object sender, EventArgs e)
         {
             Button item = (Button)sender;
 
-            item.BackgroundImage = Image.FromFile(@".\Resources\cancelButtonInactive.jpg");
+            item.BackgroundImage = Image.FromFile(@".\..\..\..\Resources\cancelButtonInactive.jpg");
         }
 
         private void exitBtn_Click(object sender, EventArgs e)
