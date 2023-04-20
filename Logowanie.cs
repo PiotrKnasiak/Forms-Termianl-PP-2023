@@ -69,7 +69,7 @@ namespace FormsTermianlPP2023
                         Timetable timeTableWindow = new Timetable();
                         ConnectionInfo.loggedUser = users[i];
                         timeTableWindow.Show();
-                        this.Hide();
+                        this.Close();
                         return;
                     }
                 }
@@ -82,7 +82,7 @@ namespace FormsTermianlPP2023
         {
             var myForm = new Rejestracja();
             myForm.Show();
-            this.Hide();     // <- rejestracja będzie albo musiała otworzyc to okno spowrotem albo przejśc prosto do terminarza
+            this.Close();     // <- rejestracja będzie albo musiała otworzyc to okno spowrotem albo przejśc prosto do terminarza
         }
 
         private void txt_password_TextChanged(object sender, KeyEventArgs e)

@@ -40,16 +40,19 @@
             label6 = new Label();
             label7 = new Label();
             lbDATE = new Label();
+            eventSidebar = new EventSidebar();
+            exitButton = new Button();
             SuspendLayout();
             // 
             // dayCon
             // 
             dayCon.AutoSize = true;
-            dayCon.BorderStyle = BorderStyle.FixedSingle;
+            dayCon.BackColor = SystemColors.Window;
             dayCon.Dock = DockStyle.Bottom;
-            dayCon.Location = new Point(0, 727);
+            dayCon.Location = new Point(0, 731);
+            dayCon.Margin = new Padding(0);
             dayCon.Name = "dayCon";
-            dayCon.Size = new Size(1015, 2);
+            dayCon.Size = new Size(1019, 0);
             dayCon.TabIndex = 0;
             // 
             // flowLayoutPanel2
@@ -58,7 +61,7 @@
             flowLayoutPanel2.Dock = DockStyle.Top;
             flowLayoutPanel2.Location = new Point(0, 0);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(1015, 63);
+            flowLayoutPanel2.Size = new Size(1019, 63);
             flowLayoutPanel2.TabIndex = 1;
             // 
             // button1
@@ -157,17 +160,43 @@
             lbDATE.Font = new Font("Candara", 11F, FontStyle.Regular, GraphicsUnit.Point);
             lbDATE.Location = new Point(363, 122);
             lbDATE.Name = "lbDATE";
-            lbDATE.Size = new Size(311, 27);
+            lbDATE.Size = new Size(315, 29);
             lbDATE.TabIndex = 11;
             lbDATE.Text = "XYZ";
             lbDATE.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // Form1
+            // eventSidebar
+            // 
+            eventSidebar.BackColor = Color.LightGray;
+            eventSidebar.BorderStyle = BorderStyle.FixedSingle;
+            eventSidebar.Location = new Point(0, 68);
+            eventSidebar.Margin = new Padding(2);
+            eventSidebar.Name = "eventSidebar";
+            eventSidebar.Size = new Size(800, 660);
+            eventSidebar.TabIndex = 12;
+            // 
+            // exitButton
+            // 
+            exitButton.BackColor = Color.Transparent;
+            exitButton.BackgroundImage = Properties.Resources.cnacelButtonInactive;
+            exitButton.Location = new Point(980, 1);
+            exitButton.Margin = new Padding(0);
+            exitButton.Name = "exitButton";
+            exitButton.Size = new Size(38, 36);
+            exitButton.TabIndex = 0;
+            exitButton.UseVisualStyleBackColor = false;
+            exitButton.Click += exitBtn_Click;
+            exitButton.MouseLeave += exitButtonLeft;
+            exitButton.MouseHover += exitButtonHovered;
+            // 
+            // Timetable
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
-            ClientSize = new Size(1015, 729);
+            ClientSize = new Size(1019, 731);
+            Controls.Add(exitButton);
+            Controls.Add(eventSidebar);
             Controls.Add(lbDATE);
             Controls.Add(label7);
             Controls.Add(label5);
@@ -181,7 +210,7 @@
             Controls.Add(flowLayoutPanel2);
             Controls.Add(dayCon);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Form1";
+            Name = "Timetable";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             Load += Form1_Load;
@@ -203,6 +232,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lbDATE;
+        private EventSidebar eventSidebar;
+        private Button exitButton;
     }
 }
 

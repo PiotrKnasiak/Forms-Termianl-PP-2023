@@ -12,6 +12,8 @@ namespace FormsTermianlPP2023
 {
     public partial class UserControlDays : UserControl
     {
+        public int assignedDay = 0;
+
         public UserControlDays()
         {
             InitializeComponent();
@@ -21,9 +23,10 @@ namespace FormsTermianlPP2023
         {
 
         }
-        public void days(int numday)
+        public void days(int numDay)
         {
-            lbdays.Text = numday + "";
+            lbdays.Text = numDay + "";
+            assignedDay = numDay;
         }
     }
 }

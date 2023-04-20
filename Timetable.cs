@@ -16,6 +16,8 @@ using System.Windows.Forms;
 
  Nazwy zmiennych muszą być w zgodzie z konswncjami : część1_część2 lub część1Część2
 
+ Większość funkcji displayDays, button1_Click i button2_Click robi to samo. Można stworzyć osobną funkcję do robienia powtarzanej części
+
  */
 
 
@@ -25,7 +27,7 @@ namespace FormsTermianlPP2023
     public partial class Timetable : Form
     {
         int month, year;
-        UserControlDays[] dayTiles;       // do przypisywania kafelkom dni eventów i funkcji
+        int dayChosen = 0;
         DBInteraction dataBase;         // dostęp do bazy danych
 
         public Timetable()
@@ -35,20 +37,52 @@ namespace FormsTermianlPP2023
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // ustawia wymiary przestrzeni na dni miesiąca (naprawa niekonsystentnego wyświetlania)
+
+            UserControlDays ucDaysSample = new UserControlDays();
+
+            if (this.Size.Width < ((ucDaysSample.Size.Width + ucDaysSample.Margin.Horizontal) * 7 + this.Padding.Horizontal))
+                this.Size = new Size(this.Size.Height, ((ucDaysSample.Size.Width + ucDaysSample.Margin.Horizontal) * 7 + this.Padding.Horizontal));
+
+            dayCon.AutoSize = false;
+            dayCon.Size = new Size(this.Size.Width, (ucDaysSample.Size.Height + ucDaysSample.Margin.Vertical) * 6);
+
             displayDays();
-            Size = new Size(1020, 729);
+
             dayCon.Size = new Size(dayCon.Width + 4, dayCon.Height);
+
             if (!ConnectionInfo.TimeTableTest)
             {
                 ConnectionInfo.loggedUser = dataBase.LoadUser(ConnectionInfo.tempInt);
                 dataBase = new DBInteraction(ConnectionInfo.server, ConnectionInfo.DB, ConnectionInfo.UserName, ConnectionInfo.password, ConnectionInfo.connTimeout);
             }
-            // naprawa wyświetlania soboty
+
+            eventSidebar.Hide();
         }
+
+        //private void exitButtonHovered(object sender, EventArgs e)
+        //{
+        //    ToolStripItem item = (ToolStripItem)sender;
+
+        //    item.BackgroundImage = Image.FromFile(@".\Resources\cancelButtonImage.jpg");
+        //}
+
+        //private void exitButtonLeft(object sender, EventArgs e)
+        //{
+        //    ToolStripItem item = (ToolStripItem)sender;
+
+        //    item.BackgroundImage = Image.FromFile(@".\Resources\cancelButtonInactive.jpg");
+        //}
+
+        //public void exitButtonPress()
+        //{
+        //    this.Hide();
+        //}
+
         private void displayDays()
         {
             Event[] userEvents = new Event[] { };
-            if (!ConnectionInfo.TimeTableTest) 
+            if (!ConnectionInfo.TimeTableTest)
                 userEvents = dataBase.LoadAllEvents(ConnectionInfo.loggedUser.ID);
 
             DateTime now = DateTime.Now;
@@ -60,22 +94,22 @@ namespace FormsTermianlPP2023
 
             DateTime startOfTheMonth = new DateTime(year, month, 1); //1 dzień msc
             int days = DateTime.DaysInMonth(year, month);//liczba dni w bieżącym msc
-            int dayOfTheWeek = Convert.ToInt32(startOfTheMonth.DayOfWeek.ToString("d")) + 1; //konweruje zmienna startOfTheMonth na inta
+            int dayOfTheWeek = Convert.ToInt32(startOfTheMonth.DayOfWeek.ToString("d")) + 1; //konweruje zmienna startOfTheMonth na inta    +1 powoduje,że kalendarz liczy tydzień od niedzieli !
 
             //create blank usercontrols
-            for (int i = 1; i <= dayOfTheWeek; i++)
+            for (int i = 1; i < dayOfTheWeek; i++)
             {
                 UserControlBlank ucBlank = new UserControlBlank();
                 dayCon.Controls.Add(ucBlank);
             }
 
             //kontrolka dni
-            dayTiles = new UserControlDays[days];       // do przypisywania kafelkom dni eventów i funkcji
             for (int i = 1; i <= days; i++)
             {
-                dayTiles[i-1] = new UserControlDays();
-                dayTiles[i - 1].days(i);
-                dayCon.Controls.Add(dayTiles[i - 1]);
+                UserControlDays ucDay = new UserControlDays();
+                ucDay.days(i);
+                ucDay.Click += DisplayDayEvents;
+                dayCon.Controls.Add(ucDay);
             }
 
             AssignEvents();
@@ -103,22 +137,24 @@ namespace FormsTermianlPP2023
 
             DateTime startOfTheMonth = new DateTime(year, month, 1); //1 dzień msc
             int days = DateTime.DaysInMonth(year, month);//ile jest dni w miesiącu?
-            int dayOfTheWeek = Convert.ToInt32(startOfTheMonth.DayOfWeek.ToString("d")) + 1; //konweruje zmienna startOfTheMonth na inta
+            int dayOfTheWeek = Convert.ToInt32(startOfTheMonth.DayOfWeek.ToString("d")) + 1; //konweruje zmienna startOfTheMonth na inta    +1 powoduje,że kalendarz liczy tydzień od niedzieli !
             //create blank usercontrols
             for (int i = 1; i < dayOfTheWeek; i++)
             {
                 UserControlBlank ucBlank = new UserControlBlank();
                 dayCon.Controls.Add(ucBlank);
             }
+
             //kontrolka dni
             for (int i = 1; i <= days; i++)
             {
-                UserControlDays ucDays = new UserControlDays();
-                ucDays.days(i);
-                dayCon.Controls.Add(ucDays);
+                UserControlDays ucDay = new UserControlDays();
+                ucDay.days(i);
+                ucDay.Click += DisplayDayEvents;
+                dayCon.Controls.Add(ucDay);
             }
 
-
+            // Pole do którego dodaje się dni ma teraz stały rozmiar dopasowany
         }
 
         private void button2_Click(object sender, EventArgs e) //następny
@@ -138,22 +174,55 @@ namespace FormsTermianlPP2023
 
             DateTime startOfTheMonth = new DateTime(year, month, 1); //1 dzień msc
             int days = DateTime.DaysInMonth(year, month);//ile jest dni w miesiącu?
-            int dayOfTheWeek = Convert.ToInt32(startOfTheMonth.DayOfWeek.ToString("d")) + 1; //konweruje zmienna startOfTheMonth na inta
+            int dayOfTheWeek = Convert.ToInt32(startOfTheMonth.DayOfWeek.ToString("d")) + 1; //konweruje zmienna startOfTheMonth na inta    +1 powoduje,że kalendarz liczy tydzień od niedzieli !
             //create blank usercontrols
             for (int i = 1; i < dayOfTheWeek; i++)
             {
                 UserControlBlank ucBlank = new UserControlBlank();
                 dayCon.Controls.Add(ucBlank);
             }
+
             //kontrolka dni
             for (int i = 1; i <= days; i++)
             {
-                UserControlDays ucDays = new UserControlDays();
-                ucDays.days(i);
-                dayCon.Controls.Add(ucDays);
+                UserControlDays ucDay = new UserControlDays();
+                ucDay.days(i);
+                ucDay.Click += DisplayDayEvents;
+                dayCon.Controls.Add(ucDay);
             }
 
         }
 
+        private void DisplayDayEvents(object sender, EventArgs e)
+        {
+            UserControlDays item = (UserControlDays)sender;
+            DateTime date = new DateTime(year, month, item.assignedDay);
+
+            eventSidebar.assignTitle($"{item.assignedDay}  {date.ToString("MMMM")}  {year}");
+            eventSidebar.Show();
+
+            if (dayChosen == 0)
+                return;
+
+        }
+
+        private void exitButtonHovered(object sender, EventArgs e)
+        {
+            Button item = (Button)sender;
+
+            item.BackgroundImage = Image.FromFile(@".\Resources\cancelButtonImage.jpg");
+        }
+
+        private void exitButtonLeft(object sender, EventArgs e)
+        {
+            Button item = (Button)sender;
+
+            item.BackgroundImage = Image.FromFile(@".\Resources\cancelButtonInactive.jpg");
+        }
+
+        private void exitBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
