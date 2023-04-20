@@ -40,19 +40,16 @@
             label6 = new Label();
             label7 = new Label();
             lbDATE = new Label();
-            eventSidebar = new EventSidebar();
-            exitButton = new Button();
             SuspendLayout();
             // 
             // dayCon
             // 
             dayCon.AutoSize = true;
-            dayCon.BackColor = SystemColors.Window;
+            dayCon.BorderStyle = BorderStyle.FixedSingle;
             dayCon.Dock = DockStyle.Bottom;
-            dayCon.Location = new Point(0, 731);
-            dayCon.Margin = new Padding(0);
+            dayCon.Location = new Point(0, 727);
             dayCon.Name = "dayCon";
-            dayCon.Size = new Size(1019, 0);
+            dayCon.Size = new Size(1015, 2);
             dayCon.TabIndex = 0;
             // 
             // flowLayoutPanel2
@@ -61,98 +58,98 @@
             flowLayoutPanel2.Dock = DockStyle.Top;
             flowLayoutPanel2.Location = new Point(0, 0);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(1019, 63);
+            flowLayoutPanel2.Size = new Size(1015, 63);
             flowLayoutPanel2.TabIndex = 1;
             // 
             // button1
             // 
-            button1.Location = new Point(24, 106);
-            button1.Name = "button1";
-            button1.Size = new Size(52, 43);
-            button1.TabIndex = 2;
-            button1.Text = "←";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            this.button1.Location = new System.Drawing.Point(25, 19);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(52, 43);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "←";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // button2
             // 
-            button2.Location = new Point(940, 106);
-            button2.Name = "button2";
-            button2.Size = new Size(52, 43);
-            button2.TabIndex = 3;
-            button2.Text = "→";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            this.button2.Location = new System.Drawing.Point(939, 19);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(52, 43);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "→";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Candara Light", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(180, 170);
-            label1.Name = "label1";
-            label1.Size = new Size(84, 17);
-            label1.TabIndex = 4;
-            label1.Text = "Poniedziałek";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Candara Light", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(178, 91);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(84, 17);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Poniedziałek";
             // 
             // label2
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Candara Light", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(342, 170);
-            label2.Name = "label2";
-            label2.Size = new Size(52, 17);
-            label2.TabIndex = 5;
-            label2.Text = "Wtorek";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Candara Light", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(340, 91);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 17);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Wtorek";
             // 
             // label3
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Candara Light", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(620, 170);
-            label3.Name = "label3";
-            label3.Size = new Size(64, 17);
-            label3.TabIndex = 7;
-            label3.Text = "Czwartek";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Candara Light", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(618, 91);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(64, 17);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Czwartek";
             // 
             // label4
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Candara Light", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(486, 170);
-            label4.Name = "label4";
-            label4.Size = new Size(43, 17);
-            label4.TabIndex = 6;
-            label4.Text = "Środa";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Candara Light", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(484, 91);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(43, 17);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Środa";
             // 
             // label5
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Candara Light", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(910, 170);
-            label5.Name = "label5";
-            label5.Size = new Size(51, 17);
-            label5.TabIndex = 9;
-            label5.Text = "Sobota";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Candara Light", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(908, 91);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(51, 17);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Sobota";
             // 
             // label6
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Candara Light", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(772, 170);
-            label6.Name = "label6";
-            label6.Size = new Size(45, 17);
-            label6.TabIndex = 8;
-            label6.Text = "Piątek";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Candara Light", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(770, 91);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(45, 17);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Piątek";
             // 
             // label7
             // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Candara Light", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(42, 170);
-            label7.Name = "label7";
-            label7.Size = new Size(62, 17);
-            label7.TabIndex = 10;
-            label7.Text = "Niedziela";
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Candara Light", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(40, 91);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(62, 17);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Niedziela";
             // 
             // lbDATE
             // 
@@ -160,43 +157,17 @@
             lbDATE.Font = new Font("Candara", 11F, FontStyle.Regular, GraphicsUnit.Point);
             lbDATE.Location = new Point(363, 122);
             lbDATE.Name = "lbDATE";
-            lbDATE.Size = new Size(315, 29);
+            lbDATE.Size = new Size(311, 27);
             lbDATE.TabIndex = 11;
             lbDATE.Text = "XYZ";
             lbDATE.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // eventSidebar
-            // 
-            eventSidebar.BackColor = Color.LightGray;
-            eventSidebar.BorderStyle = BorderStyle.FixedSingle;
-            eventSidebar.Location = new Point(0, 68);
-            eventSidebar.Margin = new Padding(2);
-            eventSidebar.Name = "eventSidebar";
-            eventSidebar.Size = new Size(800, 660);
-            eventSidebar.TabIndex = 12;
-            // 
-            // exitButton
-            // 
-            exitButton.BackColor = Color.Transparent;
-            exitButton.BackgroundImage = Properties.Resources.cnacelButtonInactive;
-            exitButton.Location = new Point(980, 1);
-            exitButton.Margin = new Padding(0);
-            exitButton.Name = "exitButton";
-            exitButton.Size = new Size(38, 36);
-            exitButton.TabIndex = 0;
-            exitButton.UseVisualStyleBackColor = false;
-            exitButton.Click += exitBtn_Click;
-            exitButton.MouseLeave += exitButtonLeft;
-            exitButton.MouseHover += exitButtonHovered;
-            // 
-            // Timetable
+            // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
-            ClientSize = new Size(1019, 731);
-            Controls.Add(exitButton);
-            Controls.Add(eventSidebar);
+            ClientSize = new Size(1015, 729);
             Controls.Add(lbDATE);
             Controls.Add(label7);
             Controls.Add(label5);
@@ -210,7 +181,7 @@
             Controls.Add(flowLayoutPanel2);
             Controls.Add(dayCon);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Timetable";
+            Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             Load += Form1_Load;
@@ -221,7 +192,6 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel dayCon;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;

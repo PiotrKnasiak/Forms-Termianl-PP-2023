@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Logowanie));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,6 +40,9 @@
             this.Rejestracja = new System.Windows.Forms.LinkLabel();
             this.error = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.opis = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -76,20 +80,25 @@
             // txt_login
             // 
             this.txt_login.BackColor = System.Drawing.SystemColors.Window;
+            this.txt_login.HideSelection = false;
+            this.txt_login.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.txt_login.Location = new System.Drawing.Point(77, 187);
             this.txt_login.Name = "txt_login";
             this.txt_login.Size = new System.Drawing.Size(215, 27);
-            this.txt_login.TabIndex = 3;
+            this.txt_login.TabIndex = 1;
             this.txt_login.Click += new System.EventHandler(this.txt_username_Click);
+            this.txt_login.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_login_KeyDown);
+            this.txt_login.MouseDown += new System.Windows.Forms.MouseEventHandler(this.txt_login_MouseDown);
             // 
             // txt_password
             // 
             this.txt_password.Location = new System.Drawing.Point(77, 254);
             this.txt_password.Name = "txt_password";
             this.txt_password.Size = new System.Drawing.Size(215, 27);
-            this.txt_password.TabIndex = 4;
+            this.txt_password.TabIndex = 2;
             this.txt_password.UseSystemPasswordChar = true;
             this.txt_password.Click += new System.EventHandler(this.txt_password_Click);
+            this.txt_password.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_password_KeyDown);
             // 
             // button_login
             // 
@@ -97,7 +106,7 @@
             this.button_login.Location = new System.Drawing.Point(198, 300);
             this.button_login.Name = "button_login";
             this.button_login.Size = new System.Drawing.Size(94, 29);
-            this.button_login.TabIndex = 5;
+            this.button_login.TabIndex = 3;
             this.button_login.Text = "Zaloguj się";
             this.button_login.UseVisualStyleBackColor = false;
             this.button_login.Click += new System.EventHandler(this.button_login_Click);
@@ -122,7 +131,7 @@
             this.Rejestracja.Location = new System.Drawing.Point(191, 377);
             this.Rejestracja.Name = "Rejestracja";
             this.Rejestracja.Size = new System.Drawing.Size(101, 20);
-            this.Rejestracja.TabIndex = 7;
+            this.Rejestracja.TabIndex = 4;
             this.Rejestracja.TabStop = true;
             this.Rejestracja.Text = "Zarejestruj się";
             this.Rejestracja.VisitedLinkColor = System.Drawing.Color.Black;
@@ -150,16 +159,38 @@
             this.panel1.Location = new System.Drawing.Point(12, 425);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(32, 32);
-            this.panel1.TabIndex = 9;
+            this.panel1.TabIndex = 5;
+            this.panel1.TabStop = true;
             this.panel1.Click += new System.EventHandler(this.panel1_Click);
+            this.panel1.MouseHover += new System.EventHandler(this.panel1_MouseHover);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // opis
+            // 
+            this.opis.AutoSize = true;
+            this.opis.BackColor = System.Drawing.Color.Transparent;
+            this.opis.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.opis.ForeColor = System.Drawing.Color.Red;
+            this.opis.Location = new System.Drawing.Point(77, 26);
+            this.opis.Name = "opis";
+            this.opis.Size = new System.Drawing.Size(194, 20);
+            this.opis.TabIndex = 10;
+            this.opis.Text = "Zarejestrowano pomyślnie";
+            this.opis.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.opis.Visible = false;
             // 
             // Logowanie
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(809, 469);
+            this.Controls.Add(this.opis);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.error);
             this.Controls.Add(this.Rejestracja);
@@ -172,9 +203,10 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "Logowanie";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Logowanie";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Logowanie_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,12 +217,15 @@
         private Label label1;
         private Label label2;
         private Label label3;
-        private TextBox txt_login;
-        private TextBox txt_password;
         private Button button_login;
         private Label label4;
         private LinkLabel Rejestracja;
-        private Label error;
         private Panel panel1;
+        private ToolTip toolTip1;
+        private ContextMenuStrip contextMenuStrip1;
+        public Label opis;
+        public Label error;
+        public TextBox txt_login;
+        public TextBox txt_password;
     }
 }
