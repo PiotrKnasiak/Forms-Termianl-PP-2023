@@ -9,8 +9,8 @@
         public static void Main()
         {
             ApplicationConfiguration.Initialize();
-            //Application.Run(new Logowanie));     // by testowac bepośrednio trzeba ustawić TimeTableTest na true w ConnectionInfo !
-           Application.Run(new Logowanie());
+            Application.Run(new Timetable());     // by testowac bepośrednio trzeba ustawić TimeTableTest na true w ConnectionInfo !
+            //Application.Run(new Logowanie());
         }
     }
 }

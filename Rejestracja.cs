@@ -16,7 +16,6 @@ namespace FormsTermianlPP2023
         public Rejestracja()
         {
             InitializeComponent();
-
         }
 
         private void button_rejestracja_Click(object sender, EventArgs e)
@@ -30,7 +29,7 @@ namespace FormsTermianlPP2023
             string password = txt_password.Text;
             string password_confirm = txt_password_confirm.Text;
 
-            if (name == "" || login == "" || password == "" || password_confirm == "")
+            if(name == "" || login == "" || password == "" || password_confirm=="")
             {
                 error.Show();
                 error.Text = "Uzupełnij wszystkie pola";
@@ -42,7 +41,7 @@ namespace FormsTermianlPP2023
                     error.Show();
                     error.Text = "Wprowadzone hasła różnią się";
                 }
-                else
+                else 
                 {
                     User users = new User();
                     users.name = name;
@@ -56,51 +55,34 @@ namespace FormsTermianlPP2023
                     }
                     else
                     {
-                        int przypisaneID = dataBase.AddUser(users);
-                        Logowanie.logowanieInstacja.opis.Visible = true;
-                        this.Close();
-                    }
 
+                        int przypisaneID = dataBase.AddUser(users);
+                        error.Show();
+                        error.Text = "Zarejestrowano pomyślnie";
+                    
+                        var myForm = new Logowanie();
+                        myForm.Show();
+                        this.Close();
+                       
+
+                    }
+                    
 
                 }
-
+                
             }
         }
 
-        private void txt_name_KeyDown(object sender, KeyEventArgs e)
+        private void label6_Click(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                button_registration.PerformClick();
-                e.SuppressKeyPress = true;
-            }
+
         }
 
-        private void txt_login_KeyDown(object sender, KeyEventArgs e)
+        private void cofnij_Click(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                button_registration.PerformClick();
-                e.SuppressKeyPress = true;
-            }
-        }
-
-        private void txt_password_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                button_registration.PerformClick();
-                e.SuppressKeyPress = true;
-            }
-        }
-
-        private void txt_password_confirm_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                button_registration.PerformClick();
-                e.SuppressKeyPress = true;
-            }
+            var myForm = new Logowanie();
+            myForm.Show();
+            this.Close();
         }
     }
 }
