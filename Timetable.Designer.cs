@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             dayCon = new FlowLayoutPanel();
-            flowLayoutPanel2 = new FlowLayoutPanel();
             button1 = new Button();
             button2 = new Button();
             label1 = new Label();
@@ -42,6 +41,7 @@
             lbDATE = new Label();
             eventSidebar = new EventSidebar();
             exitButton = new Button();
+            flowLayoutPanel2 = new FlowLayoutPanel();
             SuspendLayout();
             // 
             // dayCon
@@ -54,15 +54,6 @@
             dayCon.Name = "dayCon";
             dayCon.Size = new Size(1019, 0);
             dayCon.TabIndex = 0;
-            // 
-            // flowLayoutPanel2
-            // 
-            flowLayoutPanel2.BackColor = SystemColors.ActiveBorder;
-            flowLayoutPanel2.Dock = DockStyle.Top;
-            flowLayoutPanel2.Location = new Point(0, 0);
-            flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(1019, 63);
-            flowLayoutPanel2.TabIndex = 1;
             // 
             // button1
             // 
@@ -172,14 +163,15 @@
             eventSidebar.Location = new Point(0, 68);
             eventSidebar.Margin = new Padding(2);
             eventSidebar.Name = "eventSidebar";
-            eventSidebar.Size = new Size(800, 660);
+            eventSidebar.Size = new Size(800, 650);
             eventSidebar.TabIndex = 12;
+            eventSidebar.Load += eventSidebar_Load;
             // 
             // exitButton
             // 
             exitButton.BackColor = Color.Transparent;
             exitButton.BackgroundImage = Properties.Resources.cnacelButtonInactive;
-            exitButton.Location = new Point(980, 1);
+            exitButton.Location = new Point(981, 0);
             exitButton.Margin = new Padding(0);
             exitButton.Name = "exitButton";
             exitButton.Size = new Size(38, 36);
@@ -188,6 +180,15 @@
             exitButton.Click += exitBtn_Click;
             exitButton.MouseLeave += exitButtonLeft;
             exitButton.MouseHover += exitButtonHovered;
+            // 
+            // flowLayoutPanel2
+            // 
+            flowLayoutPanel2.BackColor = SystemColors.ActiveBorder;
+            flowLayoutPanel2.Dock = DockStyle.Top;
+            flowLayoutPanel2.Location = new Point(0, 0);
+            flowLayoutPanel2.Name = "flowLayoutPanel2";
+            flowLayoutPanel2.Size = new Size(1019, 10);
+            flowLayoutPanel2.TabIndex = 1;
             // 
             // Timetable
             // 
@@ -212,7 +213,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "Timetable";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "Terminarz";
             Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
@@ -221,7 +222,6 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel dayCon;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
@@ -234,6 +234,7 @@
         private System.Windows.Forms.Label lbDATE;
         private EventSidebar eventSidebar;
         private Button exitButton;
+        private FlowLayoutPanel flowLayoutPanel2;
     }
 }
 

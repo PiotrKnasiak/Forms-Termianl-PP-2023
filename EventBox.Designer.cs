@@ -1,6 +1,6 @@
 ﻿namespace FormsTermianlPP2023
 {
-    partial class EventSidebar
+    partial class EventBox
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,63 +28,63 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EventBox));
+            modifyBtn = new Button();
             exitBtn = new Button();
-            chosenDate = new Label();
-            eventsContainer = new GroupBox();
+            chosenEvent = new Label();
             SuspendLayout();
+            // 
+            // modifyBtn
+            // 
+            modifyBtn.BackgroundImage = (Image)resources.GetObject("modifyBtn.BackgroundImage");
+            modifyBtn.Location = new Point(553, 13);
+            modifyBtn.Name = "modifyBtn";
+            modifyBtn.Size = new Size(76, 72);
+            modifyBtn.TabIndex = 0;
+            modifyBtn.UseVisualStyleBackColor = true;
+            modifyBtn.Click += modifyBtn_Click;
             // 
             // exitBtn
             // 
             exitBtn.BackColor = Color.Transparent;
-            exitBtn.BackgroundImage = Properties.Resources.cnacelButtonInactive;
-            exitBtn.Location = new Point(759, 3);
+            exitBtn.BackgroundImage = (Image)resources.GetObject("exitBtn.BackgroundImage");
+            exitBtn.Location = new Point(640, 13);
             exitBtn.Name = "exitBtn";
-            exitBtn.Size = new Size(38, 36);
-            exitBtn.TabIndex = 0;
+            exitBtn.Size = new Size(76, 72);
+            exitBtn.TabIndex = 1;
             exitBtn.UseVisualStyleBackColor = false;
             exitBtn.Click += exitBtn_Click;
             exitBtn.MouseLeave += exitButtonLeft;
             exitBtn.MouseHover += exitButtonHovered;
             // 
-            // chosenDate
+            // chosenEvent
             // 
-            chosenDate.AutoSize = true;
-            chosenDate.BackColor = Color.White;
-            chosenDate.Font = new Font("Candara", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            chosenDate.Location = new Point(32, 37);
-            chosenDate.Name = "chosenDate";
-            chosenDate.Size = new Size(228, 29);
-            chosenDate.TabIndex = 1;
-            chosenDate.Text = "Data wybranego dnia";
+            chosenEvent.AutoSize = true;
+            chosenEvent.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            chosenEvent.Location = new Point(25, 27);
+            chosenEvent.Name = "chosenEvent";
+            chosenEvent.Size = new Size(132, 46);
+            chosenEvent.TabIndex = 2;
+            chosenEvent.Text = "No title";
             // 
-            // eventsContainer
-            // 
-            eventsContainer.Location = new Point(32, 97);
-            eventsContainer.Name = "eventsContainer";
-            eventsContainer.Size = new Size(733, 375);
-            eventsContainer.TabIndex = 2;
-            eventsContainer.TabStop = false;
-            // 
-            // EventSidebar
+            // EventBox
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.LightGray;
-            BorderStyle = BorderStyle.FixedSingle;
-            Controls.Add(eventsContainer);
-            Controls.Add(chosenDate);
+            Controls.Add(chosenEvent);
             Controls.Add(exitBtn);
-            Margin = new Padding(2);
-            Name = "EventSidebar";
-            Size = new Size(798, 658);
+            Controls.Add(modifyBtn);
+            Name = "EventBox";
+            Size = new Size(727, 100);
+            Load += EventBox_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
+        private Button modifyBtn;
         private Button exitBtn;
-        private Label chosenDate;
-        private GroupBox eventsContainer;
+        private Label chosenEvent;
     }
 }

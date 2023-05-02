@@ -4,6 +4,7 @@ using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.DirectoryServices;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -89,14 +90,18 @@ namespace FormsTermianlPP2023
             return user;
         }
 
-        private User LoadUser(string login)
+        public User LoadUser(string login, string password = "")
         {
             User user = new User();
             DataTable loaded = new DataTable();
 
             try
             {
-                loaded = connection.TakeDataFromTable("LoginData", "*", $"Login = '{login}'");
+                if(password == "") 
+                    loaded = connection.TakeDataFromTable("LoginData", "*", $"Login = '{login}'");
+                else
+                    loaded = connection.TakeDataFromTable("LoginData", "*", $"Login = '{login}' AND Password = '{password}'");
+
                 if (loaded.Select().Length == 0) throw new Exception();
             }
             catch

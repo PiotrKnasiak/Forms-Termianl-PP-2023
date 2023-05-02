@@ -60,25 +60,6 @@ namespace FormsTermianlPP2023
             eventSidebar.Hide();
         }
 
-        //private void exitButtonHovered(object sender, EventArgs e)
-        //{
-        //    ToolStripItem item = (ToolStripItem)sender;
-
-        //    item.BackgroundImage = Image.FromFile(@".\..\..\..\Resources\cancelButtonImage.jpg");
-        //}
-
-        //private void exitButtonLeft(object sender, EventArgs e)
-        //{
-        //    ToolStripItem item = (ToolStripItem)sender;
-
-        //    item.BackgroundImage = Image.FromFile(@".\..\..\..\Resources\cancelButtonInactive.jpg");
-        //}
-
-        //public void exitButtonPress()
-        //{
-        //    this.Hide();
-        //}
-
         private void displayDays()
         {
             Event[] userEvents = new Event[] { };
@@ -223,6 +204,11 @@ namespace FormsTermianlPP2023
         private void exitBtn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void eventSidebar_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

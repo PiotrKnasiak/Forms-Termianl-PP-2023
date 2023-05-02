@@ -29,155 +29,155 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Logowanie));
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txt_login = new System.Windows.Forms.TextBox();
-            this.txt_password = new System.Windows.Forms.TextBox();
-            this.button_login = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.Rejestracja = new System.Windows.Forms.LinkLabel();
-            this.error = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.SuspendLayout();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            txt_login = new TextBox();
+            txt_password = new TextBox();
+            button_login = new Button();
+            label4 = new Label();
+            Rejestracja = new LinkLabel();
+            error = new Label();
+            panel1 = new Panel();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Arial Black", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(68, 60);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(226, 52);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Terminarz";
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Arial Black", 22.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(68, 60);
+            label1.Name = "label1";
+            label1.Size = new Size(226, 52);
+            label1.TabIndex = 0;
+            label1.Text = "Terminarz";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(77, 164);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Login";
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Location = new Point(77, 164);
+            label2.Name = "label2";
+            label2.Size = new Size(46, 20);
+            label2.TabIndex = 1;
+            label2.Text = "Login";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(77, 231);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 20);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Hasło";
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Location = new Point(77, 231);
+            label3.Name = "label3";
+            label3.Size = new Size(47, 20);
+            label3.TabIndex = 2;
+            label3.Text = "Hasło";
             // 
             // txt_login
             // 
-            this.txt_login.BackColor = System.Drawing.SystemColors.Window;
-            this.txt_login.Location = new System.Drawing.Point(77, 187);
-            this.txt_login.Name = "txt_login";
-            this.txt_login.Size = new System.Drawing.Size(215, 27);
-            this.txt_login.TabIndex = 3;
-            this.txt_login.Click += new System.EventHandler(this.txt_username_Click);
+            txt_login.BackColor = SystemColors.Window;
+            txt_login.Location = new Point(77, 187);
+            txt_login.Name = "txt_login";
+            txt_login.Size = new Size(215, 27);
+            txt_login.TabIndex = 3;
+            txt_login.Click += txt_username_Click;
             // 
             // txt_password
             // 
-            this.txt_password.Location = new System.Drawing.Point(77, 254);
-            this.txt_password.Name = "txt_password";
-            this.txt_password.Size = new System.Drawing.Size(215, 27);
-            this.txt_password.TabIndex = 4;
-            this.txt_password.UseSystemPasswordChar = true;
-            this.txt_password.Click += new System.EventHandler(this.txt_password_Click);
+            txt_password.Location = new Point(77, 254);
+            txt_password.Name = "txt_password";
+            txt_password.Size = new Size(215, 27);
+            txt_password.TabIndex = 4;
+            txt_password.UseSystemPasswordChar = true;
+            txt_password.Click += txt_password_Click;
             // 
             // button_login
             // 
-            this.button_login.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button_login.Location = new System.Drawing.Point(198, 300);
-            this.button_login.Name = "button_login";
-            this.button_login.Size = new System.Drawing.Size(94, 29);
-            this.button_login.TabIndex = 5;
-            this.button_login.Text = "Zaloguj się";
-            this.button_login.UseVisualStyleBackColor = false;
-            this.button_login.Click += new System.EventHandler(this.button_login_Click);
+            button_login.BackColor = SystemColors.ButtonHighlight;
+            button_login.Location = new Point(198, 300);
+            button_login.Name = "button_login";
+            button_login.Size = new Size(94, 29);
+            button_login.TabIndex = 5;
+            button_login.Text = "Zaloguj się";
+            button_login.UseVisualStyleBackColor = false;
+            button_login.Click += button_login_Click;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(77, 377);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(122, 20);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Nie masz konta? ";
+            label4.AutoSize = true;
+            label4.BackColor = Color.Transparent;
+            label4.Location = new Point(77, 377);
+            label4.Name = "label4";
+            label4.Size = new Size(122, 20);
+            label4.TabIndex = 6;
+            label4.Text = "Nie masz konta? ";
             // 
             // Rejestracja
             // 
-            this.Rejestracja.ActiveLinkColor = System.Drawing.Color.Teal;
-            this.Rejestracja.AutoSize = true;
-            this.Rejestracja.BackColor = System.Drawing.Color.Transparent;
-            this.Rejestracja.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.Rejestracja.LinkColor = System.Drawing.Color.Teal;
-            this.Rejestracja.Location = new System.Drawing.Point(191, 377);
-            this.Rejestracja.Name = "Rejestracja";
-            this.Rejestracja.Size = new System.Drawing.Size(101, 20);
-            this.Rejestracja.TabIndex = 7;
-            this.Rejestracja.TabStop = true;
-            this.Rejestracja.Text = "Zarejestruj się";
-            this.Rejestracja.VisitedLinkColor = System.Drawing.Color.Black;
-            this.Rejestracja.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Rejestracja_LinkClicked);
+            Rejestracja.ActiveLinkColor = Color.Teal;
+            Rejestracja.AutoSize = true;
+            Rejestracja.BackColor = Color.Transparent;
+            Rejestracja.LinkBehavior = LinkBehavior.HoverUnderline;
+            Rejestracja.LinkColor = Color.Teal;
+            Rejestracja.Location = new Point(191, 377);
+            Rejestracja.Name = "Rejestracja";
+            Rejestracja.Size = new Size(101, 20);
+            Rejestracja.TabIndex = 7;
+            Rejestracja.TabStop = true;
+            Rejestracja.Text = "Zarejestruj się";
+            Rejestracja.VisitedLinkColor = Color.Black;
+            Rejestracja.LinkClicked += Rejestracja_LinkClicked;
             // 
             // error
             // 
-            this.error.AutoSize = true;
-            this.error.BackColor = System.Drawing.Color.Transparent;
-            this.error.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.error.ForeColor = System.Drawing.Color.Red;
-            this.error.Location = new System.Drawing.Point(77, 342);
-            this.error.Name = "error";
-            this.error.Size = new System.Drawing.Size(44, 20);
-            this.error.TabIndex = 8;
-            this.error.Text = "Error";
-            this.error.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.error.Visible = false;
+            error.AutoSize = true;
+            error.BackColor = Color.Transparent;
+            error.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            error.ForeColor = Color.Red;
+            error.Location = new Point(77, 342);
+            error.Name = "error";
+            error.Size = new Size(44, 20);
+            error.TabIndex = 8;
+            error.Text = "Error";
+            error.TextAlign = ContentAlignment.BottomRight;
+            error.Visible = false;
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.BackgroundImage = global::FormsTermianlPP2023.Properties.Resources.opcyjaPNG1;
-            this.panel1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel1.Location = new System.Drawing.Point(12, 425);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(32, 32);
-            this.panel1.TabIndex = 9;
-            this.panel1.Click += new System.EventHandler(this.panel1_Click);
+            panel1.BackColor = Color.Transparent;
+            panel1.BackgroundImage = Properties.Resources.opcyjaPNG1;
+            panel1.Cursor = Cursors.Hand;
+            panel1.Location = new Point(12, 425);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(32, 32);
+            panel1.TabIndex = 9;
+            panel1.Click += panel1_Click;
             // 
             // Logowanie
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(809, 469);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.error);
-            this.Controls.Add(this.Rejestracja);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.button_login);
-            this.Controls.Add(this.txt_password);
-            this.Controls.Add(this.txt_login);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "Logowanie";
-            this.Text = "Logowanie";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.Control;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            ClientSize = new Size(809, 469);
+            Controls.Add(panel1);
+            Controls.Add(error);
+            Controls.Add(Rejestracja);
+            Controls.Add(label4);
+            Controls.Add(button_login);
+            Controls.Add(txt_password);
+            Controls.Add(txt_login);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "Logowanie";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Logowanie";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
