@@ -28,36 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbdays = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+            lbdays = new Label();
+            SuspendLayout();
             // 
             // lbdays
             // 
-            this.lbdays.AutoSize = true;
-            this.lbdays.Font = new System.Drawing.Font("Candara", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lbdays.Location = new System.Drawing.Point(107, 16);
-            this.lbdays.Name = "lbdays";
-            this.lbdays.Size = new System.Drawing.Size(27, 19);
-            this.lbdays.TabIndex = 0;
-            this.lbdays.Text = "00";
-            this.lbdays.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lbdays.AutoSize = true;
+            lbdays.Font = new Font("Candara", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            lbdays.Location = new Point(95, 16);
+            lbdays.Name = "lbdays";
+            lbdays.Size = new Size(24, 17);
+            lbdays.TabIndex = 0;
+            lbdays.Text = "00";
+            lbdays.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // UserControlDays
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.Controls.Add(this.lbdays);
-            this.Name = "UserControlDays";
-            this.Size = new System.Drawing.Size(156, 81);
-            this.Load += new System.EventHandler(this.UserControlDays_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ButtonFace;
+            Controls.Add(lbdays);
+            Name = "UserControlDays";
+            Size = new Size(139, 81);
+            Load += UserControlDays_Load;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private System.Windows.Forms.Label lbdays;
+        public Label lbdays;
     }
 }

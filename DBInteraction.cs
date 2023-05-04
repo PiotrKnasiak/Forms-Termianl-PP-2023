@@ -9,6 +9,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace FormsTermianlPP2023
 {
@@ -90,18 +91,37 @@ namespace FormsTermianlPP2023
             return user;
         }
 
-        public User LoadUser(string login, string password = "")
+        public User LoadUser(string login, string password)
         {
             User user = new User();
             DataTable loaded = new DataTable();
 
             try
             {
-                if(password == "") 
-                    loaded = connection.TakeDataFromTable("LoginData", "*", $"Login = '{login}'");
-                else
-                    loaded = connection.TakeDataFromTable("LoginData", "*", $"Login = '{login}' AND Password = '{password}'");
+                loaded = connection.TakeDataFromTable("LoginData", "*", $"Login = '{login}' AND Password = '{password}'");
 
+                if (loaded.Select().Length == 0) throw new Exception();
+            }
+            catch
+            {
+                failure = "Failure to load a specific user found by login and password";
+                return UserBuilder(0, "error", "error", "error");
+            }
+
+            DataRow row = loaded.Select()[0];
+            user = this.UserBuilder((int)row["UserID"], (string)row["Name"], (string)row["Login"], (string)row["Password"]);
+
+            return user;
+        }
+
+        private User LoadUser(string login)
+        {
+            User user = new User();
+            DataTable loaded = new DataTable();
+
+            try
+            {
+                loaded = connection.TakeDataFromTable("LoginData", "*", $"Login = '{login}'");
                 if (loaded.Select().Length == 0) throw new Exception();
             }
             catch
@@ -118,7 +138,7 @@ namespace FormsTermianlPP2023
 
         public User[] LoadAllUsers()
         {
-            User[] users = null;
+            User[] users = new User[0];
             DataTable loaded = new DataTable();
 
             try
@@ -265,7 +285,75 @@ namespace FormsTermianlPP2023
             return loadedEvent;
         }
 
-        private Event LoadEvent(int userID, string name)
+        /// <summary>
+        /// Ładuje eventy z konkretnej daty
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <param name="date"></param>
+        /// <returns></returns>
+        public Event[] LoadEventsOnDate(int userID, string date)
+        {
+            Event[] loadedEventList = new Event[0];
+            DataTable dt = connection.TakeDataFromTable($"User{userID}Events", "*", $"DateStart <= '{date}' AND DateEnd >= '{date}'");
+
+            try
+            {
+                DataRow[] drs = dt.Select();
+                loadedEventList = new Event[drs.Length];
+
+                for (int i = 0; i < drs.Length; i++)
+                {
+                    loadedEventList[i] = EventBuilder((int)drs[i]["EventID"], (string)drs[i]["Name"],
+                        (string)drs[i]["Description"], (DateTime)drs[i]["DateStart"], (DateTime)drs[i]["DateEnd"]);
+                }
+                
+            }
+            catch
+            {
+                failure = $"Failed to load event on date : {date}, of user with ID {userID}";
+            }
+
+            return loadedEventList;
+        }
+
+        /// <summary>
+        /// Ładuje eventy z konkretnego miesiąca
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <param name="monthStartDate"></param>
+        /// <returns></returns>
+        public Event[] LoadEventsOnMonth(int userID, string monthStartDate)
+        {
+
+            DateTime nextMonth = DateTime.Parse(monthStartDate).AddMonths(1);
+
+            Event[] loadedEventList = new Event[0];
+
+            DataTable dt = connection.TakeDataFromTable($"User{userID}Events",
+                "*", $"DateStart < '{nextMonth.ToString("yyyy-MM-dd")}' AND DateEnd >= '{monthStartDate}'");
+
+            try
+            {
+                DataRow[] drs = dt.Select();
+                loadedEventList = new Event[drs.Length];
+
+                for (int i = 0; i < drs.Length; i++)
+                {
+                    loadedEventList[i] = EventBuilder((int)drs[i]["EventID"], (string)drs[i]["Name"],
+                        (string)drs[i]["Description"], (DateTime)drs[i]["DateStart"], (DateTime)drs[i]["DateEnd"]);
+                }
+
+            }
+            catch
+            {
+                failure += $"Failed to load events on month : {monthStartDate}, of user with ID {userID}\n";
+                MessageBox.Show(failure);
+            }
+
+            return loadedEventList;
+        }
+
+        private Event LoadEventPriv(int userID, string name)
         {
             Event loadedEvent = EventBuilder(0, "error", "error", DateTime.Parse("997-11-20 13:37"), DateTime.Parse("1968-9-11 21:37"));
             DataTable dt = connection.TakeDataFromTable($"User{userID}Events", "*", $"Name = '{name}'");
@@ -366,7 +454,7 @@ namespace FormsTermianlPP2023
 
             try
             {
-                Event lastSimilar = LoadEvent(userID, eventData.name);
+                Event lastSimilar = LoadEventPriv(userID, eventData.name);
                 assignedID = lastSimilar.EventID;
             }
             catch

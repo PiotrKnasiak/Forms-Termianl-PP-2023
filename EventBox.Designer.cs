@@ -31,15 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EventBox));
             modifyBtn = new Button();
             exitBtn = new Button();
-            chosenEvent = new Label();
+            chosenEventName = new Label();
             SuspendLayout();
             // 
             // modifyBtn
             // 
             modifyBtn.BackgroundImage = (Image)resources.GetObject("modifyBtn.BackgroundImage");
-            modifyBtn.Location = new Point(553, 13);
+            modifyBtn.Location = new Point(570, 10);
             modifyBtn.Name = "modifyBtn";
-            modifyBtn.Size = new Size(76, 72);
+            modifyBtn.Size = new Size(53, 50);
             modifyBtn.TabIndex = 0;
             modifyBtn.UseVisualStyleBackColor = true;
             modifyBtn.Click += modifyBtn_Click;
@@ -48,34 +48,34 @@
             // 
             exitBtn.BackColor = Color.Transparent;
             exitBtn.BackgroundImage = (Image)resources.GetObject("exitBtn.BackgroundImage");
-            exitBtn.Location = new Point(640, 13);
+            exitBtn.Location = new Point(636, 10);
             exitBtn.Name = "exitBtn";
-            exitBtn.Size = new Size(76, 72);
+            exitBtn.Size = new Size(53, 50);
             exitBtn.TabIndex = 1;
             exitBtn.UseVisualStyleBackColor = false;
             exitBtn.Click += exitBtn_Click;
             exitBtn.MouseLeave += exitButtonLeft;
             exitBtn.MouseHover += exitButtonHovered;
             // 
-            // chosenEvent
+            // chosenEventName
             // 
-            chosenEvent.AutoSize = true;
-            chosenEvent.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            chosenEvent.Location = new Point(25, 27);
-            chosenEvent.Name = "chosenEvent";
-            chosenEvent.Size = new Size(132, 46);
-            chosenEvent.TabIndex = 2;
-            chosenEvent.Text = "No title";
+            chosenEventName.AutoSize = true;
+            chosenEventName.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            chosenEventName.Location = new Point(22, 17);
+            chosenEventName.Name = "chosenEventName";
+            chosenEventName.Size = new Size(97, 35);
+            chosenEventName.TabIndex = 2;
+            chosenEventName.Text = "No title";
             // 
             // EventBox
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(chosenEvent);
+            Controls.Add(chosenEventName);
             Controls.Add(exitBtn);
             Controls.Add(modifyBtn);
             Name = "EventBox";
-            Size = new Size(727, 100);
+            Size = new Size(700, 70);
             Load += EventBox_Load;
             ResumeLayout(false);
             PerformLayout();
@@ -85,6 +85,6 @@
 
         private Button modifyBtn;
         private Button exitBtn;
-        private Label chosenEvent;
+        private Label chosenEventName;
     }
 }

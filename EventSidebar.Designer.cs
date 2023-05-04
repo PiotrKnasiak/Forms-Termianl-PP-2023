@@ -30,14 +30,14 @@
         {
             exitBtn = new Button();
             chosenDate = new Label();
-            eventsContainer = new GroupBox();
+            eventsContainer = new FlowLayoutPanel();
             SuspendLayout();
             // 
             // exitBtn
             // 
             exitBtn.BackColor = Color.Transparent;
             exitBtn.BackgroundImage = Properties.Resources.cnacelButtonInactive;
-            exitBtn.Location = new Point(759, 3);
+            exitBtn.Location = new Point(758, 3);
             exitBtn.Name = "exitBtn";
             exitBtn.Size = new Size(38, 36);
             exitBtn.TabIndex = 0;
@@ -50,26 +50,29 @@
             // 
             chosenDate.AutoSize = true;
             chosenDate.BackColor = Color.White;
-            chosenDate.Font = new Font("Candara", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            chosenDate.BorderStyle = BorderStyle.FixedSingle;
+            chosenDate.Font = new Font("Candara", 18F, FontStyle.Regular, GraphicsUnit.Point);
             chosenDate.Location = new Point(32, 37);
+            chosenDate.Margin = new Padding(5);
             chosenDate.Name = "chosenDate";
-            chosenDate.Size = new Size(228, 29);
+            chosenDate.Padding = new Padding(4);
+            chosenDate.Size = new Size(300, 47);
             chosenDate.TabIndex = 1;
             chosenDate.Text = "Data wybranego dnia";
             // 
             // eventsContainer
             // 
-            eventsContainer.Location = new Point(32, 97);
+            eventsContainer.AutoScroll = true;
+            eventsContainer.Location = new Point(32, 109);
             eventsContainer.Name = "eventsContainer";
-            eventsContainer.Size = new Size(733, 375);
+            eventsContainer.Size = new Size(733, 365);
             eventsContainer.TabIndex = 2;
-            eventsContainer.TabStop = false;
             // 
             // EventSidebar
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.LightGray;
+            BackColor = Color.WhiteSmoke;
             BorderStyle = BorderStyle.FixedSingle;
             Controls.Add(eventsContainer);
             Controls.Add(chosenDate);
@@ -85,6 +88,6 @@
 
         private Button exitBtn;
         private Label chosenDate;
-        private GroupBox eventsContainer;
+        private FlowLayoutPanel eventsContainer;
     }
 }

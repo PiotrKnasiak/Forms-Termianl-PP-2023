@@ -152,6 +152,7 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "ServerConnectionConfig";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Konfiguracja połączenia z serwerem";
             Load += ServerConnectionConfig_Load;
             ResumeLayout(false);

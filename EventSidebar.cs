@@ -7,43 +7,46 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace FormsTermianlPP2023
 {
     public partial class EventSidebar : UserControl
     {
         DateTime dateChosen = DateTime.MinValue;    // do kontroli błędów
-        int eventBoxesCount = 0;
+        Event[] events = new Event[0];
 
         public EventSidebar()
         {
             InitializeComponent();
             //exitBtn.Click += exitButtonPress();
         }
-        public void assignTitle(string Title)
+        public void assignDate(DateTime dateChosen)
         {
-            chosenDate.Text = Title;
+            this.dateChosen = dateChosen;
+            chosenDate.Text = dateChosen.ToString("D");
+        }
 
-            //test
+        public void assignEvents(Event[] events)
+        {
+            this.events = events;
+            displayEvents();
+        }
+        public void assignEvents(List<Event> events)
+        {
+            this.events = events.ToArray();
+            displayEvents();
+        }
 
-            EventBox ev1 = new EventBox();
-            EventBox ev2 = new EventBox();
-            EventBox ev3 = new EventBox();
-            EventBox ev4 = new EventBox();
-            EventBox ev5 = new EventBox();
+        public void displayEvents()
+        {
+            foreach (Event ev in events)
+            {
+                EventBox evBox = new EventBox();
+                evBox.assingEvent(ev);
 
-            eventsContainer.Controls.Add(ev1);
-            eventsContainer.Controls.Add(ev2);
-            eventsContainer.Controls.Add(ev3);
-            eventsContainer.Controls.Add(ev4);
-            eventsContainer.Controls.Add(ev5);
-
-            ev1.changeNameForTests("brbrbr1");
-            ev2.changeNameForTests("brbrbr2");
-            ev3.changeNameForTests("brbrbr3");
-            ev4.changeNameForTests("brbrbr4");
-            ev5.changeNameForTests("brbrbr5");
-
+                eventsContainer.Controls.Add(evBox);
+            }
         }
 
         private void exitButtonHovered(object sender, EventArgs e)
@@ -62,6 +65,7 @@ namespace FormsTermianlPP2023
 
         private void exitBtn_Click(object sender, EventArgs e)
         {
+            eventsContainer.Controls.Clear();
             this.Hide();
         }
     }

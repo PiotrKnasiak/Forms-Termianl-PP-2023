@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             dayCon = new FlowLayoutPanel();
-            button1 = new Button();
-            button2 = new Button();
+            prevMonthBtn = new Button();
+            nextMonthBtn = new Button();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -55,25 +55,25 @@
             dayCon.Size = new Size(1019, 0);
             dayCon.TabIndex = 0;
             // 
-            // button1
+            // prevMonthBtn
             // 
-            button1.Location = new Point(24, 106);
-            button1.Name = "button1";
-            button1.Size = new Size(52, 43);
-            button1.TabIndex = 2;
-            button1.Text = "←";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            prevMonthBtn.Location = new Point(24, 106);
+            prevMonthBtn.Name = "prevMonthBtn";
+            prevMonthBtn.Size = new Size(52, 43);
+            prevMonthBtn.TabIndex = 2;
+            prevMonthBtn.Text = "←";
+            prevMonthBtn.UseVisualStyleBackColor = true;
+            prevMonthBtn.Click += prevMonthBtn_Click;
             // 
-            // button2
+            // nextMonthBtn
             // 
-            button2.Location = new Point(940, 106);
-            button2.Name = "button2";
-            button2.Size = new Size(52, 43);
-            button2.TabIndex = 3;
-            button2.Text = "→";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            nextMonthBtn.Location = new Point(940, 106);
+            nextMonthBtn.Name = "nextMonthBtn";
+            nextMonthBtn.Size = new Size(52, 43);
+            nextMonthBtn.TabIndex = 3;
+            nextMonthBtn.Text = "→";
+            nextMonthBtn.UseVisualStyleBackColor = true;
+            nextMonthBtn.Click += nextMonthButton_Click;
             // 
             // label1
             // 
@@ -158,7 +158,7 @@
             // 
             // eventSidebar
             // 
-            eventSidebar.BackColor = Color.LightGray;
+            eventSidebar.BackColor = Color.WhiteSmoke;
             eventSidebar.BorderStyle = BorderStyle.FixedSingle;
             eventSidebar.Location = new Point(0, 68);
             eventSidebar.Margin = new Padding(2);
@@ -171,7 +171,7 @@
             // 
             exitButton.BackColor = Color.Transparent;
             exitButton.BackgroundImage = Properties.Resources.cnacelButtonInactive;
-            exitButton.Location = new Point(981, 0);
+            exitButton.Location = new Point(978, 3);
             exitButton.Margin = new Padding(0);
             exitButton.Name = "exitButton";
             exitButton.Size = new Size(38, 36);
@@ -187,7 +187,7 @@
             flowLayoutPanel2.Dock = DockStyle.Top;
             flowLayoutPanel2.Location = new Point(0, 0);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(1019, 10);
+            flowLayoutPanel2.Size = new Size(1019, 60);
             flowLayoutPanel2.TabIndex = 1;
             // 
             // Timetable
@@ -206,15 +206,15 @@
             Controls.Add(label4);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(nextMonthBtn);
+            Controls.Add(prevMonthBtn);
             Controls.Add(flowLayoutPanel2);
             Controls.Add(dayCon);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Timetable";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Terminarz";
-            Load += Form1_Load;
+            Load += Timetable_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -222,8 +222,8 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel dayCon;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button prevMonthBtn;
+        private System.Windows.Forms.Button nextMonthBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

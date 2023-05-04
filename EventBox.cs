@@ -21,18 +21,18 @@ namespace FormsTermianlPP2023
 
         private void EventBox_Load(object sender, EventArgs e)
         {
-            chosenEvent.MaximumSize = new System.Drawing.Size((Size.Width - 200), chosenEvent.Size.Height);
+            chosenEventName.MaximumSize = new System.Drawing.Size((Size.Width - 300), chosenEventName.Size.Height);
         }
 
         public void assingEvent(Event ev)
         {
             this.assignedEvent = ev;
-            this.chosenEvent.Text = assignedEvent.name;
+            this.chosenEventName.Text = assignedEvent.name;
         }
 
         public void changeNameForTests(string newName)
         {
-            this.chosenEvent.Text = newName;
+            this.chosenEventName.Text = newName;
         }
 
         private void exitButtonHovered(object sender, EventArgs e)

@@ -24,12 +24,12 @@ namespace FormsTermianlPP2023
         {
             string[] connVars = new string[] { ConnectionInfo.server, ConnectionInfo.DB, ConnectionInfo.UserName, ConnectionInfo.password };
 
-            if (inp_server.Text != "") 
+            if (inp_server.Text != "")
             {
                 ConnectionInfo.server = inp_server.Text;
                 connVars[0] = inp_server.Text;
             }
-            if (inp_DB.Text != "") 
+            if (inp_DB.Text != "")
             {
                 ConnectionInfo.DB = inp_DB.Text;
                 connVars[1] = inp_DB.Text;
@@ -39,7 +39,7 @@ namespace FormsTermianlPP2023
                 ConnectionInfo.UserName = inp_login.Text;
                 connVars[2] = inp_login.Text;
             }
-            if (inp_pass.Text != "") 
+            if (inp_pass.Text != "")
             {
                 ConnectionInfo.password = inp_pass.Text;
                 connVars[3] = inp_pass.Text;
@@ -54,7 +54,7 @@ namespace FormsTermianlPP2023
             }
             else
             {
-                MessageBox.Show("Server found", "Success", MessageBoxButtons.OK);
+                this.Close();
             }
         }
 

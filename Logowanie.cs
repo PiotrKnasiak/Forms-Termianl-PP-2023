@@ -66,10 +66,11 @@ namespace FormsTermianlPP2023
                     {
                         //Login.Text = "login successful !";
                         ConnectionInfo.tempInt = users[i].ID;
-                        Timetable timeTableWindow = new Timetable();
+                        Timetable timetableWindow = new Timetable();
                         ConnectionInfo.loggedUser = users[i];
-                        timeTableWindow.Show();
-                        Thread.Sleep(10);
+                        timetableWindow.logCloseDelegate = this.Close;              // zapobiega pozostawieniu procesu w tle
+                        timetableWindow.Show();
+
                         this.Hide();
                         return;
                     }
