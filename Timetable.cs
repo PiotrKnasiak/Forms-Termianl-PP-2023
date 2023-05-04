@@ -81,8 +81,6 @@ namespace FormsTermianlPP2023
 
         private void displayDayPanels(int dayOfTheWeek, int days)
         {
-            Event[] eventsOfMonth = dataBase.LoadEventsOnMonth(ConnectionInfo.loggedUser.ID, $"{year}-{month}-01");
-
             // zapełnianie pustych pól pod nieoodpowiednimi dniami
             for (int i = 1; i < dayOfTheWeek; i++)
             {
