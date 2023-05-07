@@ -53,7 +53,7 @@ namespace FormsTermianlPP2023
             }
             catch
             {
-                failure = "Failure at converting dates form DB into an Event";
+                failure = "Failure at converting dates from DB into an Event";
             }
             return convertedE;
         }
