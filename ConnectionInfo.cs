@@ -18,7 +18,7 @@ namespace FormsTermianlPP2023
             password = "Projekt2023";
         }
 
-        public static string server = /*"153.19.227.34, 1433"*/"DESKTOP-N1TTNKL",
+        public static string server = "153.19.227.34, 1433"/*"DESKTOP-N1TTNKL"*/,
             DB = "ProjektPP2023",
             UserName = "projekt2023",
             password = "Projekt2023";
