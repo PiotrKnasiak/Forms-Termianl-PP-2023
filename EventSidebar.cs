@@ -71,6 +71,7 @@ namespace FormsTermianlPP2023
 
         private void addEventBtn_Click(object sender, EventArgs e)
         {
+            //w eventsContainer musi pojawić eventBox po 1 kliknięciu
 
         }
     }

@@ -142,6 +142,7 @@
             modifyEventButton.TabIndex = 10;
             modifyEventButton.Text = "Podtwierdż";
             modifyEventButton.UseVisualStyleBackColor = true;
+            modifyEventButton.Click += modifyEventButton_Click;
             // 
             // exitBtn
             // 

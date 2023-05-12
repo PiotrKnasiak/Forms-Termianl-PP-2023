@@ -21,5 +21,12 @@ namespace FormsTermianlPP2023
         {
             this.Hide();
         }
+
+        private void modifyEventButton_Click(object sender, EventArgs e)
+        {
+            //wczytywanie danych z tekstboksów i stworzenie eventu
+            
+            //zmiana tekstu chosenEventName na nazwę eventu
+        }
     }
 }
