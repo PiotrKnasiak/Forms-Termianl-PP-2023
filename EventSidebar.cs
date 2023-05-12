@@ -68,5 +68,10 @@ namespace FormsTermianlPP2023
             eventsContainer.Controls.Clear();
             this.Hide();
         }
+
+        private void addEventBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

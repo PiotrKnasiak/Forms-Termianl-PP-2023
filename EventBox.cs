@@ -56,9 +56,10 @@ namespace FormsTermianlPP2023
 
         private void modifyBtn_Click(object sender, EventArgs e)
         {
-            /*
-             * otwiera okno modyfikacji
-             */
+            // otwiera okno modyfikacji
+            EventModification eventModification = new EventModification();
+            eventModification.Show();
+
         }
     }
 }

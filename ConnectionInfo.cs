@@ -27,6 +27,6 @@ namespace FormsTermianlPP2023
         public static int tempInt=3;
         public static string tempString;
         public static User loggedUser;
-        public static bool TimeTableTest = false;
+        public static bool TimeTableTest = true;
     }
 }
