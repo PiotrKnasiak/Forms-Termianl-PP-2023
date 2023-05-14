@@ -12,7 +12,7 @@ namespace FormsTermianlPP2023
 {
     public partial class EventBox : UserControl
     {
-        Event assignedEvent = new Event();
+        public Event assignedEvent = new Event();
 
         public EventBox()
         {
@@ -57,7 +57,7 @@ namespace FormsTermianlPP2023
         private void modifyBtn_Click(object sender, EventArgs e)
         {
             // otwiera okno modyfikacji
-            EventModification eventModification = new EventModification();
+            EventModification eventModification = new EventModification(this);
             eventModification.Show();
 
         }

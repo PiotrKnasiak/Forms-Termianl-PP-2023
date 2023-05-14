@@ -37,10 +37,9 @@
             // modifyBtn
             // 
             modifyBtn.BackgroundImage = (Image)resources.GetObject("modifyBtn.BackgroundImage");
-            modifyBtn.Location = new Point(499, 8);
-            modifyBtn.Margin = new Padding(3, 2, 3, 2);
+            modifyBtn.Location = new Point(574, 14);
             modifyBtn.Name = "modifyBtn";
-            modifyBtn.Size = new Size(51, 44);
+            modifyBtn.Size = new Size(53, 50);
             modifyBtn.TabIndex = 0;
             modifyBtn.UseVisualStyleBackColor = true;
             modifyBtn.Click += modifyBtn_Click;
@@ -49,10 +48,9 @@
             // 
             exitBtn.BackColor = Color.Transparent;
             exitBtn.BackgroundImage = (Image)resources.GetObject("exitBtn.BackgroundImage");
-            exitBtn.Location = new Point(556, 8);
-            exitBtn.Margin = new Padding(3, 2, 3, 2);
+            exitBtn.Location = new Point(639, 14);
             exitBtn.Name = "exitBtn";
-            exitBtn.Size = new Size(53, 44);
+            exitBtn.Size = new Size(53, 50);
             exitBtn.TabIndex = 1;
             exitBtn.UseVisualStyleBackColor = false;
             exitBtn.Click += exitBtn_Click;
@@ -63,22 +61,21 @@
             // 
             chosenEventName.AutoSize = true;
             chosenEventName.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            chosenEventName.Location = new Point(19, 13);
+            chosenEventName.Location = new Point(22, 22);
             chosenEventName.Name = "chosenEventName";
-            chosenEventName.Size = new Size(78, 28);
+            chosenEventName.Size = new Size(97, 35);
             chosenEventName.TabIndex = 2;
             chosenEventName.Text = "No title";
             // 
             // EventBox
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(chosenEventName);
             Controls.Add(exitBtn);
             Controls.Add(modifyBtn);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "EventBox";
-            Size = new Size(619, 61);
+            Size = new Size(707, 81);
             Load += EventBox_Load;
             ResumeLayout(false);
             PerformLayout();
@@ -88,6 +85,6 @@
 
         private Button modifyBtn;
         private Button exitBtn;
-        private Label chosenEventName;
+        public Label chosenEventName;
     }
 }

@@ -28,6 +28,7 @@ namespace FormsTermianlPP2023
         }
 
         public string failure = "";
+
         /// <summary>
         /// Konwersja inta i stringów w User
         /// </summary>
@@ -42,6 +43,7 @@ namespace FormsTermianlPP2023
 
             return convertedU;
         }
+
         private Event EventBuilder(int eventID, string name, string description, DateTime dateStart, DateTime dateEnd)
         {
             Event convertedE = new Event();

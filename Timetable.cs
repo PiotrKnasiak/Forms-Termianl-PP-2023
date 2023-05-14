@@ -91,7 +91,8 @@ namespace FormsTermianlPP2023
             //kontrolka dni
             for (int i = 1; i <= days; i++)
             {
-                eventsByDay[i-1] = new List<Event>(dataBase.LoadEventsOnDate(ConnectionInfo.loggedUser.ID, $"{year}-{month}-{i}"));
+                if(!ConnectionInfo.TimeTableTest)
+                    eventsByDay[i-1] = new List<Event>(dataBase.LoadEventsOnDate(ConnectionInfo.loggedUser.ID, $"{year}.{month}.{i}"));
                 UserControlDays ucDay = new UserControlDays();
                 ucDay.days(i);
                 ucDay.Click += DisplayDayEvents;
@@ -103,13 +104,14 @@ namespace FormsTermianlPP2023
         {
             UserControlDays item = (UserControlDays)sender;
 
+
             if (item.assignedDay == 0)
                 return;
 
             DateTime date = new DateTime(year, month, item.assignedDay);
 
             eventSidebar.assignDate(date);
-            eventSidebar.assignEvents(eventsByDay[item.assignedDay-1]);
+            eventSidebar.assignEvents(new List<Event>(dataBase.LoadEventsOnDate(ConnectionInfo.loggedUser.ID, $"{year}.{month}.{item.assignedDay}")));
             eventSidebar.Show();
 
         }

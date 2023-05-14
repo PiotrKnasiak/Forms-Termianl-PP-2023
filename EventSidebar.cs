@@ -32,6 +32,7 @@ namespace FormsTermianlPP2023
             this.events = events;
             displayEvents();
         }
+
         public void assignEvents(List<Event> events)
         {
             this.events = events.ToArray();
@@ -40,6 +41,8 @@ namespace FormsTermianlPP2023
 
         public void displayEvents()
         {
+            eventsContainer.Controls.Clear();
+
             foreach (Event ev in events)
             {
                 EventBox evBox = new EventBox();

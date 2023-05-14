@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic.Logging;
+﻿using Microsoft.IdentityModel.Tokens;
+using Microsoft.VisualBasic.Logging;
 using System.Data;
 using System.Windows.Forms;
 
@@ -60,21 +61,25 @@ namespace FormsTermianlPP2023
                 User[] users = new User[0];
                 users = dataBase.LoadAllUsers();
 
-                for (int i = 0; i < users.Length; i++)
+                if (!users.IsNullOrEmpty())
                 {
-                    if (login == users[i].login && password == users[i].password)
+                    for (int i = 0; i < users.Length; i++)
                     {
-                        //Login.Text = "login successful !";
-                        ConnectionInfo.tempInt = users[i].ID;
-                        Timetable timetableWindow = new Timetable();
-                        ConnectionInfo.loggedUser = users[i];
-                        timetableWindow.logCloseDelegate = this.Close;              // zapobiega pozostawieniu procesu w tle
-                        timetableWindow.Show();
+                        if (login == users[i].login && password == users[i].password)
+                        {
+                            //Login.Text = "login successful !";
+                            ConnectionInfo.tempInt = users[i].ID;
+                            Timetable timetableWindow = new Timetable();
+                            ConnectionInfo.loggedUser = users[i];
+                            timetableWindow.logCloseDelegate = this.Close;              // zapobiega pozostawieniu procesu w tle
+                            timetableWindow.Show();
 
-                        this.Hide();
-                        return;
+                            this.Hide();
+                            return;
+                        }
                     }
                 }
+                else { MessageBox.Show("Unable to get list of existing users.", "Server connection error"); }
 
                 error.Show();
                 error.Text = "Błędny login lub hasło";
