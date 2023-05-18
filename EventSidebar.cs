@@ -29,6 +29,18 @@ namespace FormsTermianlPP2023
             chosenDate.Text = dateChosen.ToString("D");
         }
 
+        public void addEvent(Event ev)
+        {
+            Event[] newEvList = new Event[events.Length+1];
+            for(int i=0; i<events.Length; i++)
+            {
+                newEvList[i] = events[i];
+            }
+            newEvList[events.Length] = ev;
+
+            assignEvents(newEvList);
+        }
+
         public void assignEvents(Event[] events)
         {
             this.events = events;
@@ -77,7 +89,7 @@ namespace FormsTermianlPP2023
         private void addEventBtn_Click(object sender, EventArgs e)
         {
             //otwiera okno stworzenia eventu
-            EventCreator eventCreator = new EventCreator();
+            EventCreator eventCreator = new EventCreator(this);
             eventCreator.Show();
             
         }

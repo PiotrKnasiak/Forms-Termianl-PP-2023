@@ -178,7 +178,9 @@
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4, 3, 4, 3);
             Name = "EventModification";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Terminarz";
+            TopMost = true;
             ResumeLayout(false);
             PerformLayout();
         }

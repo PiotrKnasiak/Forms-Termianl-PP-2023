@@ -12,11 +12,13 @@ namespace FormsTermianlPP2023
 {
     public partial class EventCreator : Form
     {
+        EventSidebar EvSideRef;
         EventBox EvBox = new EventBox();
         DBInteraction db;
-        public EventCreator()
+        public EventCreator(EventSidebar EvSideRef)
         {
             InitializeComponent();
+            this.EvSideRef = EvSideRef;
         }
 
         //dodanie eventu
@@ -38,27 +40,20 @@ namespace FormsTermianlPP2023
             if (!ConnectionInfo.TimeTableTest)
             {
                 db = new DBInteraction(ConnectionInfo.server, ConnectionInfo.DB, ConnectionInfo.UserName, ConnectionInfo.password, ConnectionInfo.connTimeout);
-                db.AddEvent(ConnectionInfo.loggedUser.ID, newEventData);
+                newEventData.EventID = db.AddEvent(ConnectionInfo.loggedUser.ID, newEventData);
             }
 
-            if (db.failure.Contains("add an event"))
+            if (db.failure.Contains("add an event"))    // czy jest błąd o dodaniu eventu
                 MessageBox.Show("Failed to add event", "Dodawanie wydarzenia");
 
             else
             {
                 EvBox.assingEvent(newEventData);
-                MessageBox.Show("Wydarzenie zostało pomyślnie zmodyfikowane", "Dodawanie wydarzenia");
+                MessageBox.Show("Wydarzenie zostało pomyślnie dodane", "Dodawanie wydarzenia");
             }
 
-            /*
-            //dodanie EventBox w EventSidebar
-            EventSidebar sb = new EventSidebar();
+            EvSideRef.addEvent(newEventData);
 
-            //wymiana tesktu nazwy eventu w EventBox
-            EventBox eventBox = new EventBox();
-            eventBox.chosenEventName.Text = this.nameBox.Text;
-            EventSidebar.eventsContainer.Controls.Add(eventBox);
-            */
             this.Hide();
         }
 
