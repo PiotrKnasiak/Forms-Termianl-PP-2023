@@ -140,7 +140,7 @@
             modifyEventButton.Name = "modifyEventButton";
             modifyEventButton.Size = new Size(170, 42);
             modifyEventButton.TabIndex = 10;
-            modifyEventButton.Text = "Podtwierdż";
+            modifyEventButton.Text = "Zakończ";
             modifyEventButton.UseVisualStyleBackColor = true;
             modifyEventButton.Click += modifyEventButton_Click;
             // 

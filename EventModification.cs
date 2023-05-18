@@ -13,7 +13,7 @@ namespace FormsTermianlPP2023
     public partial class EventModification : Form
     {
         EventBox EvBoxRef = new EventBox();
-        DBInteraction dataBase;  
+        DBInteraction dataBase;
 
         public EventModification(EventBox EvBoxRef)
         {
@@ -38,7 +38,7 @@ namespace FormsTermianlPP2023
             newEventData.dateStart = DateTime.Parse(this.EventFirstDateBox.Text);
             newEventData.dateEnd = DateTime.Parse(this.EventSecondDateBox.Text);
 
-            if(DateTime.Compare(newEventData.dateStart, newEventData.dateEnd) > 0)
+            if (DateTime.Compare(newEventData.dateStart, newEventData.dateEnd) > 0)
             {
                 DateTime phdr = newEventData.dateStart;
                 newEventData.dateStart = newEventData.dateEnd;
@@ -59,7 +59,8 @@ namespace FormsTermianlPP2023
                 EvBoxRef.assingEvent(newEventData);
                 MessageBox.Show("Wydarzenie zostało pomyślnie zmodyfikowane", "Modyfikacja wydarzenia");
             }
-
+            EventBox eventBox = new EventBox();
+            eventBox.chosenEventName.Text = this.EventNameBox.Text;
             this.Hide();
         }
     }
