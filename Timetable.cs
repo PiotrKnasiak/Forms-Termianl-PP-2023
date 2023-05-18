@@ -104,12 +104,13 @@ namespace FormsTermianlPP2023
         {
             UserControlDays item = (UserControlDays)sender;
 
-
             if (item.assignedDay == 0)
                 return;
 
             DateTime date = new DateTime(year, month, item.assignedDay);
 
+
+            // przypisuje zakładce z wydarzeniami wydarzenia z tego dnia po kliknięciu
             eventSidebar.assignDate(date);
             eventSidebar.assignEvents(new List<Event>(dataBase.LoadEventsOnDate(ConnectionInfo.loggedUser.ID, $"{year}.{month}.{item.assignedDay}")));
             eventSidebar.Show();

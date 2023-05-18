@@ -461,7 +461,7 @@ namespace FormsTermianlPP2023
             }
             catch
             {
-                failure = "Failed to fetch newly uploaded Events ID";
+                failure = "Failed to fetch newly uploaded Events ID, in function to add an event";
             }
 
             return assignedID;

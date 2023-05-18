@@ -50,7 +50,7 @@
             EventsModLab.Font = new Font("Candara", 16F, FontStyle.Regular, GraphicsUnit.Point);
             EventsModLab.Location = new Point(12, 9);
             EventsModLab.Name = "EventsModLab";
-            EventsModLab.Size = new Size(237, 27);
+            EventsModLab.Size = new Size(291, 33);
             EventsModLab.TabIndex = 0;
             EventsModLab.Text = "Modyfikacja wydarzenia";
             // 
@@ -60,7 +60,7 @@
             EventNameLab.Font = new Font("Candara", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             EventNameLab.Location = new Point(12, 50);
             EventNameLab.Name = "EventNameLab";
-            EventNameLab.Size = new Size(161, 23);
+            EventNameLab.Size = new Size(203, 29);
             EventNameLab.TabIndex = 1;
             EventNameLab.Text = "Nazwa wydarzenia";
             // 
@@ -70,7 +70,7 @@
             EventDescriptionLab.Font = new Font("Candara", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             EventDescriptionLab.Location = new Point(12, 114);
             EventDescriptionLab.Name = "EventDescriptionLab";
-            EventDescriptionLab.Size = new Size(46, 23);
+            EventDescriptionLab.Size = new Size(58, 29);
             EventDescriptionLab.TabIndex = 2;
             EventDescriptionLab.Text = "Opis";
             // 
@@ -80,7 +80,7 @@
             EventDateRangeLab.Font = new Font("Candara", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             EventDateRangeLab.Location = new Point(12, 228);
             EventDateRangeLab.Name = "EventDateRangeLab";
-            EventDateRangeLab.Size = new Size(93, 23);
+            EventDateRangeLab.Size = new Size(119, 29);
             EventDateRangeLab.TabIndex = 3;
             EventDateRangeLab.Text = "Zakres dat";
             // 
@@ -88,7 +88,7 @@
             // 
             EventNameBox.Location = new Point(12, 76);
             EventNameBox.Name = "EventNameBox";
-            EventNameBox.Size = new Size(693, 23);
+            EventNameBox.Size = new Size(693, 27);
             EventNameBox.TabIndex = 4;
             // 
             // EventDescriptionBox
@@ -103,14 +103,14 @@
             // 
             EventFirstDateBox.Location = new Point(47, 258);
             EventFirstDateBox.Name = "EventFirstDateBox";
-            EventFirstDateBox.Size = new Size(126, 23);
+            EventFirstDateBox.Size = new Size(126, 27);
             EventFirstDateBox.TabIndex = 6;
             // 
             // EventSecondDateBox
             // 
             EventSecondDateBox.Location = new Point(212, 258);
             EventSecondDateBox.Name = "EventSecondDateBox";
-            EventSecondDateBox.Size = new Size(126, 23);
+            EventSecondDateBox.Size = new Size(126, 27);
             EventSecondDateBox.TabIndex = 7;
             // 
             // label1
@@ -119,7 +119,7 @@
             label1.Font = new Font("Candara", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label1.Location = new Point(12, 258);
             label1.Name = "label1";
-            label1.Size = new Size(29, 19);
+            label1.Size = new Size(35, 24);
             label1.TabIndex = 8;
             label1.Text = "Od";
             // 
@@ -129,7 +129,7 @@
             label2.Font = new Font("Candara", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(179, 258);
             label2.Name = "label2";
-            label2.Size = new Size(27, 19);
+            label2.Size = new Size(32, 24);
             label2.TabIndex = 9;
             label2.Text = "do";
             // 
@@ -159,7 +159,7 @@
             // 
             // EventModification
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(9F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(717, 401);
             Controls.Add(exitBtn);
@@ -178,7 +178,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4, 3, 4, 3);
             Name = "EventModification";
-            Text = "EventModification";
+            Text = "Terminarz";
             ResumeLayout(false);
             PerformLayout();
         }

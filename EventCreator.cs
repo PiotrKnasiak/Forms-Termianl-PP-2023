@@ -14,14 +14,9 @@ namespace FormsTermianlPP2023
     {
         EventBox EvBox = new EventBox();
         DBInteraction db;
-        public EventCreator(EventBox EvBox)
+        public EventCreator()
         {
             InitializeComponent();
-            this.EvBox = EvBox;
-            this.nameBox.Text = EvBox.assignedEvent.name;
-            this.descBox.Text = EvBox.assignedEvent.description;
-            this.frstDateBox.Text = EvBox.assignedEvent.dateStart.ToString("dd.MM.yyyy");
-            this.scndDateBox.Text = EvBox.assignedEvent.dateEnd.ToString("dd.MM.yyyy");
         }
 
         //dodanie eventu
@@ -40,31 +35,30 @@ namespace FormsTermianlPP2023
                 newEventData.dateEnd = phdr;
             }
 
-            bool success = false;
-
             if (!ConnectionInfo.TimeTableTest)
             {
                 db = new DBInteraction(ConnectionInfo.server, ConnectionInfo.DB, ConnectionInfo.UserName, ConnectionInfo.password, ConnectionInfo.connTimeout);
-                success = db.ModifyEvent(ConnectionInfo.loggedUser.ID, EvBox.assignedEvent.EventID, newEventData);
+                db.AddEvent(ConnectionInfo.loggedUser.ID, newEventData);
             }
 
-            if (!success)
-                MessageBox.Show("Failed to add event", "Stworzenie wydarzenia");
+            if (db.failure.Contains("add an event"))
+                MessageBox.Show("Failed to add event", "Dodawanie wydarzenia");
 
             else
             {
                 EvBox.assingEvent(newEventData);
-                MessageBox.Show("Wydarzenie zostało pomyślnie zmodyfikowane", "Modyfikacja wydarzenia");
+                MessageBox.Show("Wydarzenie zostało pomyślnie zmodyfikowane", "Dodawanie wydarzenia");
             }
 
+            /*
             //dodanie EventBox w EventSidebar
             EventSidebar sb = new EventSidebar();
-            EventSidebar.eventsContainer.Controls.Add(new EventBox());
 
             //wymiana tesktu nazwy eventu w EventBox
             EventBox eventBox = new EventBox();
             eventBox.chosenEventName.Text = this.nameBox.Text;
-
+            EventSidebar.eventsContainer.Controls.Add(eventBox);
+            */
             this.Hide();
         }
 

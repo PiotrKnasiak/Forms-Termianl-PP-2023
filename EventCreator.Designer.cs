@@ -48,7 +48,7 @@
             label2.Font = new Font("Candara", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(179, 258);
             label2.Name = "label2";
-            label2.Size = new Size(27, 19);
+            label2.Size = new Size(32, 24);
             label2.TabIndex = 15;
             label2.Text = "do";
             // 
@@ -58,7 +58,7 @@
             label1.Font = new Font("Candara", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label1.Location = new Point(12, 258);
             label1.Name = "label1";
-            label1.Size = new Size(29, 19);
+            label1.Size = new Size(35, 24);
             label1.TabIndex = 14;
             label1.Text = "Od";
             // 
@@ -68,7 +68,7 @@
             EventDateRangeLab.Font = new Font("Candara", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             EventDateRangeLab.Location = new Point(12, 228);
             EventDateRangeLab.Name = "EventDateRangeLab";
-            EventDateRangeLab.Size = new Size(93, 23);
+            EventDateRangeLab.Size = new Size(119, 29);
             EventDateRangeLab.TabIndex = 13;
             EventDateRangeLab.Text = "Zakres dat";
             // 
@@ -78,7 +78,7 @@
             EventDescriptionLab.Font = new Font("Candara", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             EventDescriptionLab.Location = new Point(12, 114);
             EventDescriptionLab.Name = "EventDescriptionLab";
-            EventDescriptionLab.Size = new Size(46, 23);
+            EventDescriptionLab.Size = new Size(58, 29);
             EventDescriptionLab.TabIndex = 12;
             EventDescriptionLab.Text = "Opis";
             // 
@@ -88,7 +88,7 @@
             EventNameLab.Font = new Font("Candara", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             EventNameLab.Location = new Point(12, 50);
             EventNameLab.Name = "EventNameLab";
-            EventNameLab.Size = new Size(161, 23);
+            EventNameLab.Size = new Size(203, 29);
             EventNameLab.TabIndex = 11;
             EventNameLab.Text = "Nazwa wydarzenia";
             // 
@@ -99,9 +99,9 @@
             EventsModLab.Font = new Font("Candara", 16F, FontStyle.Regular, GraphicsUnit.Point);
             EventsModLab.Location = new Point(12, 9);
             EventsModLab.Name = "EventsModLab";
-            EventsModLab.Size = new Size(229, 27);
+            EventsModLab.Size = new Size(282, 33);
             EventsModLab.TabIndex = 10;
-            EventsModLab.Text = "Stworzenie wydarzenia";
+            EventsModLab.Text = "Dodawanie wydarzenia";
             // 
             // closeBtn
             // 
@@ -129,7 +129,7 @@
             // 
             nameBox.Location = new Point(12, 76);
             nameBox.Name = "nameBox";
-            nameBox.Size = new Size(693, 23);
+            nameBox.Size = new Size(693, 27);
             nameBox.TabIndex = 18;
             // 
             // descBox
@@ -144,19 +144,19 @@
             // 
             frstDateBox.Location = new Point(47, 258);
             frstDateBox.Name = "frstDateBox";
-            frstDateBox.Size = new Size(126, 23);
+            frstDateBox.Size = new Size(126, 27);
             frstDateBox.TabIndex = 20;
             // 
             // scndDateBox
             // 
             scndDateBox.Location = new Point(212, 258);
             scndDateBox.Name = "scndDateBox";
-            scndDateBox.Size = new Size(126, 23);
+            scndDateBox.Size = new Size(126, 27);
             scndDateBox.TabIndex = 21;
             // 
             // EventCreator
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(9F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(718, 402);
             Controls.Add(scndDateBox);
@@ -175,7 +175,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4, 3, 4, 3);
             Name = "EventCreator";
-            Text = "Form1";
+            Text = "Terminarz";
             ResumeLayout(false);
             PerformLayout();
         }
