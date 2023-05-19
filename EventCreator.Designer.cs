@@ -28,158 +28,161 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label2 = new Label();
-            label1 = new Label();
-            EventDateRangeLab = new Label();
-            EventDescriptionLab = new Label();
-            EventNameLab = new Label();
-            EventsModLab = new Label();
-            closeBtn = new Button();
-            addEventBtn = new Button();
-            nameBox = new TextBox();
-            descBox = new TextBox();
-            frstDateBox = new TextBox();
-            scndDateBox = new TextBox();
-            SuspendLayout();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.EventDateRangeLab = new System.Windows.Forms.Label();
+            this.EventDescriptionLab = new System.Windows.Forms.Label();
+            this.EventNameLab = new System.Windows.Forms.Label();
+            this.EventsModLab = new System.Windows.Forms.Label();
+            this.closeBtn = new System.Windows.Forms.Button();
+            this.addEventBtn = new System.Windows.Forms.Button();
+            this.nameBox = new System.Windows.Forms.TextBox();
+            this.descBox = new System.Windows.Forms.TextBox();
+            this.frstDateBox = new System.Windows.Forms.TextBox();
+            this.scndDateBox = new System.Windows.Forms.TextBox();
+            this.SuspendLayout();
             // 
             // label2
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Candara", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(179, 258);
-            label2.Name = "label2";
-            label2.Size = new Size(32, 24);
-            label2.TabIndex = 15;
-            label2.Text = "do";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(183, 291);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(32, 24);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "do";
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Candara", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(12, 258);
-            label1.Name = "label1";
-            label1.Size = new Size(35, 24);
-            label1.TabIndex = 14;
-            label1.Text = "Od";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(12, 291);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 24);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Od";
             // 
             // EventDateRangeLab
             // 
-            EventDateRangeLab.AutoSize = true;
-            EventDateRangeLab.Font = new Font("Candara", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            EventDateRangeLab.Location = new Point(12, 228);
-            EventDateRangeLab.Name = "EventDateRangeLab";
-            EventDateRangeLab.Size = new Size(119, 29);
-            EventDateRangeLab.TabIndex = 13;
-            EventDateRangeLab.Text = "Zakres dat";
+            this.EventDateRangeLab.AutoSize = true;
+            this.EventDateRangeLab.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.EventDateRangeLab.Location = new System.Drawing.Point(12, 256);
+            this.EventDateRangeLab.Name = "EventDateRangeLab";
+            this.EventDateRangeLab.Size = new System.Drawing.Size(119, 29);
+            this.EventDateRangeLab.TabIndex = 13;
+            this.EventDateRangeLab.Text = "Zakres dat";
             // 
             // EventDescriptionLab
             // 
-            EventDescriptionLab.AutoSize = true;
-            EventDescriptionLab.Font = new Font("Candara", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            EventDescriptionLab.Location = new Point(12, 114);
-            EventDescriptionLab.Name = "EventDescriptionLab";
-            EventDescriptionLab.Size = new Size(58, 29);
-            EventDescriptionLab.TabIndex = 12;
-            EventDescriptionLab.Text = "Opis";
+            this.EventDescriptionLab.AutoSize = true;
+            this.EventDescriptionLab.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.EventDescriptionLab.Location = new System.Drawing.Point(12, 142);
+            this.EventDescriptionLab.Name = "EventDescriptionLab";
+            this.EventDescriptionLab.Size = new System.Drawing.Size(58, 29);
+            this.EventDescriptionLab.TabIndex = 12;
+            this.EventDescriptionLab.Text = "Opis";
             // 
             // EventNameLab
             // 
-            EventNameLab.AutoSize = true;
-            EventNameLab.Font = new Font("Candara", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            EventNameLab.Location = new Point(12, 50);
-            EventNameLab.Name = "EventNameLab";
-            EventNameLab.Size = new Size(203, 29);
-            EventNameLab.TabIndex = 11;
-            EventNameLab.Text = "Nazwa wydarzenia";
+            this.EventNameLab.AutoSize = true;
+            this.EventNameLab.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.EventNameLab.Location = new System.Drawing.Point(12, 78);
+            this.EventNameLab.Name = "EventNameLab";
+            this.EventNameLab.Size = new System.Drawing.Size(203, 29);
+            this.EventNameLab.TabIndex = 11;
+            this.EventNameLab.Text = "Nazwa wydarzenia";
             // 
             // EventsModLab
             // 
-            EventsModLab.AutoSize = true;
-            EventsModLab.BackColor = Color.White;
-            EventsModLab.Font = new Font("Candara", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            EventsModLab.Location = new Point(12, 9);
-            EventsModLab.Name = "EventsModLab";
-            EventsModLab.Size = new Size(282, 33);
-            EventsModLab.TabIndex = 10;
-            EventsModLab.Text = "Dodawanie wydarzenia";
+            this.EventsModLab.AutoSize = true;
+            this.EventsModLab.BackColor = System.Drawing.Color.Transparent;
+            this.EventsModLab.Font = new System.Drawing.Font("Candara", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.EventsModLab.Location = new System.Drawing.Point(12, 9);
+            this.EventsModLab.Name = "EventsModLab";
+            this.EventsModLab.Size = new System.Drawing.Size(294, 35);
+            this.EventsModLab.TabIndex = 10;
+            this.EventsModLab.Text = "Dodawanie wydarzenia";
             // 
             // closeBtn
             // 
-            closeBtn.BackgroundImage = Properties.Resources.cnacelButtonInactive;
-            closeBtn.BackgroundImageLayout = ImageLayout.Center;
-            closeBtn.Location = new Point(669, 9);
-            closeBtn.Name = "closeBtn";
-            closeBtn.Size = new Size(37, 36);
-            closeBtn.TabIndex = 16;
-            closeBtn.UseVisualStyleBackColor = false;
-            closeBtn.Click += closeBtn_Click;
+            this.closeBtn.BackgroundImage = global::FormsTermianlPP2023.Properties.Resources.cnacelButtonInactive;
+            this.closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.closeBtn.Location = new System.Drawing.Point(669, 9);
+            this.closeBtn.Name = "closeBtn";
+            this.closeBtn.Size = new System.Drawing.Size(37, 36);
+            this.closeBtn.TabIndex = 16;
+            this.closeBtn.UseVisualStyleBackColor = false;
+            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
             // addEventBtn
             // 
-            addEventBtn.Font = new Font("Candara", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            addEventBtn.Location = new Point(536, 348);
-            addEventBtn.Name = "addEventBtn";
-            addEventBtn.Size = new Size(170, 42);
-            addEventBtn.TabIndex = 17;
-            addEventBtn.Text = "Dodaj";
-            addEventBtn.UseVisualStyleBackColor = true;
-            addEventBtn.Click += addEventBtn_Click;
+            this.addEventBtn.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.addEventBtn.Location = new System.Drawing.Point(536, 348);
+            this.addEventBtn.Name = "addEventBtn";
+            this.addEventBtn.Size = new System.Drawing.Size(170, 42);
+            this.addEventBtn.TabIndex = 17;
+            this.addEventBtn.Text = "Dodaj";
+            this.addEventBtn.UseVisualStyleBackColor = true;
+            this.addEventBtn.Click += new System.EventHandler(this.addEventBtn_Click);
             // 
             // nameBox
             // 
-            nameBox.Location = new Point(12, 76);
-            nameBox.Name = "nameBox";
-            nameBox.Size = new Size(693, 27);
-            nameBox.TabIndex = 18;
+            this.nameBox.Location = new System.Drawing.Point(12, 110);
+            this.nameBox.Name = "nameBox";
+            this.nameBox.Size = new System.Drawing.Size(693, 27);
+            this.nameBox.TabIndex = 18;
             // 
             // descBox
             // 
-            descBox.Location = new Point(12, 140);
-            descBox.Multiline = true;
-            descBox.Name = "descBox";
-            descBox.Size = new Size(693, 70);
-            descBox.TabIndex = 19;
+            this.descBox.Location = new System.Drawing.Point(12, 174);
+            this.descBox.Multiline = true;
+            this.descBox.Name = "descBox";
+            this.descBox.Size = new System.Drawing.Size(693, 70);
+            this.descBox.TabIndex = 19;
             // 
             // frstDateBox
             // 
-            frstDateBox.Location = new Point(47, 258);
-            frstDateBox.Name = "frstDateBox";
-            frstDateBox.Size = new Size(126, 27);
-            frstDateBox.TabIndex = 20;
+            this.frstDateBox.Location = new System.Drawing.Point(47, 288);
+            this.frstDateBox.Name = "frstDateBox";
+            this.frstDateBox.Size = new System.Drawing.Size(126, 27);
+            this.frstDateBox.TabIndex = 20;
             // 
             // scndDateBox
             // 
-            scndDateBox.Location = new Point(212, 258);
-            scndDateBox.Name = "scndDateBox";
-            scndDateBox.Size = new Size(126, 27);
-            scndDateBox.TabIndex = 21;
+            this.scndDateBox.Location = new System.Drawing.Point(217, 288);
+            this.scndDateBox.Name = "scndDateBox";
+            this.scndDateBox.Size = new System.Drawing.Size(126, 27);
+            this.scndDateBox.TabIndex = 21;
             // 
             // EventCreator
             // 
-            AutoScaleDimensions = new SizeF(9F, 19F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(718, 402);
-            Controls.Add(scndDateBox);
-            Controls.Add(frstDateBox);
-            Controls.Add(descBox);
-            Controls.Add(nameBox);
-            Controls.Add(addEventBtn);
-            Controls.Add(closeBtn);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(EventDateRangeLab);
-            Controls.Add(EventDescriptionLab);
-            Controls.Add(EventNameLab);
-            Controls.Add(EventsModLab);
-            Font = new Font("Candara", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(4, 3, 4, 3);
-            Name = "EventCreator";
-            StartPosition = FormStartPosition.CenterParent;
-            Text = "Terminarz";
-            TopMost = true;
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightBlue;
+            this.ClientSize = new System.Drawing.Size(718, 402);
+            this.Controls.Add(this.scndDateBox);
+            this.Controls.Add(this.frstDateBox);
+            this.Controls.Add(this.descBox);
+            this.Controls.Add(this.nameBox);
+            this.Controls.Add(this.addEventBtn);
+            this.Controls.Add(this.closeBtn);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.EventDateRangeLab);
+            this.Controls.Add(this.EventDescriptionLab);
+            this.Controls.Add(this.EventNameLab);
+            this.Controls.Add(this.EventsModLab);
+            this.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Location = new System.Drawing.Point(485, 370);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Name = "EventCreator";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.Text = "Dodawanie wydarzenia";
+            this.TopMost = true;
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion

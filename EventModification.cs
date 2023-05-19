@@ -14,6 +14,7 @@ namespace FormsTermianlPP2023
     {
         EventBox EvBoxRef = new EventBox();
         DBInteraction dataBase;
+        EventSidebar EvSideRef;
 
         public EventModification(EventBox EvBoxRef)
         {
@@ -28,6 +29,8 @@ namespace FormsTermianlPP2023
         private void exitBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
+            //EvSideRef.eventsContainer.Visible = true;
+           // EvSideRef.addEventBtn.Visible = true;
         }
 
         private void modifyEventButton_Click(object sender, EventArgs e)
@@ -57,11 +60,13 @@ namespace FormsTermianlPP2023
             else
             {
                 EvBoxRef.assingEvent(newEventData);
-                MessageBox.Show("Wydarzenie zostało pomyślnie zmodyfikowane", "Modyfikacja wydarzenia");
+            
             }
             EventBox eventBox = new EventBox();
             eventBox.chosenEventName.Text = this.EventNameBox.Text;
             this.Hide();
+           //EvSideRef.eventsContainer.Visible = true;
+           // EvSideRef.addEventBtn.Visible = true;
         }
     }
 }

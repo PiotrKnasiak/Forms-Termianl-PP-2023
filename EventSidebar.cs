@@ -17,6 +17,7 @@ namespace FormsTermianlPP2023
         Event[] events = new Event[0];
         DBInteraction db;
         EventBox EvBoxRef = new EventBox();
+        EventSidebar EvSideRef;
 
         public EventSidebar()
         {
@@ -88,6 +89,9 @@ namespace FormsTermianlPP2023
 
         private void addEventBtn_Click(object sender, EventArgs e)
         {
+            exitBtn.Visible = false;
+            addEventBtn.Visible = false;
+            eventsContainer.Visible = false;
             //otwiera okno stworzenia eventu
             EventCreator eventCreator = new EventCreator(this);
             eventCreator.Show();

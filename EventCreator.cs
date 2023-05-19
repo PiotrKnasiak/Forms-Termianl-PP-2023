@@ -26,6 +26,7 @@ namespace FormsTermianlPP2023
         //dodanie eventu
         private void addEventBtn_Click(object sender, EventArgs e)
         {
+            
             Event newEventData = new Event();
             newEventData.name = this.nameBox.Text;
             newEventData.description = this.descBox.Text;
@@ -51,9 +52,10 @@ namespace FormsTermianlPP2023
             else
             {
                 EvBox.assingEvent(newEventData);
-                MessageBox.Show("Wydarzenie zostało pomyślnie dodane", "Dodawanie wydarzenia");
             }
-
+            EvSideRef.exitBtn.Visible = true;
+            EvSideRef.addEventBtn.Visible = true;
+            EvSideRef.eventsContainer.Visible = true;
             EvSideRef.addEvent(newEventData);
 
             this.Hide();
@@ -62,6 +64,9 @@ namespace FormsTermianlPP2023
         private void closeBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
+            EvSideRef.exitBtn.Visible = true;
+            EvSideRef.eventsContainer.Visible = true;
+            EvSideRef.addEventBtn.Visible = true;
         }
     }
 }
