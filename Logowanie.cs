@@ -26,33 +26,10 @@ namespace FormsTermianlPP2023
             TextBox Login = txt_login;
             TextBox Password = txt_password;
 
-            if (login == "" && password == "")
+            if (login == "" || password == "")
             {
-                Login.BackColor = Color.LightCoral;
-                Password.BackColor = Color.LightCoral;
-                Login.PlaceholderText = "Podaj nazwę użytkownika";
-                Password.PlaceholderText = "Podaj hasło";
-                //Error.Text = "Podaj dane logowania";
-                //Error.Visible = true;
-                Error.Visible = false;
-            }
-            else if (login == "")
-            {
-                Login.BackColor = Color.LightCoral;
-                Password.BackColor = Color.White;
-                Login.PlaceholderText = "Podaj nazwę użytkownika";
-                //Error.Text = "Podaj login";
-                //Error.Visible = true;
-                Error.Visible = false;
-            }
-            else if (password == "")
-            {
-                Login.BackColor = Color.White;
-                Password.BackColor = Color.LightCoral;
-                Password.PlaceholderText = "Podaj hasło";
-                //Error.Text = "Podaj hasło";
-                //Error.Visible = true;
-                Error.Visible = false;
+                Error.Text = "Uzupełnij dane logowania";
+                Error.Visible = true;
             }
             else
             {
