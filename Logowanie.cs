@@ -64,34 +64,41 @@ namespace FormsTermianlPP2023
         }
         private void Rejestracja_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            var myForm = new Rejestracja();
-            myForm.Show();
+            var registration = new Rejestracja();
+            registration.ShowDialog();
+            
             //this.Hide();     // <- rejestracja będzie albo musiała otworzyc to okno spowrotem albo przejśc prosto do terminarza
-        }
-
-        private void txt_password_TextChanged(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-                button_login_Click(sender, e);
-        }
-
-        private void txt_username_Click(object sender, EventArgs e)
-        {
-            TextBox Login = txt_login;
-            Login.BackColor = Color.White;
-        }
-
-        private void txt_password_Click(object sender, EventArgs e)
-        {
-            TextBox Haslo = txt_password;
-            Haslo.BackColor = Color.White;
         }
         private void panel1_Click(object sender, EventArgs e)
         {
             var configPanel = new ServerConnectionConfig();
-            configPanel.Show();
+            configPanel.ShowDialog();
         }
 
+        private void txt_login_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button_login.PerformClick();
+                e.SuppressKeyPress = true;
+            }
+        }
 
+        private void txt_password_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button_login.PerformClick();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void Logowanie_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Czy na pewno chcesz zamknąć terminarz?", "Terminarz", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }

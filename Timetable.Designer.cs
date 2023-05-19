@@ -28,195 +28,196 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dayCon = new FlowLayoutPanel();
-            prevMonthBtn = new Button();
-            nextMonthBtn = new Button();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            label7 = new Label();
-            lbDATE = new Label();
-            eventSidebar = new EventSidebar();
-            exitButton = new Button();
-            flowLayoutPanel2 = new FlowLayoutPanel();
-            SuspendLayout();
+            this.dayCon = new System.Windows.Forms.FlowLayoutPanel();
+            this.prevMonthBtn = new System.Windows.Forms.Button();
+            this.nextMonthBtn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lbDATE = new System.Windows.Forms.Label();
+            this.eventSidebar = new FormsTermianlPP2023.EventSidebar();
+            this.exitButton = new System.Windows.Forms.Button();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.SuspendLayout();
             // 
             // dayCon
             // 
-            dayCon.AutoSize = true;
-            dayCon.BackColor = SystemColors.Window;
-            dayCon.Dock = DockStyle.Bottom;
-            dayCon.Location = new Point(0, 731);
-            dayCon.Margin = new Padding(0);
-            dayCon.Name = "dayCon";
-            dayCon.Size = new Size(1019, 0);
-            dayCon.TabIndex = 0;
+            this.dayCon.AutoSize = true;
+            this.dayCon.BackColor = System.Drawing.SystemColors.Window;
+            this.dayCon.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dayCon.Location = new System.Drawing.Point(0, 731);
+            this.dayCon.Margin = new System.Windows.Forms.Padding(0);
+            this.dayCon.Name = "dayCon";
+            this.dayCon.Size = new System.Drawing.Size(1019, 0);
+            this.dayCon.TabIndex = 0;
             // 
             // prevMonthBtn
             // 
-            prevMonthBtn.Location = new Point(24, 106);
-            prevMonthBtn.Name = "prevMonthBtn";
-            prevMonthBtn.Size = new Size(52, 43);
-            prevMonthBtn.TabIndex = 2;
-            prevMonthBtn.Text = "←";
-            prevMonthBtn.UseVisualStyleBackColor = true;
-            prevMonthBtn.Click += prevMonthBtn_Click;
+            this.prevMonthBtn.Location = new System.Drawing.Point(24, 106);
+            this.prevMonthBtn.Name = "prevMonthBtn";
+            this.prevMonthBtn.Size = new System.Drawing.Size(52, 43);
+            this.prevMonthBtn.TabIndex = 2;
+            this.prevMonthBtn.Text = "←";
+            this.prevMonthBtn.UseVisualStyleBackColor = true;
+            this.prevMonthBtn.Click += new System.EventHandler(this.prevMonthBtn_Click);
             // 
             // nextMonthBtn
             // 
-            nextMonthBtn.Location = new Point(940, 106);
-            nextMonthBtn.Name = "nextMonthBtn";
-            nextMonthBtn.Size = new Size(52, 43);
-            nextMonthBtn.TabIndex = 3;
-            nextMonthBtn.Text = "→";
-            nextMonthBtn.UseVisualStyleBackColor = true;
-            nextMonthBtn.Click += nextMonthButton_Click;
+            this.nextMonthBtn.Location = new System.Drawing.Point(940, 106);
+            this.nextMonthBtn.Name = "nextMonthBtn";
+            this.nextMonthBtn.Size = new System.Drawing.Size(52, 43);
+            this.nextMonthBtn.TabIndex = 3;
+            this.nextMonthBtn.Text = "→";
+            this.nextMonthBtn.UseVisualStyleBackColor = true;
+            this.nextMonthBtn.Click += new System.EventHandler(this.nextMonthButton_Click);
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Candara Light", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(180, 170);
-            label1.Name = "label1";
-            label1.Size = new Size(84, 17);
-            label1.TabIndex = 4;
-            label1.Text = "Poniedziałek";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Candara Light", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(180, 170);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(84, 17);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Poniedziałek";
             // 
             // label2
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Candara Light", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(342, 170);
-            label2.Name = "label2";
-            label2.Size = new Size(52, 17);
-            label2.TabIndex = 5;
-            label2.Text = "Wtorek";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Candara Light", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(342, 170);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 17);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Wtorek";
             // 
             // label3
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Candara Light", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(620, 170);
-            label3.Name = "label3";
-            label3.Size = new Size(64, 17);
-            label3.TabIndex = 7;
-            label3.Text = "Czwartek";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Candara Light", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(620, 170);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(64, 17);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Czwartek";
             // 
             // label4
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Candara Light", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(486, 170);
-            label4.Name = "label4";
-            label4.Size = new Size(43, 17);
-            label4.TabIndex = 6;
-            label4.Text = "Środa";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Candara Light", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(486, 170);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(43, 17);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Środa";
             // 
             // label5
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Candara Light", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(910, 170);
-            label5.Name = "label5";
-            label5.Size = new Size(51, 17);
-            label5.TabIndex = 9;
-            label5.Text = "Sobota";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Candara Light", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(910, 170);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(51, 17);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Sobota";
             // 
             // label6
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Candara Light", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(772, 170);
-            label6.Name = "label6";
-            label6.Size = new Size(45, 17);
-            label6.TabIndex = 8;
-            label6.Text = "Piątek";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Candara Light", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(772, 170);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(45, 17);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Piątek";
             // 
             // label7
             // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Candara Light", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(42, 170);
-            label7.Name = "label7";
-            label7.Size = new Size(62, 17);
-            label7.TabIndex = 10;
-            label7.Text = "Niedziela";
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Candara Light", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(42, 170);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(62, 17);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Niedziela";
             // 
             // lbDATE
             // 
-            lbDATE.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            lbDATE.Font = new Font("Candara", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            lbDATE.Location = new Point(363, 122);
-            lbDATE.Name = "lbDATE";
-            lbDATE.Size = new Size(315, 29);
-            lbDATE.TabIndex = 11;
-            lbDATE.Text = "XYZ";
-            lbDATE.TextAlign = ContentAlignment.MiddleCenter;
+            this.lbDATE.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbDATE.Font = new System.Drawing.Font("Candara", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbDATE.Location = new System.Drawing.Point(363, 122);
+            this.lbDATE.Name = "lbDATE";
+            this.lbDATE.Size = new System.Drawing.Size(315, 29);
+            this.lbDATE.TabIndex = 11;
+            this.lbDATE.Text = "XYZ";
+            this.lbDATE.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // eventSidebar
             // 
-            eventSidebar.BackColor = Color.WhiteSmoke;
-            eventSidebar.BorderStyle = BorderStyle.FixedSingle;
-            eventSidebar.Location = new Point(0, 68);
-            eventSidebar.Margin = new Padding(2);
-            eventSidebar.Name = "eventSidebar";
-            eventSidebar.Size = new Size(800, 650);
-            eventSidebar.TabIndex = 12;
-            eventSidebar.Load += eventSidebar_Load;
+            this.eventSidebar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.eventSidebar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.eventSidebar.Location = new System.Drawing.Point(0, 70);
+            this.eventSidebar.Margin = new System.Windows.Forms.Padding(2);
+            this.eventSidebar.Name = "eventSidebar";
+            this.eventSidebar.Size = new System.Drawing.Size(800, 650);
+            this.eventSidebar.TabIndex = 12;
             // 
             // exitButton
             // 
-            exitButton.BackColor = Color.Transparent;
-            exitButton.BackgroundImage = Properties.Resources.cnacelButtonInactive;
-            exitButton.Location = new Point(978, 3);
-            exitButton.Margin = new Padding(0);
-            exitButton.Name = "exitButton";
-            exitButton.Size = new Size(38, 36);
-            exitButton.TabIndex = 0;
-            exitButton.UseVisualStyleBackColor = false;
-            exitButton.Click += exitBtn_Click;
-            exitButton.MouseLeave += exitButtonLeft;
-            exitButton.MouseHover += exitButtonHovered;
+            this.exitButton.BackColor = System.Drawing.Color.Transparent;
+            this.exitButton.BackgroundImage = global::FormsTermianlPP2023.Properties.Resources.cnacelButtonInactive;
+            this.exitButton.Location = new System.Drawing.Point(978, 3);
+            this.exitButton.Margin = new System.Windows.Forms.Padding(0);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(38, 36);
+            this.exitButton.TabIndex = 0;
+            this.exitButton.UseVisualStyleBackColor = false;
+            this.exitButton.Click += new System.EventHandler(this.exitBtn_Click);
             // 
             // flowLayoutPanel2
             // 
-            flowLayoutPanel2.BackColor = SystemColors.ActiveBorder;
-            flowLayoutPanel2.Dock = DockStyle.Top;
-            flowLayoutPanel2.Location = new Point(0, 0);
-            flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(1019, 60);
-            flowLayoutPanel2.TabIndex = 1;
+            this.flowLayoutPanel2.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1019, 60);
+            this.flowLayoutPanel2.TabIndex = 1;
             // 
             // Timetable
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.Window;
-            ClientSize = new Size(1019, 731);
-            Controls.Add(exitButton);
-            Controls.Add(eventSidebar);
-            Controls.Add(lbDATE);
-            Controls.Add(label7);
-            Controls.Add(label5);
-            Controls.Add(label6);
-            Controls.Add(label3);
-            Controls.Add(label4);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(nextMonthBtn);
-            Controls.Add(prevMonthBtn);
-            Controls.Add(flowLayoutPanel2);
-            Controls.Add(dayCon);
-            FormBorderStyle = FormBorderStyle.None;
-            Name = "Timetable";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Terminarz";
-            Load += Timetable_Load;
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(1019, 731);
+            this.Controls.Add(this.exitButton);
+            this.Controls.Add(this.eventSidebar);
+            this.Controls.Add(this.lbDATE);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.nextMonthBtn);
+            this.Controls.Add(this.prevMonthBtn);
+            this.Controls.Add(this.flowLayoutPanel2);
+            this.Controls.Add(this.dayCon);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "Timetable";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Terminarz";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Timetable_FormClosing);
+            this.Load += new System.EventHandler(this.Timetable_Load);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion

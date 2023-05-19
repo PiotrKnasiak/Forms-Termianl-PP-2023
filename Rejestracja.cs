@@ -84,5 +84,41 @@ namespace FormsTermianlPP2023
             myForm.Show();
             this.Close();
         }
+
+        private void txt_name_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button_registration.PerformClick();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txt_login_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button_registration.PerformClick();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txt_password_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button_registration.PerformClick();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txt_password_confirm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button_registration.PerformClick();
+                e.SuppressKeyPress = true;
+            }
+        }
     }
 }

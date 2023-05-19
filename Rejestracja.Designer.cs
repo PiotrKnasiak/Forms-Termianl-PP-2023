@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.error = new System.Windows.Forms.Label();
-            this.button_rejestracja = new System.Windows.Forms.Button();
+            this.button_registration = new System.Windows.Forms.Button();
             this.txt_password = new System.Windows.Forms.TextBox();
             this.txt_login = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -55,16 +55,16 @@
             this.error.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.error.Visible = false;
             // 
-            // button_rejestracja
+            // button_registration
             // 
-            this.button_rejestracja.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button_rejestracja.Location = new System.Drawing.Point(161, 355);
-            this.button_rejestracja.Name = "button_rejestracja";
-            this.button_rejestracja.Size = new System.Drawing.Size(94, 29);
-            this.button_rejestracja.TabIndex = 5;
-            this.button_rejestracja.Text = "Zarejestruj";
-            this.button_rejestracja.UseVisualStyleBackColor = false;
-            this.button_rejestracja.Click += new System.EventHandler(this.button_rejestracja_Click);
+            this.button_registration.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button_registration.Location = new System.Drawing.Point(161, 355);
+            this.button_registration.Name = "button_registration";
+            this.button_registration.Size = new System.Drawing.Size(94, 29);
+            this.button_registration.TabIndex = 5;
+            this.button_registration.Text = "Zarejestruj";
+            this.button_registration.UseVisualStyleBackColor = false;
+            this.button_registration.Click += new System.EventHandler(this.button_rejestracja_Click);
             // 
             // txt_password
             // 
@@ -73,6 +73,7 @@
             this.txt_password.Size = new System.Drawing.Size(215, 27);
             this.txt_password.TabIndex = 3;
             this.txt_password.UseSystemPasswordChar = true;
+            this.txt_password.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_password_KeyDown);
             // 
             // txt_login
             // 
@@ -81,6 +82,7 @@
             this.txt_login.Name = "txt_login";
             this.txt_login.Size = new System.Drawing.Size(215, 27);
             this.txt_login.TabIndex = 2;
+            this.txt_login.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_login_KeyDown);
             // 
             // label3
             // 
@@ -121,6 +123,7 @@
             this.txt_password_confirm.Size = new System.Drawing.Size(215, 27);
             this.txt_password_confirm.TabIndex = 4;
             this.txt_password_confirm.UseSystemPasswordChar = true;
+            this.txt_password_confirm.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_password_confirm_KeyDown);
             // 
             // label4
             // 
@@ -139,6 +142,7 @@
             this.txt_name.Name = "txt_name";
             this.txt_name.Size = new System.Drawing.Size(215, 27);
             this.txt_name.TabIndex = 1;
+            this.txt_name.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_name_KeyDown);
             // 
             // label5
             // 
@@ -161,7 +165,7 @@
             this.Controls.Add(this.txt_password_confirm);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.error);
-            this.Controls.Add(this.button_rejestracja);
+            this.Controls.Add(this.button_registration);
             this.Controls.Add(this.txt_password);
             this.Controls.Add(this.txt_login);
             this.Controls.Add(this.label3);
@@ -181,7 +185,7 @@
         #endregion
 
         private Label error;
-        private Button button_rejestracja;
+        private Button button_registration;
         private TextBox txt_password;
         private TextBox txt_login;
         private Label label3;

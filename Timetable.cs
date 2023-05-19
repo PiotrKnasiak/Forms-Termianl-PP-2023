@@ -164,6 +164,14 @@ namespace FormsTermianlPP2023
             displayDayPanels(dayOfTheWeek, days);
         }
 
+        private void Timetable_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Czy na pewno chcesz zamknąć terminarz?", "Terminarz", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
+
         private void nextMonthButton_Click(object sender, EventArgs e)
         {
             month++; //nastepny miesiac wiec przechodzimy

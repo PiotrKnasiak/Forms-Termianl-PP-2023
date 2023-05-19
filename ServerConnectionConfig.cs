@@ -66,5 +66,41 @@ namespace FormsTermianlPP2023
             inp_login.Text = "";
             inp_pass.Text = "";
         }
+
+        private void inp_server_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btn_apply.PerformClick();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void inp_DB_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btn_apply.PerformClick();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void inp_login_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btn_apply.PerformClick();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void inp_pass_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btn_apply.PerformClick();
+                e.SuppressKeyPress = true;
+            }
+        }
     }
 }
