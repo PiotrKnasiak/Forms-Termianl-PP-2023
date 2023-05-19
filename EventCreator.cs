@@ -19,6 +19,8 @@ namespace FormsTermianlPP2023
         {
             InitializeComponent();
             this.EvSideRef = EvSideRef;
+            frstDateBox.Text = EvSideRef.dateChosen.ToShortDateString();
+            scndDateBox.Text = EvSideRef.dateChosen.ToShortDateString();
         }
 
         //dodanie eventu

@@ -51,6 +51,8 @@ namespace FormsTermianlPP2023
 
         private void exitBtn_Click(object sender, EventArgs e)
         {
+            DBInteraction eventDelete = new DBInteraction();
+            eventDelete.DeleteEvent(ConnectionInfo.loggedUser.ID, assignedEvent.EventID);
             this.Hide();
         }
 

@@ -13,7 +13,7 @@ namespace FormsTermianlPP2023
 {
     public partial class EventSidebar : UserControl
     {
-        DateTime dateChosen = DateTime.MinValue;    // do kontroli błędów
+        public DateTime dateChosen = DateTime.MinValue;    // do kontroli błędów
         Event[] events = new Event[0];
         DBInteraction db;
         EventBox EvBoxRef = new EventBox();
