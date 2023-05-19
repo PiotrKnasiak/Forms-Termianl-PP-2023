@@ -51,9 +51,13 @@ namespace FormsTermianlPP2023
 
         private void exitBtn_Click(object sender, EventArgs e)
         {
-            DBInteraction eventDelete = new DBInteraction();
-            eventDelete.DeleteEvent(ConnectionInfo.loggedUser.ID, assignedEvent.EventID);
-            this.Hide();
+            if (MessageBox.Show("Czy na pewno chcesz usunąć to wydarzenie?", "Terminarz", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                DBInteraction eventDelete = new DBInteraction();
+                eventDelete.DeleteEvent(ConnectionInfo.loggedUser.ID, assignedEvent.EventID);
+                this.Hide();
+            }
+            
         }
 
         private void modifyBtn_Click(object sender, EventArgs e)
@@ -63,5 +67,6 @@ namespace FormsTermianlPP2023
             eventModification.Show();
 
         }
+
     }
 }

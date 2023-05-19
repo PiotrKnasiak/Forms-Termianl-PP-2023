@@ -94,6 +94,12 @@ namespace FormsTermianlPP2023
                 if(!ConnectionInfo.TimeTableTest)
                     eventsByDay[i-1] = new List<Event>(dataBase.LoadEventsOnDate(ConnectionInfo.loggedUser.ID, $"{year}.{month}.{i}"));
                 UserControlDays ucDay = new UserControlDays();
+
+                if (eventsByDay[i - 1].Count > 0)
+                {
+                    ucDay.BackColor = Color.LightBlue;
+                }
+
                 ucDay.days(i);
                 ucDay.Click += DisplayDayEvents;
                 dayCon.Controls.Add(ucDay);
