@@ -7,9 +7,11 @@ namespace FormsTermianlPP2023
 {
     public partial class Logowanie : Form
     {
+        public static Logowanie logowanieInstacja;
         public Logowanie()
         {
             InitializeComponent();
+            logowanieInstacja = this;
         }
         private void button_login_Click(object sender, EventArgs e)
         {
@@ -64,10 +66,12 @@ namespace FormsTermianlPP2023
         }
         private void Rejestracja_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            var registration = new Rejestracja();
-            registration.ShowDialog();
-            
-            //this.Hide();     // <- rejestracja będzie albo musiała otworzyc to okno spowrotem albo przejśc prosto do terminarza
+            opis.Visible = false;
+            error.Visible = false;
+            txt_login.Clear();
+            txt_password.Clear();
+            Rejestracja child = new Rejestracja();
+            child.ShowDialog(this);
         }
         private void panel1_Click(object sender, EventArgs e)
         {
@@ -101,4 +105,5 @@ namespace FormsTermianlPP2023
             }
         }
     }
+}
 }

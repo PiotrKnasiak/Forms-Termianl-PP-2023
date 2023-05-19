@@ -39,6 +39,7 @@
             this.Rejestracja = new System.Windows.Forms.LinkLabel();
             this.error = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.opis = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -153,6 +154,20 @@
             this.panel1.TabIndex = 9;
             this.panel1.Click += new System.EventHandler(this.panel1_Click);
             // 
+            // opis
+            // 
+            this.opis.AutoSize = true;
+            this.opis.BackColor = System.Drawing.Color.Transparent;
+            this.opis.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.opis.ForeColor = System.Drawing.Color.Red;
+            this.opis.Location = new System.Drawing.Point(77, 23);
+            this.opis.Name = "opis";
+            this.opis.Size = new System.Drawing.Size(194, 20);
+            this.opis.TabIndex = 11;
+            this.opis.Text = "Zarejestrowano pomyślnie";
+            this.opis.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.opis.Visible = false;
+            // 
             // Logowanie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -160,6 +175,7 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(809, 469);
+            this.Controls.Add(this.opis);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.error);
             this.Controls.Add(this.Rejestracja);
@@ -194,5 +210,6 @@
         private LinkLabel Rejestracja;
         private Label error;
         private Panel panel1;
+        public Label opis;
     }
 }

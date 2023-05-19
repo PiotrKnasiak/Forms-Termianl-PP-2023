@@ -55,16 +55,9 @@ namespace FormsTermianlPP2023
                     }
                     else
                     {
-
                         int przypisaneID = dataBase.AddUser(users);
-                        error.Show();
-                        error.Text = "Zarejestrowano pomyślnie";
-                    
-                        var myForm = new Logowanie();
-                        myForm.Show();
+                        Logowanie.logowanieInstacja.opis.Visible = true;
                         this.Close();
-                       
-
                     }
                     
 
