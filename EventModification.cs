@@ -12,13 +12,17 @@ namespace FormsTermianlPP2023
 {
     public partial class EventModification : Form
     {
-        EventBox EvBoxRef = new EventBox();
+        EventBox EvBoxRef;
         DBInteraction dataBase;
         EventSidebar EvSideRef;
 
-        public EventModification(EventBox EvBoxRef)
+        public EventModification(EventBox EvBoxRef, EventSidebar EvSideRef)
         {
             InitializeComponent();
+            this.EvSideRef = EvSideRef;
+            this.EvSideRef.eventsContainer.Visible = false;
+            this.EvSideRef.addEventBtn.Visible = false;
+
             this.EvBoxRef = EvBoxRef;
             this.EventNameBox.Text = EvBoxRef.assignedEvent.name;
             this.EventDescriptionBox.Text = EvBoxRef.assignedEvent.description;
@@ -29,16 +33,35 @@ namespace FormsTermianlPP2023
         private void exitBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            //EvSideRef.eventsContainer.Visible = true;
-           // EvSideRef.addEventBtn.Visible = true;
+            EvSideRef.eventsContainer.Visible = true;
+            EvSideRef.addEventBtn.Visible = true;
         }
 
-        private void modifyEventButton_Click(object sender, EventArgs e)
+        private void modifyEventButton_Click(object sender, EventArgs e) 
         {
             Event newEventData = new Event();
             newEventData.name = this.EventNameBox.Text;
             newEventData.description = this.EventDescriptionBox.Text;
-            newEventData.dateStart = DateTime.Parse(this.EventFirstDateBox.Text);
+
+            DateTime firstDate, secondDate;
+
+            if (DateTime.TryParse(this.EventFirstDateBox.Text, out firstDate))
+                newEventData.dateStart = firstDate;
+            else
+            {
+                this.EventFirstDateBox.Text = "Invalid date";
+                return;
+            }
+
+            if (DateTime.TryParse(this.EventSecondDateBox.Text, out secondDate))
+                newEventData.dateEnd = secondDate;
+            else
+            {
+                this.EventSecondDateBox.Text = "Invalid date";
+                return;
+            }
+
+
             newEventData.dateEnd = DateTime.Parse(this.EventSecondDateBox.Text);
 
             if (DateTime.Compare(newEventData.dateStart, newEventData.dateEnd) > 0)
@@ -60,13 +83,14 @@ namespace FormsTermianlPP2023
             else
             {
                 EvBoxRef.assingEvent(newEventData);
-            
+
             }
-            EventBox eventBox = new EventBox();
-            eventBox.chosenEventName.Text = this.EventNameBox.Text;
+            EvSideRef.eventsContainer.Visible = true;
+            EvSideRef.addEventBtn.Visible = true;
+
+            EvSideRef.TimeRef.reloadPanles();
+
             this.Hide();
-           //EvSideRef.eventsContainer.Visible = true;
-           // EvSideRef.addEventBtn.Visible = true;
         }
     }
 }

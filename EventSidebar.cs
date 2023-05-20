@@ -15,15 +15,13 @@ namespace FormsTermianlPP2023
     {
         public DateTime dateChosen = DateTime.MinValue;    // do kontroli błędów
         Event[] events = new Event[0];
-        DBInteraction db;
-        EventBox EvBoxRef = new EventBox();
-        EventSidebar EvSideRef;
+        public Timetable TimeRef;
 
         public EventSidebar()
         {
             InitializeComponent();
-            //exitBtn.Click += exitButtonPress();
         }
+
         public void assignDate(DateTime dateChosen)
         {
             this.dateChosen = dateChosen;
@@ -60,7 +58,7 @@ namespace FormsTermianlPP2023
 
             foreach (Event ev in events)
             {
-                EventBox evBox = new EventBox();
+                EventBox evBox = new EventBox(this);
                 evBox.assingEvent(ev);
 
                 eventsContainer.Controls.Add(evBox);

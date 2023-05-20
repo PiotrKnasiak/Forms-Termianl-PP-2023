@@ -13,10 +13,12 @@ namespace FormsTermianlPP2023
     public partial class EventBox : UserControl
     {
         public Event assignedEvent = new Event();
+        EventSidebar EvSideRef;
 
-        public EventBox()
+        public EventBox(EventSidebar EvSideRef)
         {
             InitializeComponent();
+            this.EvSideRef = EvSideRef;
         }
 
         private void EventBox_Load(object sender, EventArgs e)
@@ -27,7 +29,7 @@ namespace FormsTermianlPP2023
         public void assingEvent(Event ev)
         {
             this.assignedEvent = ev;
-            this.chosenEventName.Text = assignedEvent.name;
+            this.chosenEventName.Text = assignedEvent.name + ev.EventID.ToString();
         }
 
         public void changeNameForTests(string newName)
@@ -53,17 +55,20 @@ namespace FormsTermianlPP2023
         {
             if (MessageBox.Show("Czy na pewno chcesz usunąć to wydarzenie?", "Terminarz", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                DBInteraction eventDelete = new DBInteraction();
+                DBInteraction eventDelete = new DBInteraction(ConnectionInfo.server, ConnectionInfo.DB, ConnectionInfo.UserName, ConnectionInfo.password, ConnectionInfo.connTimeout);
                 eventDelete.DeleteEvent(ConnectionInfo.loggedUser.ID, assignedEvent.EventID);
+
+                EvSideRef.TimeRef.reloadPanles();
+
                 this.Hide();
             }
-            
+
         }
 
         private void modifyBtn_Click(object sender, EventArgs e)
         {
             // otwiera okno modyfikacji
-            EventModification eventModification = new EventModification(this);
+            EventModification eventModification = new EventModification(this, EvSideRef);
             eventModification.Show();
 
         }

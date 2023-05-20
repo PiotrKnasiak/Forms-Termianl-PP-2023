@@ -35,6 +35,7 @@ namespace FormsTermianlPP2023
         public Timetable()
         {
             InitializeComponent();
+            this.eventSidebar.TimeRef = this;
         }
 
         private void Timetable_Load(object sender, EventArgs e)
@@ -61,6 +62,12 @@ namespace FormsTermianlPP2023
             dayCon.Size = new Size(dayCon.Width + 4, dayCon.Height);
 
             eventSidebar.Hide();
+        }
+
+        public void reloadPanles()
+        {
+            dayCon.Controls.Clear();
+            displayDays();
         }
 
         private void displayDays()

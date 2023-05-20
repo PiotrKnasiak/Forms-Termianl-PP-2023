@@ -29,62 +29,61 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EventBox));
-            this.modifyBtn = new System.Windows.Forms.Button();
-            this.exitBtn = new System.Windows.Forms.Button();
-            this.chosenEventName = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+            modifyBtn = new Button();
+            remEvBtn = new Button();
+            chosenEventName = new Label();
+            SuspendLayout();
             // 
             // modifyBtn
             // 
-            this.modifyBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("modifyBtn.BackgroundImage")));
-            this.modifyBtn.Location = new System.Drawing.Point(574, 14);
-            this.modifyBtn.Name = "modifyBtn";
-            this.modifyBtn.Size = new System.Drawing.Size(53, 50);
-            this.modifyBtn.TabIndex = 0;
-            this.modifyBtn.UseVisualStyleBackColor = true;
-            this.modifyBtn.Click += new System.EventHandler(this.modifyBtn_Click);
+            modifyBtn.BackgroundImage = (Image)resources.GetObject("modifyBtn.BackgroundImage");
+            modifyBtn.Location = new Point(574, 14);
+            modifyBtn.Name = "modifyBtn";
+            modifyBtn.Size = new Size(53, 50);
+            modifyBtn.TabIndex = 0;
+            modifyBtn.UseVisualStyleBackColor = true;
+            modifyBtn.Click += modifyBtn_Click;
             // 
-            // exitBtn
+            // remEvBtn
             // 
-            this.exitBtn.BackColor = System.Drawing.Color.Transparent;
-            this.exitBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("exitBtn.BackgroundImage")));
-            this.exitBtn.Location = new System.Drawing.Point(639, 14);
-            this.exitBtn.Name = "exitBtn";
-            this.exitBtn.Size = new System.Drawing.Size(53, 50);
-            this.exitBtn.TabIndex = 1;
-            this.exitBtn.UseVisualStyleBackColor = false;
-            this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
-            this.exitBtn.MouseLeave += new System.EventHandler(this.exitButtonLeft);
-            this.exitBtn.MouseHover += new System.EventHandler(this.exitButtonHovered);
+            remEvBtn.BackColor = Color.Transparent;
+            remEvBtn.BackgroundImage = (Image)resources.GetObject("remEvBtn.BackgroundImage");
+            remEvBtn.Location = new Point(639, 14);
+            remEvBtn.Name = "remEvBtn";
+            remEvBtn.Size = new Size(53, 50);
+            remEvBtn.TabIndex = 1;
+            remEvBtn.UseVisualStyleBackColor = false;
+            remEvBtn.Click += exitBtn_Click;
+            remEvBtn.MouseLeave += exitButtonLeft;
+            remEvBtn.MouseHover += exitButtonHovered;
             // 
             // chosenEventName
             // 
-            this.chosenEventName.AutoSize = true;
-            this.chosenEventName.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.chosenEventName.Location = new System.Drawing.Point(22, 22);
-            this.chosenEventName.Name = "chosenEventName";
-            this.chosenEventName.Size = new System.Drawing.Size(97, 35);
-            this.chosenEventName.TabIndex = 2;
-            this.chosenEventName.Text = "No title";
+            chosenEventName.AutoSize = true;
+            chosenEventName.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            chosenEventName.Location = new Point(22, 22);
+            chosenEventName.Name = "chosenEventName";
+            chosenEventName.Size = new Size(97, 35);
+            chosenEventName.TabIndex = 2;
+            chosenEventName.Text = "No title";
             // 
             // EventBox
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.chosenEventName);
-            this.Controls.Add(this.exitBtn);
-            this.Controls.Add(this.modifyBtn);
-            this.Name = "EventBox";
-            this.Size = new System.Drawing.Size(707, 81);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(chosenEventName);
+            Controls.Add(remEvBtn);
+            Controls.Add(modifyBtn);
+            Name = "EventBox";
+            Size = new Size(707, 81);
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Button modifyBtn;
-        private Button exitBtn;
+        private Button remEvBtn;
         public Label chosenEventName;
     }
 }

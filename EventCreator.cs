@@ -13,25 +13,40 @@ namespace FormsTermianlPP2023
     public partial class EventCreator : Form
     {
         EventSidebar EvSideRef;
-        EventBox EvBox = new EventBox();
+        EventBox EvBox;
         DBInteraction db;
         public EventCreator(EventSidebar EvSideRef)
         {
             InitializeComponent();
             this.EvSideRef = EvSideRef;
-            frstDateBox.Text = EvSideRef.dateChosen.ToShortDateString();
-            scndDateBox.Text = EvSideRef.dateChosen.ToShortDateString();
+            firstDateBox.Text = EvSideRef.dateChosen.ToShortDateString();
+            secondDateBox.Text = EvSideRef.dateChosen.ToShortDateString();
         }
 
         //dodanie eventu
         private void addEventBtn_Click(object sender, EventArgs e)
         {
-            
+
             Event newEventData = new Event();
             newEventData.name = this.nameBox.Text;
             newEventData.description = this.descBox.Text;
-            newEventData.dateStart = DateTime.Parse(this.frstDateBox.Text);
-            newEventData.dateEnd = DateTime.Parse(this.scndDateBox.Text);
+            DateTime firstDate, secondDate;
+
+            if (DateTime.TryParse(this.firstDateBox.Text, out firstDate))
+                newEventData.dateStart = firstDate;
+            else
+            {
+                this.firstDateBox.Text = "Invalid date";
+                return;
+            }
+
+            if (DateTime.TryParse(this.secondDateBox.Text, out secondDate))
+                newEventData.dateEnd = secondDate;
+            else
+            {
+                this.secondDateBox.Text = "Invalid date";
+                return;
+            }
 
             if (DateTime.Compare(newEventData.dateStart, newEventData.dateEnd) > 0)
             {
@@ -57,6 +72,8 @@ namespace FormsTermianlPP2023
             EvSideRef.addEventBtn.Visible = true;
             EvSideRef.eventsContainer.Visible = true;
             EvSideRef.addEvent(newEventData);
+
+            EvSideRef.TimeRef.reloadPanles();
 
             this.Hide();
         }
