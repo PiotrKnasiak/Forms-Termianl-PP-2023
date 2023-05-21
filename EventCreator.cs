@@ -64,10 +64,6 @@ namespace FormsTermianlPP2023
             if (db.failure.Contains("add an event"))    // czy jest błąd o dodaniu eventu
                 MessageBox.Show("Failed to add event", "Dodawanie wydarzenia");
 
-            else
-            {
-                EvBox.assingEvent(newEventData);
-            }
             EvSideRef.exitBtn.Visible = true;
             EvSideRef.addEventBtn.Visible = true;
             EvSideRef.eventsContainer.Visible = true;
