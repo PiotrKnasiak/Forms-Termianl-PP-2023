@@ -29,7 +29,7 @@ namespace FormsTermianlPP2023
         public void assingEvent(Event ev)
         {
             this.assignedEvent = ev;
-            this.chosenEventName.Text = assignedEvent.name + ev.EventID.ToString();
+            this.chosenEventName.Text = assignedEvent.name;
         }
 
         public void changeNameForTests(string newName)
