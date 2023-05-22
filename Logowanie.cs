@@ -9,6 +9,7 @@ namespace FormsTermianlPP2023
         public Logowanie()
         {
             InitializeComponent();
+            this.Size = new System.Drawing.Size(215, 27);   // przypisanie rozmiaru by zachować wygląd na innych ekranach
         }
 
         private void button_login_Click(object sender, EventArgs e)
