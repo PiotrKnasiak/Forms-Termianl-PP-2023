@@ -10,6 +10,7 @@ namespace FormsTermianlPP2023
         List<Event>[] eventsByDay = new List<Event>[31];
         public delegate void logClose();
         public logClose logCloseDelegate;
+        bool weekStartMonday = true;
 
         public Timetable()
         {
@@ -61,6 +62,10 @@ namespace FormsTermianlPP2023
             DateTime startOfTheMonth = new DateTime(year, month, 1); //1 dzień msc
             int days = DateTime.DaysInMonth(year, month);//liczba dni w bieżącym msc
             int dayOfTheWeek = Convert.ToInt32(startOfTheMonth.DayOfWeek.ToString("d")) + 1; //konweruje zmienna startOfTheMonth na inta    +1 powoduje,że kalendarz liczy tydzień od niedzieli !
+            if(weekStartMonday)
+            {
+                dayOfTheWeek--;
+            }
 
             displayDayPanels(dayOfTheWeek, days);
         }
@@ -152,6 +157,8 @@ namespace FormsTermianlPP2023
             DateTime startOfTheMonth = new DateTime(year, month, 1); //1 dzień msc
             int days = DateTime.DaysInMonth(year, month);//ile jest dni w miesiącu?
             int dayOfTheWeek = Convert.ToInt32(startOfTheMonth.DayOfWeek.ToString("d")) + 1; //konweruje zmienna startOfTheMonth na inta    +1 powoduje, że kalendarz liczy tydzień od niedzieli
+            if(weekStartMonday)
+                dayOfTheWeek--;
 
             displayDayPanels(dayOfTheWeek, days);
         }
@@ -182,6 +189,8 @@ namespace FormsTermianlPP2023
             DateTime startOfTheMonth = new DateTime(year, month, 1); //1 dzień msc
             int days = DateTime.DaysInMonth(year, month);//ile jest dni w miesiącu?
             int dayOfTheWeek = Convert.ToInt32(startOfTheMonth.DayOfWeek.ToString("d")) + 1; //konweruje zmienna startOfTheMonth na inta    +1 powoduje,że kalendarz liczy tydzień od niedzieli !
+            if(weekStartMonday)
+                dayOfTheWeek--;
 
             displayDayPanels(dayOfTheWeek, days);
         }
