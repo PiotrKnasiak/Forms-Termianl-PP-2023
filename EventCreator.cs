@@ -54,20 +54,28 @@ namespace FormsTermianlPP2023
                 newEventData.dateStart = newEventData.dateEnd;
                 newEventData.dateEnd = phdr;
             }
+            if (newEventData.name == "")
+            {
+                MessageBox.Show("Podaj nazwę wydarzenia", "Dodawanie wydarzenia");
+                return;
+            }
 
             if (!ConnectionInfo.TimeTableTest)
             {
                 db = new DBInteraction(ConnectionInfo.server, ConnectionInfo.DB, ConnectionInfo.UserName, ConnectionInfo.password, ConnectionInfo.connTimeout);
+
                 newEventData.EventID = db.AddEvent(ConnectionInfo.loggedUser.ID, newEventData);
             }
 
             if (db.failure.Contains("add an event"))    // czy jest błąd o dodaniu eventu
                 MessageBox.Show("Failed to add event", "Dodawanie wydarzenia");
 
+            EvSideRef.addEvent(newEventData);
+           
             EvSideRef.exitBtn.Visible = true;
             EvSideRef.addEventBtn.Visible = true;
             EvSideRef.eventsContainer.Visible = true;
-            EvSideRef.addEvent(newEventData);
+            
 
             EvSideRef.TimeRef.reloadPanles();
 

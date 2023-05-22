@@ -72,6 +72,12 @@ namespace FormsTermianlPP2023
             }
             bool succes = false;
 
+            if (newEventData.name == "")
+            {
+                MessageBox.Show("Podaj nazwę wydarzenia", "Dodawanie wydarzenia");
+                return;
+            }
+
             if (!ConnectionInfo.TimeTableTest)
             {
                 dataBase = new DBInteraction(ConnectionInfo.server, ConnectionInfo.DB, ConnectionInfo.UserName, ConnectionInfo.password, ConnectionInfo.connTimeout);
