@@ -13,9 +13,12 @@ namespace FormsTermianlPP2023
 {
     public partial class Rejestracja : Form
     {
-        public Rejestracja()
+        Logowanie logRef;
+
+        public Rejestracja(Logowanie logRef)
         {
             InitializeComponent();
+            this.logRef = logRef;
         }
 
         private void button_rejestracja_Click(object sender, EventArgs e)
@@ -56,7 +59,7 @@ namespace FormsTermianlPP2023
                     else
                     {
                         int przypisaneID = dataBase.AddUser(users);
-                        Logowanie.logowanieInstacja.opis.Visible = true;
+                        logRef.opis.Visible = true;
                         this.Close();
                     }
                     

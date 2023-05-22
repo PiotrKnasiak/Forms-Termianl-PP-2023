@@ -1,20 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace FormsTermianlPP2023
+﻿namespace FormsTermianlPP2023
 {
     public partial class EventCreator : Form
     {
         EventSidebar EvSideRef;
-        EventBox EvBox;
         DBInteraction db;
+
         public EventCreator(EventSidebar EvSideRef)
         {
             InitializeComponent();
@@ -69,17 +59,17 @@ namespace FormsTermianlPP2023
 
             if (db.failure.Contains("add an event"))    // czy jest błąd o dodaniu eventu
                 MessageBox.Show("Failed to add event", "Dodawanie wydarzenia");
+            else
+            {
+                EvSideRef.addEvent(newEventData);
+                EvSideRef.exitBtn.Visible = true;
+                EvSideRef.addEventBtn.Visible = true;
+                EvSideRef.eventsContainer.Visible = true;
 
-            EvSideRef.addEvent(newEventData);
-           
-            EvSideRef.exitBtn.Visible = true;
-            EvSideRef.addEventBtn.Visible = true;
-            EvSideRef.eventsContainer.Visible = true;
-            
+                EvSideRef.TimeRef.reloadPanles();
 
-            EvSideRef.TimeRef.reloadPanles();
-
-            this.Hide();
+                this.Hide();
+            }
         }
 
         private void closeBtn_Click(object sender, EventArgs e)

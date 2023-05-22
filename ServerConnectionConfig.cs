@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace FormsTermianlPP2023
+﻿namespace FormsTermianlPP2023
 {
     public partial class ServerConnectionConfig : Form
     {
@@ -45,11 +35,11 @@ namespace FormsTermianlPP2023
                 connVars[3] = inp_pass.Text;
             }
 
-            DBInteraction testConn = new DBInteraction(connVars[0], connVars[1], connVars[2], connVars[3]);
+            DBInteraction testConn = new DBInteraction(connVars[0], connVars[1], connVars[2], connVars[3], ConnectionInfo.connTimeout);
 
             if (!testConn.connected)
             {
-                MessageBox.Show(testConn.failure, "Wrong server conncetion variables", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(testConn.failure, "Cannot connect, please change server variables", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ConnectionInfo.revertToDefault();
             }
             else

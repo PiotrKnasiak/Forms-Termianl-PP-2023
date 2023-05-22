@@ -1,10 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DBManagement
 {
@@ -16,7 +11,7 @@ namespace DBManagement
 
         public ManageDB(string server = "153.19.227.34, 1433", string DB = "ProjektPP2023", string UserName = "projekt2023", string password = "Projekt2023", int timeout = 5)
         {
-            this.connectionString = $@"Server={server};Database={DB};User Id={UserName}; Password={password}; Encrypt=False; ;Connection Timeout={timeout}";
+            this.connectionString = $@"Server={server};Database={DB};User Id={UserName}; Password={password}; Encrypt=False; Connect Timeout={timeout}";
             this.conn = new SqlConnection(connectionString);
 
             try

@@ -1,23 +1,27 @@
 ﻿using Microsoft.IdentityModel.Tokens;
-using Microsoft.VisualBasic.Logging;
-using System.Data;
-using System.Windows.Forms;
 
 namespace FormsTermianlPP2023
 {
     public partial class Logowanie : Form
     {
-        public static Logowanie logowanieInstacja;
+        ServerConnectionConfig ServConf = null;
+
         public Logowanie()
         {
             InitializeComponent();
-            logowanieInstacja = this;
         }
+
         private void button_login_Click(object sender, EventArgs e)
         {
             error.Hide();
 
             DBInteraction dataBase = new DBInteraction(ConnectionInfo.server, ConnectionInfo.DB, ConnectionInfo.UserName, ConnectionInfo.password, ConnectionInfo.connTimeout);
+
+            if(!dataBase.connected)
+            {
+                MessageBox.Show("Unable to connetco to server", "Conection error");
+                return;
+            }
 
             string login, password;
 
@@ -40,42 +44,46 @@ namespace FormsTermianlPP2023
                 User[] users = new User[0];
                 users = dataBase.LoadAllUsers();
 
-                if (!users.IsNullOrEmpty())
+                if (!users.IsNullOrEmpty())     // sprawdza czy istnieją zarejestrowani urzytkownicy
                 {
                     for (int i = 0; i < users.Length; i++)
                     {
                         if (login == users[i].login && password == users[i].password)
                         {
-                            //Login.Text = "login successful !";
                             ConnectionInfo.tempInt = users[i].ID;
                             Timetable timetableWindow = new Timetable();
                             ConnectionInfo.loggedUser = users[i];
                             timetableWindow.logCloseDelegate = this.Close;              // zapobiega pozostawieniu procesu w tle
                             timetableWindow.Show();
 
+                            if (ServConf != null)
+                                ServConf.Close();
+
                             this.Hide();
                             return;
                         }
                     }
                 }
-                else { MessageBox.Show("Unable to get list of existing users.", "Server connection error"); }
 
                 error.Show();
                 error.Text = "Błędny login lub hasło";
             }
         }
+
         private void Rejestracja_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             opis.Visible = false;
             error.Visible = false;
             txt_login.Clear();
             txt_password.Clear();
-            Rejestracja child = new Rejestracja();
+            Rejestracja child = new Rejestracja(this);
             child.ShowDialog(this);
         }
-        private void panel1_Click(object sender, EventArgs e)
+
+        private void serverConfBtn_Click(object sender, EventArgs e)
         {
-            var configPanel = new ServerConnectionConfig();
+            ServerConnectionConfig configPanel = new ServerConnectionConfig();
+            ServConf = configPanel;
             configPanel.ShowDialog();
         }
 

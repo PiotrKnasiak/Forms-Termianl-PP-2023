@@ -1,15 +1,5 @@
 ﻿using DBManagement;
-using Microsoft.SqlServer.Server;
-using Microsoft.VisualBasic.ApplicationServices;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.DirectoryServices;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace FormsTermianlPP2023
 {

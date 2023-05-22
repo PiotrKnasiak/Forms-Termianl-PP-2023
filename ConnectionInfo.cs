@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FormsTermianlPP2023
+﻿namespace FormsTermianlPP2023
 {
     public static class ConnectionInfo
     {
-        public static int connTimeout = 5;
+        public static int connTimeout = 2;
 
         public static void revertToDefault()
         {

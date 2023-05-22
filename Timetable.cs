@@ -1,25 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-
-/*
- 
- Labele, buttony i inne elmenty muszą mieć rozpoznawalne nazwy
-
- Nazwy zmiennych muszą być w zgodzie z konswncjami : część1_część2 lub część1Część2
-
- */
-
+﻿using System.Globalization;
 
 namespace FormsTermianlPP2023
 {
