@@ -45,7 +45,7 @@ namespace FormsTermianlPP2023
                 User[] users = new User[0];
                 users = dataBase.LoadAllUsers();
 
-                if (!users.IsNullOrEmpty())     // sprawdza czy istnieją zarejestrowani urzytkownicy
+                if (users != null)     // sprawdza czy istnieją zarejestrowani urzytkownicy
                 {
                     for (int i = 0; i < users.Length; i++)
                     {
@@ -64,6 +64,12 @@ namespace FormsTermianlPP2023
                             return;
                         }
                     }
+                }
+                else
+                {
+                    error.Show();
+                    error.Text = "Błąd łądowania użytkowników";
+                    return;
                 }
 
                 error.Show();
