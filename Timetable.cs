@@ -8,13 +8,13 @@ namespace FormsTermianlPP2023
         int dayChosen = 0;              // nic nie robi
         DBInteraction dataBase;         // dostęp do bazy danych
         List<Event>[] eventsByDay = new List<Event>[31];
-        public delegate void logClose();
-        public logClose logCloseDelegate;
+        public Logowanie logRef;
         bool weekStartMonday = true;
 
-        public Timetable()
+        public Timetable(Logowanie logRef)
         {
             InitializeComponent();
+            this.logRef = logRef;
             this.eventSidebar.TimeRef = this;
         }
 
@@ -130,7 +130,6 @@ namespace FormsTermianlPP2023
 
         private void exitBtn_Click(object sender, EventArgs e)
         {
-            this.logCloseDelegate();
             this.Close();
         }
 
@@ -168,6 +167,10 @@ namespace FormsTermianlPP2023
             if (MessageBox.Show("Czy na pewno chcesz zamknąć terminarz?", "Terminarz", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
                 e.Cancel = true;
+            }
+            else
+            {
+                this.logRef.Close();
             }
         }
 

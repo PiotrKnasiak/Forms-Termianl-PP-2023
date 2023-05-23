@@ -3,6 +3,7 @@
     public partial class Logowanie : Form
     {
         ServerConnectionConfig ServConf = null;
+        bool closedExternally = false;
 
         public Logowanie()
         {
@@ -49,14 +50,14 @@
                         if (login == users[i].login && password == users[i].password)
                         {
                             ConnectionInfo.tempInt = users[i].ID;
-                            Timetable timetableWindow = new Timetable();
+                            Timetable timetableWindow = new Timetable(this);
                             ConnectionInfo.loggedUser = users[i];
-                            timetableWindow.logCloseDelegate = this.Close;              // zapobiega pozostawieniu procesu w tle
                             timetableWindow.Show();
 
                             if (ServConf != null)
                                 ServConf.Close();
 
+                            closedExternally = true;
                             this.Hide();
                             return;
                         }
@@ -111,10 +112,9 @@
 
         private void Logowanie_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Czy na pewno chcesz zamknąć terminarz?", "Terminarz", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-            {
-                e.Cancel = true;
-            }
+            if(!closedExternally)
+                if (MessageBox.Show("Czy na pewno chcesz zamknąć terminarz?", "Terminarz", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                    e.Cancel = true;
         }
     }
 }

@@ -10,10 +10,7 @@
         {
             ApplicationConfiguration.Initialize();
 
-            if(ConnectionInfo.TimeTableTest)
-                Application.Run(new Timetable());     // by testowac bepośrednio trzeba ustawić TimeTableTest na true w ConnectionInfo !
-            else    
-                Application.Run(new Logowanie());
+            Application.Run(new Logowanie());
         }
     }
 }
