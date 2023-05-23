@@ -62,7 +62,7 @@ namespace FormsTermianlPP2023
             DateTime startOfTheMonth = new DateTime(year, month, 1); //1 dzień msc
             int days = DateTime.DaysInMonth(year, month);//liczba dni w bieżącym msc
             int dayOfTheWeek = Convert.ToInt32(startOfTheMonth.DayOfWeek.ToString("d")) + 1; //konweruje zmienna startOfTheMonth na inta    +1 powoduje,że kalendarz liczy tydzień od niedzieli !
-            if(weekStartMonday)
+            if (weekStartMonday)
             {
                 dayOfTheWeek--;
             }
@@ -82,8 +82,8 @@ namespace FormsTermianlPP2023
             //kontrolka dni
             for (int i = 1; i <= days; i++)
             {
-                if(!ConnectionInfo.TimeTableTest)
-                    eventsByDay[i-1] = new List<Event>(dataBase.LoadEventsOnDate(ConnectionInfo.loggedUser.ID, $"{year}.{month}.{i}"));
+                if (!ConnectionInfo.TimeTableTest)
+                    eventsByDay[i - 1] = new List<Event>(dataBase.LoadEventsOnDate(ConnectionInfo.loggedUser.ID, $"{year}.{month}.{i}"));
                 UserControlDays ucDay = new UserControlDays();
 
                 if (eventsByDay[i - 1].Count > 0)
@@ -157,7 +157,7 @@ namespace FormsTermianlPP2023
             DateTime startOfTheMonth = new DateTime(year, month, 1); //1 dzień msc
             int days = DateTime.DaysInMonth(year, month);//ile jest dni w miesiącu?
             int dayOfTheWeek = Convert.ToInt32(startOfTheMonth.DayOfWeek.ToString("d")) + 1; //konweruje zmienna startOfTheMonth na inta    +1 powoduje, że kalendarz liczy tydzień od niedzieli
-            if(weekStartMonday)
+            if (weekStartMonday)
                 dayOfTheWeek--;
 
             displayDayPanels(dayOfTheWeek, days);
@@ -189,7 +189,7 @@ namespace FormsTermianlPP2023
             DateTime startOfTheMonth = new DateTime(year, month, 1); //1 dzień msc
             int days = DateTime.DaysInMonth(year, month);//ile jest dni w miesiącu?
             int dayOfTheWeek = Convert.ToInt32(startOfTheMonth.DayOfWeek.ToString("d")) + 1; //konweruje zmienna startOfTheMonth na inta    +1 powoduje,że kalendarz liczy tydzień od niedzieli !
-            if(weekStartMonday)
+            if (weekStartMonday)
                 dayOfTheWeek--;
 
             displayDayPanels(dayOfTheWeek, days);
